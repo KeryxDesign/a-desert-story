@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>A Desert Story — by Sybil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordeaux-deep:#4A0E0E;
+    --bordeaux:#6B1616;
+    --bordeaux-ink:#2A1A12;
+    --gold:#C9A24B;
+    --gold-bronze:#8A6D2F;
+    --cream:#F4ECD8;
+    --cream-soft:#EFE4CC;
+    --night-blue:#1E2A3A;
+    --teal:#2E6E6A;
+
+    --f-display:"Cinzel Decorative", serif;
+    --f-head:"Cormorant Garamond", serif;
+    --f-body:"Source Serif 4", Georgia, serif;
+    --f-ui:"Mulish", system-ui, sans-serif;
+
+    --maxw:1180px;
+    --prose:38rem; /* ~60-66 chars */
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  h1,h2,h3,p{overflow-wrap:break-word;}
+  body{
+    margin:0;
+    font-family:var(--f-body);
+    color:var(--bordeaux-ink);
+    background:var(--cream);
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;height:auto;display:block;}
+
+  /* ---------- Sections ---------- */
+  section{padding:76px 20px;scroll-margin-top:74px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;}
+  .prose{max-width:var(--prose);margin-inline:auto;}
+
+  /* ---------- Nav header (sticky) ---------- */
+  .nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(42,16,16,.82);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(201,162,75,.22);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:20px;padding:12px 20px;min-height:58px;
+  }
+  .nav-mark{
+    font-family:var(--f-display);font-weight:700;color:var(--gold);
+    font-size:1.05rem;letter-spacing:.02em;text-decoration:none;line-height:1;
+    white-space:nowrap;
+  }
+  .nav-links{
+    display:flex;align-items:center;gap:26px;list-style:none;margin:0;padding:0;
+  }
+  .nav-links a{
+    font-family:var(--f-ui);font-size:.92rem;font-weight:600;
+    color:var(--cream);text-decoration:none;opacity:.9;
+    transition:opacity .15s ease,color .15s ease;
+  }
+  .nav-links a:hover{color:var(--gold);opacity:1;}
+  .nav-cta{
+    font-family:var(--f-ui);font-weight:700;font-size:.86rem;
+    background:var(--gold);color:var(--bordeaux-ink);
+    padding:9px 16px;border-radius:7px;text-decoration:none;
+    white-space:nowrap;transition:background .18s ease;
+  }
+  .nav-cta:hover{background:#d9b45f;color:var(--bordeaux-ink) !important;opacity:1;}
+  .nav-toggle{
+    display:none;background:none;border:none;cursor:pointer;
+    padding:8px;color:var(--cream);
+  }
+  .nav-toggle svg{width:28px;height:28px;display:block;}
+  .nav-menu{display:contents;}
+
+  @media (max-width:820px){
+    .nav-toggle{display:inline-flex;}
+    .nav-menu{
+      display:none;position:absolute;left:0;right:0;top:100%;
+      flex-direction:column;
+      background:rgba(42,16,16,.97);
+      -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(201,162,75,.22);
+      padding:8px 20px 20px;
+    }
+    .nav-menu.open{display:flex;}
+    .nav-menu .nav-links{
+      flex-direction:column;align-items:stretch;gap:0;width:100%;
+    }
+    .nav-menu .nav-links li{border-bottom:1px solid rgba(201,162,75,.16);}
+    .nav-menu .nav-links a{display:block;padding:15px 2px;font-size:1.05rem;}
+    .nav-menu .nav-cta{
+      display:block;text-align:center;margin-top:16px;padding:14px 16px;font-size:1rem;
+    }
+  }
+
+  .dark{background:var(--bordeaux);color:var(--cream);}
+  .dark-deep{background:var(--bordeaux-deep);color:var(--cream);}
+  .night{background:var(--night-blue);color:var(--cream);}
+  .light{background:var(--cream);color:var(--bordeaux-ink);}
+  .light-soft{background:var(--cream-soft);color:var(--bordeaux-ink);}
+
+  /* ---------- Typographic bits ---------- */
+  .kicker{
+    font-family:var(--f-ui);
+    font-size:.72rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-weight:700;
+  }
+  .kicker.gold{color:var(--gold);}
+  .kicker.bronze{color:var(--gold-bronze);}
+
+  /* emphasis in body copy */
+  p strong{font-weight:700;color:inherit;}
+  p em{font-style:italic;}
+  .dark p strong,.dark-deep p strong,.night p strong,.synopsis p strong{color:var(--gold);}
+  .light p strong,.light-soft p strong{color:var(--bordeaux);}
+  .dark p em,.dark-deep p em,.night p em,.synopsis p em{color:#f7edd6;}
+
+  h1,h2,h3{font-weight:500;line-height:1.12;margin:0;}
+  .wordmark{
+    font-family:var(--f-display);
+    font-weight:700;
+    color:var(--gold);
+    line-height:1.05;
+  }
+  .section-title{
+    font-family:var(--f-head);
+    font-size:clamp(1.75rem,5vw,3.1rem);
+    line-height:1.1;
+  }
+  .dark .section-title,.dark-deep .section-title,.night .section-title{color:var(--cream);}
+  .light .section-title,.light-soft .section-title{color:var(--bordeaux-ink);}
+
+  em.subline{
+    font-family:var(--f-head);
+    font-style:italic;
+    color:var(--gold);
+    font-size:clamp(1.25rem,2.6vw,1.6rem);
+    line-height:1.4;
+    display:block;
+  }
+
+  .signature{
+    font-family:var(--f-display);
+    font-style:normal;
+    color:var(--gold);
+    font-size:1.5rem;
+    letter-spacing:.04em;
+  }
+
+  /* ---------- Ogival gold arch frieze ---------- */
+  .arch{
+    width:64px;height:80px;margin:0 auto 26px;
+    display:block;color:var(--gold);opacity:.9;
+  }
+  .light .arch,.light-soft .arch{color:var(--gold-bronze);opacity:.85;}
+
+  /* ---------- Buttons / form ---------- */
+  .signup{
+    display:flex;flex-wrap:wrap;gap:12px;
+    max-width:480px;
+  }
+  .signup input[type=email]{
+    flex:1 1 200px;
+    min-height:52px;
+    padding:0 18px;
+    border-radius:8px;
+    border:1px solid rgba(201,162,75,.5);
+    background:rgba(244,236,216,.08);
+    color:var(--cream);
+    font-family:var(--f-ui);
+    font-size:1rem;
+  }
+  .light .signup input[type=email],.light-soft .signup input[type=email]{
+    background:#fff;color:var(--bordeaux-ink);border:1px solid rgba(138,109,47,.55);
+  }
+  .signup input::placeholder{color:rgba(244,236,216,.6);}
+  .light .signup input::placeholder,.light-soft .signup input::placeholder{color:rgba(42,26,18,.5);}
+
+  .btn-gold{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:52px;padding:0 26px;
+    background:var(--gold);
+    color:var(--bordeaux-ink);
+    font-family:var(--f-ui);font-weight:700;font-size:1rem;
+    border:none;border-radius:8px;cursor:pointer;
+    letter-spacing:.01em;
+    transition:background .18s ease, transform .18s ease;
+  }
+  .btn-gold:hover{background:#d9b45f;transform:translateY(-1px);}
+  a,button,input{
+    outline:none;
+  }
+  a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:2px;
+  }
+  .light a:focus-visible,.light-soft summary:focus-visible,.light-soft input:focus-visible,.light-soft button:focus-visible{
+    outline-color:var(--gold-bronze);
+  }
+  .reassure{
+    font-family:var(--f-ui);
+    font-size:.9rem;
+    margin-top:14px;
+    color:rgba(244,236,216,.85);
+  }
+  .light .reassure,.light-soft .reassure{color:var(--gold-bronze);}
+
+  .softlink{
+    font-family:var(--f-ui);
+    font-weight:600;
+    color:var(--gold-bronze);
+    text-decoration:none;
+    border-bottom:1px solid rgba(138,109,47,.5);
+    padding-bottom:1px;
+  }
+  .dark .softlink,.dark-deep .softlink,.night .softlink{color:var(--gold);border-color:rgba(201,162,75,.5);}
+
+  /* ========== 1. HERO ========== */
+  .hero{
+    background:var(--bordeaux-deep);
+    position:relative;overflow:hidden;
+    display:flex;align-items:center;
+    min-height:calc(100svh - 58px);
+    padding-top:clamp(24px,4vh,48px);
+    padding-bottom:clamp(24px,4vh,48px);
+  }
+  .hero .glow{
+    position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 42%, rgba(201,162,75,.28), rgba(201,162,75,0) 46%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    width:100%;
+    max-width:980px;
+    margin-inline:auto;
+    display:grid;
+    grid-template-columns:38% 1fr;
+    gap:clamp(32px,4vw,56px);align-items:center;
+    justify-content:center;
+  }
+  .hero-cover{
+    filter:drop-shadow(0 26px 46px rgba(0,0,0,.55)) drop-shadow(0 8px 18px rgba(74,14,14,.6));
+    border-radius:4px;
+    height:clamp(320px,60vh,560px);
+    width:auto;margin:0 auto;
+  }
+  .hero h1.wordmark{
+    font-size:clamp(2rem,5.2vw,3.8rem);
+    margin:10px 0 16px;
+  }
+  .wordmark{overflow-wrap:break-word;}
+  .hero-headline{
+    font-family:var(--f-head);
+    color:var(--cream);
+    font-size:clamp(1.6rem,3.4vw,2.6rem);
+    line-height:1.2;
+    font-weight:500;
+    font-style:italic;
+    margin:0 0 clamp(20px,3vh,28px);
+    max-width:20ch;
+  }
+  .hero-cta{max-width:480px;}
+  .hero .cta-micro{margin-bottom:8px;}
+  .hero-reassure{margin-top:0;margin-bottom:14px;max-width:44ch;}
+
+  /* ========== 2. SYNOPSIS ========== */
+  .synopsis{background:linear-gradient(180deg,var(--bordeaux) 0%, #5c1414 100%);}
+  .synopsis p{margin:0 0 1.15em;color:#f6ecd6;}
+  .synopsis .sig-line{text-align:right;margin-top:8px;}
+
+  /* ---------- Section headline helper ---------- */
+  .sec-head{text-align:center;margin-bottom:40px;}
+  .sec-head .section-title{margin-inline:auto;max-width:20ch;}
+
+  /* ========== 2b. SYNOPSIS single-axis column ========== */
+  .synopsis-col{max-width:680px;margin-inline:auto;}
+  .synopsis-col .sec-head{margin-bottom:34px;}
+  .movement{max-width:none;margin-inline:0;}
+  .movement + .pullquote,.pullquote + .movement{margin-top:8px;}
+  .pullquote{
+    max-width:none;margin:56px 0;text-align:center;
+    font-family:var(--f-head);font-style:italic;
+    color:var(--gold);
+    font-size:clamp(1.8rem,4vw,2.7rem);
+    line-height:1.26;
+  }
+
+  /* ========== 3. SETTE PROVE (teaser interattivo) ========== */
+  .prove-col{max-width:680px;margin-inline:auto;}
+  .prove-col .sec-head{margin-bottom:30px;}
+  .prove-lead{max-width:none;margin:0 0 12px;}
+  .prove-lead p{font-size:1.08rem;line-height:1.68;margin:0 0 1.05em;}
+  .prove-q{
+    font-family:var(--f-head);font-style:italic;
+    font-size:clamp(1.4rem,3vw,1.9rem);
+    color:var(--bordeaux);text-align:center;
+    max-width:24ch;margin:26px auto 44px;line-height:1.3;
+  }
+  .keys{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+    max-width:960px;margin:0 auto;
+  }
+  .key-card{
+    display:flex;flex-direction:column;align-items:center;text-align:center;
+    background:var(--bordeaux-deep);color:var(--cream);
+    border:1px solid rgba(201,162,75,.4);
+    border-radius:14px;padding:26px 24px;
+    cursor:pointer;width:100%;font-family:inherit;font-size:1rem;
+    box-shadow:0 12px 30px rgba(74,14,14,.16);
+    transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+  }
+  .key-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 18px 40px rgba(74,14,14,.28);}
+  .key-ico{font-size:1.9rem;line-height:1;margin-bottom:14px;color:var(--gold);}
+  .key-img{
+    width:150px;height:150px;object-fit:cover;
+    border-radius:12px;margin:0 auto 18px;
+    border:1px solid rgba(201,162,75,.35);
+    box-shadow:0 10px 24px rgba(0,0,0,.35);
+  }
+  .key-name{
+    font-family:var(--f-ui);font-weight:700;text-transform:uppercase;
+    letter-spacing:.14em;font-size:.74rem;color:var(--gold);margin-bottom:12px;
+  }
+  .key-clue{
+    font-family:var(--f-head);font-style:italic;
+    font-size:1.28rem;line-height:1.36;color:#f4ead4;margin:0;
+  }
+  .key-reveal{
+    display:none;margin-top:18px;padding-top:16px;
+    border-top:1px solid rgba(201,162,75,.35);
+    font-family:var(--f-body);font-size:1rem;line-height:1.55;color:#efe0c4;
+  }
+  .key-card[aria-expanded="true"] .key-reveal{display:block;}
+  .key-card[aria-expanded="true"]{border-color:var(--gold);}
+  .key-hint{
+    font-family:var(--f-ui);font-size:.82rem;color:var(--gold-bronze);
+    margin-top:14px;font-weight:600;
+  }
+  .key-card[aria-expanded="true"] .key-hint{display:none;}
+  /* immagine porte nella sezione prove */
+  .prove-porte{
+    max-width:420px;margin:0 auto 40px;
+  }
+  .prove-porte img{
+    width:100%;height:auto;border-radius:10px;
+    box-shadow:0 16px 40px rgba(74,14,14,.28);
+  }
+  .prove-porte figcaption{
+    font-family:var(--f-ui);font-size:.86rem;color:var(--gold-bronze);
+    text-align:center;margin-top:12px;line-height:1.4;
+  }
+  .prove-cta{text-align:center;margin-top:48px;}
+  .prove-cta p{
+    font-family:var(--f-head);font-style:italic;font-size:1.3rem;
+    color:var(--bordeaux);max-width:34ch;margin:0 auto 22px;line-height:1.4;
+  }
+
+  /* ========== 3. EXTRACT (legacy plate helpers, riusati) ========== */
+  .plate-fig{margin:0;}
+  .plate-fig img{border-radius:6px;box-shadow:0 14px 34px rgba(74,14,14,.28);}
+  .caption{
+    font-family:var(--f-ui);
+    font-size:.9rem;
+    color:var(--gold-bronze);
+    margin-top:12px;font-style:normal;line-height:1.4;
+  }
+
+  /* ========== 4. PER CHI E ========== */
+  .spec-card{
+    max-width:640px;margin:34px auto 0;
+    border:1px solid rgba(138,109,47,.4);
+    border-radius:14px;
+    background:#fff;
+    padding:8px 30px;
+    box-shadow:0 10px 30px rgba(74,14,14,.06);
+  }
+  .spec-row{
+    display:flex;gap:18px;align-items:flex-start;
+    padding:20px 0;
+    border-bottom:1px solid rgba(138,109,47,.18);
+  }
+  .spec-row:last-child{border-bottom:none;}
+  .spec-ico{flex:0 0 26px;color:var(--gold-bronze);margin-top:2px;}
+  .spec-ico svg{width:26px;height:26px;}
+  .spec-label{
+    font-family:var(--f-ui);font-weight:700;
+    text-transform:uppercase;letter-spacing:.12em;
+    font-size:.72rem;color:var(--gold-bronze);
+    display:block;margin-bottom:3px;
+  }
+  .spec-val{font-family:var(--f-body);font-size:1.05rem;line-height:1.4;}
+
+  /* ========== 5. PERCHE E DIVERSO — zigzag ========== */
+  .zz{display:grid;grid-template-columns:1fr minmax(220px,300px);gap:56px;align-items:center;max-width:940px;margin:0 auto;}
+  .zz.reverse{grid-template-columns:minmax(220px,300px) 1fr;}
+  .zz.reverse .zz-txt{order:2;}
+  .zz.reverse .zz-img{order:1;}
+  .zz-img img{border-radius:8px;box-shadow:0 18px 40px rgba(0,0,0,.22);max-width:300px;margin:0 auto;}
+  .zz + .zz{margin-top:0;}
+  .zz-txt h3{
+    font-family:var(--f-head);
+    font-size:clamp(1.6rem,3.2vw,2.2rem);
+    margin:12px 0 16px;
+  }
+  .zz-txt p{font-size:1.1rem;line-height:1.65;max-width:42ch;}
+  .diff-block{padding:64px 20px;}
+
+  /* ========== 5b. PERCHE E DIVERSO — compact (una sezione rossa) ========== */
+  .diff-compact{background:var(--bordeaux-deep);color:var(--cream);}
+  .diff-list{
+    max-width:760px;margin:0 auto;
+    display:flex;flex-direction:column;gap:26px;
+  }
+  .diff-row{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:26px;align-items:center;
+    padding:22px 0;
+    border-bottom:1px solid rgba(201,162,75,.22);
+  }
+  .diff-row:last-child{border-bottom:none;}
+  .diff-row .diff-img{margin:0;}
+  .diff-row .diff-img img{
+    width:140px;height:auto;border-radius:8px;
+    box-shadow:0 12px 28px rgba(0,0,0,.4);
+  }
+  .diff-row .diff-txt h3{
+    font-family:var(--f-head);
+    color:var(--gold);
+    font-size:clamp(1.3rem,2.6vw,1.7rem);
+    margin:0 0 8px;line-height:1.2;
+  }
+  .diff-row .diff-txt p{
+    font-size:1.02rem;line-height:1.6;margin:0;color:#f4ead4;max-width:52ch;
+  }
+
+  /* ========== 5c. PERSONAGGI (griglia schede, fondo rosso) ========== */
+  .cast-intro{
+    max-width:44ch;margin:0 auto 44px;text-align:center;
+    font-family:var(--f-head);font-style:italic;
+    font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.4;
+    color:#f4ead4;
+  }
+  .cast-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+    max-width:1060px;margin:0 auto;
+  }
+  .cast-card{
+    display:flex;flex-direction:column;
+    background:rgba(244,236,216,.05);
+    border:1px solid rgba(201,162,75,.28);
+    border-radius:14px;overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.28);
+  }
+  .cast-card img{
+    width:100%;aspect-ratio:616/900;object-fit:cover;
+    border-bottom:1px solid rgba(201,162,75,.22);
+  }
+  .cast-body{padding:18px 18px 22px;}
+  .cast-name{
+    font-family:var(--f-head);font-weight:600;
+    color:var(--gold);font-size:1.5rem;line-height:1.1;
+    margin:0 0 8px;letter-spacing:.01em;
+  }
+  .cast-desc{
+    font-family:var(--f-body);font-size:.96rem;line-height:1.5;
+    color:#f0e2c6;margin:0;
+  }
+  @media (max-width:900px){
+    .cast-grid{grid-template-columns:repeat(2,1fr);gap:18px;}
+  }
+  @media (max-width:480px){
+    .cast-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+    .cast-body{padding:14px 14px 18px;}
+    .cast-name{font-size:1.3rem;}
+    .cast-desc{font-size:.9rem;}
+  }
+
+  /* ========== 6. TESTIMONIAL ========== */
+  .testi-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+    max-width:1020px;margin:0 auto;
+  }
+  /* --- review card (aspetto reale per il mockup) --- */
+  .review{
+    border:1px solid rgba(138,109,47,.28);
+    border-radius:14px;background:#fff;
+    padding:28px 26px;text-align:left;
+    display:flex;flex-direction:column;
+    box-shadow:0 10px 30px rgba(74,14,14,.06);
+  }
+  .review-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+  .review-avatar{
+    width:58px;height:58px;flex:0 0 58px;
+    border-radius:50%;object-fit:cover;
+    border:2px solid rgba(201,162,75,.55);
+  }
+  .review-who{display:flex;flex-direction:column;gap:3px;min-width:0;}
+  .review-name{
+    font-family:var(--f-ui);font-weight:700;font-size:.98rem;
+    color:var(--bordeaux-ink);line-height:1.2;
+  }
+  .review-role{
+    font-family:var(--f-ui);font-size:.82rem;color:var(--gold-bronze);line-height:1.2;
+  }
+  .review-stars{
+    color:var(--gold-bronze);font-size:1.05rem;letter-spacing:.12em;
+    margin-bottom:12px;line-height:1;
+  }
+  .review-stars .sr{
+    position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
+  }
+  .review blockquote{
+    margin:0;font-family:var(--f-head);font-style:italic;
+    font-size:1.22rem;line-height:1.42;color:#3a2c22;flex:1;
+  }
+
+  /* ========== 7. SYBIL ========== */
+  .sybil-grid{display:grid;grid-template-columns:1fr .82fr;gap:56px;align-items:center;}
+  .sybil-grid p{margin:0 0 1.1em;color:#f4ead4;font-size:1.08rem;line-height:1.66;}
+  .sybil-portrait{margin:0;}
+  .sybil-portrait img{
+    width:100%;max-width:380px;height:auto;margin-inline:auto;
+    border-radius:10px;
+    box-shadow:0 20px 46px rgba(0,0,0,.5);
+    border:1px solid rgba(201,162,75,.25);
+  }
+  .sybil-portrait figcaption{
+    font-family:var(--f-ui);font-size:.84rem;color:rgba(201,162,75,.85);
+    text-align:center;margin-top:12px;font-style:italic;line-height:1.4;
+  }
+  .plate-mini{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+    max-width:720px;margin:44px auto 0;
+  }
+  .plate-mini img{border-radius:5px;box-shadow:0 8px 20px rgba(0,0,0,.4);}
+
+  /* ========== 8. FAQ ========== */
+  .faq-list{max-width:720px;margin:34px auto 0;}
+  details{
+    border-bottom:1px solid rgba(138,109,47,.28);
+  }
+  summary{
+    list-style:none;cursor:pointer;
+    padding:22px 44px 22px 4px;position:relative;
+    font-family:var(--f-head);font-size:1.4rem;color:var(--bordeaux-ink);
+    line-height:1.25;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";position:absolute;right:8px;top:20px;
+    font-family:var(--f-ui);font-weight:700;font-size:1.6rem;color:var(--gold-bronze);
+    transition:transform .2s ease;
+  }
+  details[open] summary::after{content:"–";}
+  details .answer{
+    padding:0 4px 24px;font-size:1.02rem;line-height:1.62;max-width:60ch;color:#3a2c22;
+  }
+
+  /* ========== 9. CTA FINALE ========== */
+  .final{background:var(--bordeaux-deep);text-align:center;padding:96px 20px;}
+  .final .glow{
+    position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 30%, rgba(201,162,75,.2), transparent 55%);
+    pointer-events:none;
+  }
+  .final .inner{position:relative;max-width:600px;margin:0 auto;}
+  /* CTA finale con copertina affiancata */
+  .final-grid{
+    position:relative;
+    max-width:900px;margin:0 auto;
+    display:grid;grid-template-columns:230px 1fr;
+    gap:clamp(32px,5vw,64px);align-items:center;text-align:left;
+  }
+  .final-grid .final-cover{
+    filter:drop-shadow(0 22px 40px rgba(0,0,0,.55));
+    border-radius:4px;width:100%;max-width:230px;height:auto;margin:0 auto;
+  }
+  .final-grid .inner{max-width:none;margin:0;text-align:left;}
+  .final-grid h2{text-align:left;}
+  .final-grid p.lead{margin-inline:0;text-align:left;}
+  .final-grid .signup{margin:0;justify-content:flex-start;}
+  .final-grid .reassure{text-align:left;}
+  .final h2{font-family:var(--f-head);font-size:clamp(2rem,5vw,3rem);color:var(--cream);margin-bottom:22px;line-height:1.14;}
+  .final p.lead{font-size:1.15rem;color:#f0e4cc;max-width:44ch;margin:0 auto 36px;line-height:1.6;}
+  .final .signup{margin:0 auto;justify-content:center;}
+  .final .reassure{text-align:center;}
+  .cta-micro{
+    font-family:var(--f-ui);font-weight:700;font-size:.78rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+    margin-bottom:14px;display:block;
+  }
+  .final .cta-micro{text-align:center;}
+  /* post-launch variant (predisposta, non attiva) */
+  .launched-only{display:none;}
+  .is-launched .prelaunch-only{display:none;}
+  .is-launched .launched-only{display:block;}
+  .amz-row{
+    display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;
+  }
+  .amz-secondary{
+    font-family:var(--f-ui);font-weight:600;color:var(--gold);
+    text-decoration:none;border-bottom:1px solid rgba(201,162,75,.5);
+    font-size:1rem;padding-bottom:1px;
+  }
+  .price-line{
+    font-family:var(--f-ui);font-size:.92rem;color:#e6d6b6;margin-top:20px;
+  }
+
+  /* ========== FOOTER ========== */
+  footer{
+    background:var(--bordeaux-ink);color:#cdbfa8;
+    padding:48px 20px 40px;text-align:center;
+    font-family:var(--f-ui);font-size:.92rem;
+    border-top:1px solid rgba(201,162,75,.18);
+  }
+  footer .foot-inner{max-width:var(--maxw);margin:0 auto;}
+  footer .fw{font-family:var(--f-display);color:var(--gold);font-size:1.3rem;letter-spacing:.03em;line-height:1.1;}
+  footer .fw-sub{margin-top:6px;font-style:italic;color:#b7a888;font-family:var(--f-head);font-size:1.05rem;}
+  .foot-links{
+    margin-top:24px;display:flex;flex-wrap:wrap;gap:8px 22px;
+    justify-content:center;align-items:center;
+  }
+  .foot-links a{
+    color:#cdbfa8;text-decoration:none;font-size:.9rem;
+    border-bottom:1px solid transparent;padding-bottom:1px;
+    transition:color .15s ease,border-color .15s ease;
+  }
+  .foot-links a:hover{color:var(--gold);border-color:rgba(201,162,75,.5);}
+  .foot-note{
+    margin-top:16px;font-size:.8rem;color:#8a7c66;font-style:italic;
+  }
+  .foot-copy{margin-top:22px;font-size:.82rem;color:#9a8c74;}
+  .lang-switch{margin-top:18px;font-size:.85rem;}
+  .lang-switch a{color:#cdbfa8;text-decoration:none;padding:0 6px;}
+  .lang-switch a.active{color:var(--gold);font-weight:700;}
+  footer a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+
+  /* ========== MOBILE ========== */
+  @media (max-width:820px){
+    section{padding:56px 18px;}
+    .hero{min-height:calc(100svh - 58px);padding-top:clamp(16px,3vh,28px);padding-bottom:clamp(16px,3vh,28px);}
+    .hero-grid{grid-template-columns:1fr;gap:clamp(14px,2.5vh,22px);text-align:center;}
+    .hero-grid .hero-text{order:2;}
+    .hero-grid .hero-visual{order:1;}
+    .hero-cover{height:clamp(220px,38vh,340px);width:auto;max-width:100%;margin:0 auto;}
+    .hero h1.wordmark{font-size:clamp(1.9rem,8vw,2.6rem);}
+    .hero .cta-micro{margin-bottom:6px;}
+    .hero-reassure{margin-inline:auto;margin-bottom:12px;}
+    .hero .signup{margin:0 auto;justify-content:center;}
+    .hero-cta{margin-inline:auto;}
+    .hero-headline{margin-inline:auto;max-width:22ch;}
+
+    .keys{grid-template-columns:1fr;gap:16px;}
+    .testi-grid{grid-template-columns:1fr;gap:16px;}
+    .testi{text-align:left;}
+    .pullquote{margin:38px 0;}
+
+    .zz{grid-template-columns:1fr;gap:24px;}
+    .zz.reverse .zz-txt{order:2;}
+    .zz.reverse .zz-img{order:1;}
+    .zz-img img{max-width:360px;margin:0 auto;}
+    .zz-txt{text-align:center;}
+    .zz-txt p{margin-inline:auto;}
+
+    .sybil-grid{grid-template-columns:1fr;gap:28px;}
+    .sybil-portrait{order:-1;}
+    .sybil-portrait img{max-width:300px;}
+
+    .diff-row{grid-template-columns:96px 1fr;gap:18px;padding:18px 0;}
+    .diff-row .diff-img img{width:96px;}
+
+    .final-grid{grid-template-columns:1fr;gap:28px;text-align:center;}
+    .final-grid .final-cover{max-width:180px;order:-1;}
+    .final-grid .inner{text-align:center;}
+    .final-grid h2,.final-grid p.lead{text-align:center;}
+    .final-grid p.lead{margin-inline:auto;}
+    .final-grid .signup{margin-inline:auto;justify-content:center;}
+    .final-grid .reassure{text-align:center;}
+
+    .prove-porte{max-width:300px;}
+
+    body{font-size:18px;}
+
+    .signup{flex-direction:column;align-items:stretch;max-width:340px;}
+    .hero .signup,.final .signup{margin-inline:auto;}
+    .signup input[type=email]{flex:1 1 auto;width:100%;}
+    .btn-gold{width:100%;}
+    .hero-headline{font-size:clamp(1.4rem,5.5vw,1.9rem);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .hero .glow,.final .glow{display:none;}
+    .btn-gold{transition:none;}
+    .key-card{transition:none;}
+    .key-card:hover{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 0. NAV (sticky) ============ -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">A Desert Story</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+      </svg>
+    </button>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="#la-storia">The Story</a></li>
+        <li><a href="#sette-prove">The Seven Trials</a></li>
+        <li><a href="#personaggi">The Characters</a></li>
+        <li><a href="#autrice">The Storyteller</a></li>
+        <li><a href="#domande">Questions</a></li>
+      </ul>
+      <a href="#lancio" class="nav-cta">The First Chapter</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" id="top">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-visual">
+      <img class="hero-cover" src="../img/copertina.webp" width="616" height="900"
+           alt="Cover of A Desert Story: a golden art nouveau arch on a deep bordeaux background, with a golden pavilion in the desert.">
+    </div>
+    <div class="hero-text">
+      <span class="kicker gold">An illustrated novel · Ages 8–12</span>
+      <h1 class="wordmark">A Desert Story</h1>
+      <p class="hero-headline">A gift that weighs heavy. And seven doors to open.</p>
+      <div class="hero-cta">
+        <span class="cta-micro">Start reading it tonight.</span>
+        <p class="reassure hero-reassure">Leave your email and the whole first chapter is yours.</p>
+        <form class="signup" onsubmit="return false;">
+          <input type="email" placeholder="Your email" aria-label="Your email">
+          <button type="submit" class="btn-gold">Start reading tonight</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. SINOSSI ============ -->
+<section class="synopsis dark" id="la-storia">
+  <div class="synopsis-col">
+    <div class="sec-head">
+      <svg class="arch" viewBox="0 0 64 80" fill="none" aria-hidden="true">
+        <path d="M32 4 C18 4 8 16 8 34 V76 H56 V34 C56 16 46 4 32 4 Z" stroke="currentColor" stroke-width="2.4"/>
+        <path d="M32 12 C22 12 15 21 15 34 V70 H49 V34 C49 21 42 12 32 12 Z" stroke="currentColor" stroke-width="1.4" opacity=".6"/>
+      </svg>
+      <h2 class="section-title">How it all begins</h2>
+    </div>
+
+    <div class="movement">
+      <p><strong>Now, let me tell you</strong> about a nine-year-old boy named <strong>Sebastiano</strong>, who lived in the village of <em>Montefiore</em>, tucked among cheerful green hills, at the edge of a wise and ancient forest. His mother was a skilled herbalist, and from her Sebastiano had learned the names of the plants, their moods and their remedies. But there was <strong>something few people knew</strong> about him: a rather astonishing secret.</p>
+    </div>
+
+    <p class="pullquote">Sebastiano could speak with the animals. Every last one of them, believe me.</p>
+
+    <div class="movement">
+      <p>The gift had come from a <strong>Sorceress</strong>, and it came with a promise to keep: those powers were meant to <em>protect the forests</em>, never to serve his own whims. And Sebastiano had promised, though sometimes, I must say, the urge to tell his friends everything was almost too much to bear!</p>
+      <p>Then one day came a piece of news no one wanted to believe. Far away, beyond the dunes, beyond where the desert seems never to end, there stood <strong>a palace no one could see</strong>. And inside that palace, a Magician kept the animals prisoner, one after another, far from their home of sand.</p>
+    </div>
+
+    <div class="movement">
+      <p>So Sebastiano set off. With <strong>Baltazar</strong>, a camel who, you should know, had an opinion about very nearly everything, and with a few companions gathered along the way, the kind <em>you don't expect and then never leave behind</em>.</p>
+      <p>Inside the palace, the strangest trial of all was waiting for him: <strong>seven doors, one after another.</strong> Not one of them opened by force. Each door guarded a riddle, set there by an ancient Sage, and it opened <em>only with the right answer</em>. And the questions, before those doors, were the kind that make you scratch your head and stop to think, truly think.</p>
+      <p>The rest, the book will tell you. <em>I have only opened the first door for you.</em></p>
+      <p class="sig-line"><span class="signature">Sybil</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. LE SETTE PROVE (teaser interattivo) ============ -->
+<section class="light" id="sette-prove">
+  <div class="wrap">
+    <div class="prove-col">
+    <div class="sec-head">
+      <p class="kicker bronze" style="margin-bottom:14px;">The Seven Trials</p>
+      <h2 class="section-title">Seven doors. And before each one, a choice that falls to you.</h2>
+    </div>
+
+    <div class="prove-lead">
+      <p>The first door is made of old wood, with no handle. It cannot be pushed, it cannot be broken down: Sebastiano has already tried, and <strong>the door did not move an inch</strong>.</p>
+      <p>Before you, hanging from a nail, <strong>three keys</strong>. <em>Only one opens.</em> The other two, well, better not to think about what happens to whoever tries them.</p>
+      <p>Beside each key there is a clue. A few words, the kind that seem clear until you read them <em>twice</em>. Baltazar chews and waits. The animals behind the door hold their breath. <strong>No one can choose for you.</strong></p>
+      <p>Force is not enough here. You have to stop for a moment, look closely, and work out which of the three <em>tells the truth</em>.</p>
+    </div>
+
+    <p class="prove-q"><strong>And you, which key would you take?</strong></p>
+    </div>
+
+    <div class="keys">
+      <button type="button" class="key-card" aria-expanded="false" onclick="toggleKey(this)">
+        <img class="key-img" src="../img/key_ferro.jpg" width="150" height="150" loading="lazy" alt="Iron key, dark and matte, on a bordeaux background.">
+        <span class="key-name">Key of iron</span>
+        <p class="key-clue">I am cold, like those who always tell the truth.</p>
+        <span class="key-hint">Take it →</span>
+        <span class="key-reveal">Sebastiano thought about it longer than that. How it turned out, only those who make it that far will know.</span>
+      </button>
+
+      <button type="button" class="key-card" aria-expanded="false" onclick="toggleKey(this)">
+        <img class="key-img" src="../img/key_ottone.jpg" width="150" height="150" loading="lazy" alt="Brass key, golden and warm, on a bordeaux background.">
+        <span class="key-name">Key of brass</span>
+        <p class="key-clue">Whoever chooses me is in a hurry, and haste does you no favours here.</p>
+        <span class="key-hint">Take it →</span>
+        <span class="key-reveal">Baltazar studied it for a long while too. The truth lay elsewhere, and finding it takes a fair stretch of desert.</span>
+      </button>
+
+      <button type="button" class="key-card" aria-expanded="false" onclick="toggleKey(this)">
+        <img class="key-img" src="../img/key_argento.jpg" width="150" height="150" loading="lazy" alt="Silver key, polished and bright, on a bordeaux background.">
+        <span class="key-name">Key of silver</span>
+        <p class="key-clue">I shine the brightest, and not all that glitters opens.</p>
+        <span class="key-hint">Take it →</span>
+        <span class="key-reveal">You are almost there. Or perhaps not. Before this door, even Sebastiano had to think it through.</span>
+      </button>
+    </div>
+
+    <div class="prove-cta">
+      <p>We won't tell you which one is right. The answer is earned along the way, inside the book.</p>
+      <a href="#lancio" class="btn-gold" style="color:var(--bordeaux-ink);text-decoration:none;">Start reading tonight</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. PER CHI E ============ -->
+<section class="light-soft">
+  <div class="wrap">
+    <p class="kicker bronze" style="text-align:center;margin-bottom:12px;">Who it's for</p>
+    <h2 class="section-title" style="text-align:center;">If there's a young reader in the house</h2>
+    <div class="spec-card">
+      <div class="spec-row">
+        <span class="spec-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+        </span>
+        <div><span class="spec-label">Age</span><span class="spec-val">8–12 on their own · 7+ read aloud · best fit 8–11</span></div>
+      </div>
+      <div class="spec-row">
+        <span class="spec-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h11a3 3 0 0 1 3 3v11a3 3 0 0 0-3-3H4z"/><path d="M20 5h-2a3 3 0 0 0-3 3v11"/></svg>
+        </span>
+        <div><span class="spec-label">Length</span><span class="spec-val">290 pages, a real novel</span></div>
+      </div>
+      <div class="spec-row">
+        <span class="spec-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20s-7-4.3-7-9.3A3.7 3.7 0 0 1 12 8a3.7 3.7 0 0 1 7 2.7C19 15.7 12 20 12 20z"/></svg>
+        </span>
+        <div><span class="spec-label">If you loved</span><span class="spec-val">The Little Prince · Momo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. PERCHE E DIVERSO (una sezione compatta, fondo rosso) ============ -->
+<section class="diff-compact" id="personaggi">
+  <div class="wrap sec-head" style="margin-bottom:22px;">
+    <p class="kicker gold" style="margin-bottom:14px;">The characters</p>
+    <h2 class="section-title">Who you'll meet in the desert</h2>
+  </div>
+  <p class="cast-intro">Every one of them was drawn by hand, by Sybil.</p>
+  <div class="wrap">
+    <div class="cast-grid">
+      <article class="cast-card">
+        <img src="../img/sebastiano.webp" width="616" height="900" loading="lazy" alt="Plate of Sebastiano, the main character, art nouveau style.">
+        <div class="cast-body">
+          <h3 class="cast-name">Sebastiano</h3>
+          <p class="cast-desc">Nine years old, with a secret gift: he speaks with every animal in the world. He sets off across the desert to free the prisoners.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="../img/baltazar.webp" width="616" height="900" loading="lazy" alt="Plate of Baltazar the camel, art nouveau style.">
+        <div class="cast-body">
+          <h3 class="cast-name">Baltazar</h3>
+          <p class="cast-desc">The camel who calls himself King of the Camels of the East. Greedy, a little clumsy, and with an opinion about very nearly everything.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="../img/freeze.webp" width="616" height="900" loading="lazy" alt="Plate of Freeze the desert sprite, art nouveau style.">
+        <div class="cast-body">
+          <h3 class="cast-name">Freeze</h3>
+          <p class="cast-desc">A desert sprite with a frosty stare. Funny, touchy, exquisitely fussy at the table, and able to work a spell or two.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="../img/fenix.jpg" width="616" height="900" loading="lazy" alt="Plate of Fenix the desert fox, art nouveau style.">
+        <div class="cast-body">
+          <h3 class="cast-name">Fenix</h3>
+          <p class="cast-desc">A desert fox who can take human form. Guide of the land: watchful gaze, few words, and plenty of intuition.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="../img/camaleon.jpg" width="616" height="900" loading="lazy" alt="Plate of Camaleon the Chame-Lion, art nouveau style.">
+        <div class="cast-body">
+          <h3 class="cast-name">Camaleon</h3>
+          <p class="cast-desc">Not your ordinary chameleon: a Chame-Lion. He vanishes by blending in, turns hypnotic, and has a soft spot for turquoise.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="../img/simurg.webp" width="616" height="900" loading="lazy" alt="Plate of Simurg the queen of the eagles, art nouveau style.">
+        <div class="cast-body">
+          <h3 class="cast-name">Simurg</h3>
+          <p class="cast-desc">Queen of the desert eagles. Vast, white, regal. She flies high and sees far, where no one else can reach.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="../img/nina.webp" width="616" height="900" loading="lazy" alt="Plate of Nina the siren-frog, art nouveau style.">
+        <div class="cast-body">
+          <h3 class="cast-name">Nina</h3>
+          <p class="cast-desc">A siren-frog, rare and held to be sacred, with a voice that enchants. She dreams of an audience, and perhaps of more.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="../img/flora.jpg" width="616" height="900" loading="lazy" alt="Plate of Flora the girl with copper hair, art nouveau style.">
+        <div class="cast-body">
+          <h3 class="cast-name">Flora</h3>
+          <p class="cast-desc">A girl with copper hair and a clear, bright gaze. Pale, shut away in a room of the palace. Who is she, really?</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. TESTIMONIAL ============ -->
+<!-- PLACEHOLDER: fake reviews for the mockup. Replace with Sarah's 3 real beta voices before deploy. -->
+<section class="light-soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker bronze" style="margin-bottom:14px;">In their words</p>
+      <h2 class="section-title">Who's already read it</h2>
+    </div>
+    <div class="testi-grid">
+      <article class="review">
+        <div class="review-head">
+          <img class="review-avatar" src="../img/rev1.jpg" width="58" height="58" loading="lazy" alt="Portrait of Elena Marchetti">
+          <div class="review-who">
+            <span class="review-name">Elena Marchetti</span>
+            <span class="review-role">mother · Bologna</span>
+          </div>
+        </div>
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <span class="review-stars"><span class="sr">Rating: 5 out of 5 stars</span></span>
+        <blockquote>He finished it in four evenings and now he keeps asking whether Sebastiano will come back. From a boy who never opened a book, that means a lot to me.</blockquote>
+      </article>
+
+      <article class="review">
+        <div class="review-head">
+          <img class="review-avatar" src="../img/rev2.jpg" width="58" height="58" loading="lazy" alt="Portrait of Marco Costa">
+          <div class="review-who">
+            <span class="review-name">Marco Costa</span>
+            <span class="review-role">father · Padua</span>
+          </div>
+        </div>
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <span class="review-stars"><span class="sr">Rating: 5 out of 5 stars</span></span>
+        <blockquote>The trials at the doors kept him hooked. At dinner he'd walk me through his reasoning, proud as anything.</blockquote>
+      </article>
+
+      <article class="review">
+        <div class="review-head">
+          <img class="review-avatar" src="../img/rev3.jpg" width="58" height="58" loading="lazy" alt="Portrait of Chiara Rinaldi">
+          <div class="review-who">
+            <span class="review-name">Chiara Rinaldi</span>
+            <span class="review-role">teacher · Verona</span>
+          </div>
+        </div>
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <span class="review-stars"><span class="sr">Rating: 5 out of 5 stars</span></span>
+        <blockquote>I brought it into class for read-aloud time. Every session the children beg me for one more chapter, and they argue over the answers.</blockquote>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. SYBIL ============ -->
+<section class="night" id="autrice">
+  <div class="wrap sybil-grid">
+    <div>
+      <p class="kicker gold" style="margin-bottom:16px;">Who told you this story</p>
+      <h2 class="section-title" style="margin-bottom:24px;">Sybil</h2>
+      <p>This book has a voice, and the voice has a name: Sybil. She is the one who takes you by the hand with "now, let me tell you", like the storytellers of the Thousand and One Nights.</p>
+      <p>She tells stories gathered on her travels, in faraway places, and stitches them together for anyone willing to listen. And she is also the one who drew, by hand, the eight plates in the book: the characters one by one, in <em>art nouveau</em> style.</p>
+      <p>Of Sebastiano she says only this: that it is the story she holds dearest.</p>
+    </div>
+    <figure class="sybil-portrait">
+      <img src="../img/sybil.jpg" width="832" height="1216" loading="lazy" alt="Sybil, seen from behind as she writes at a window that looks out onto an enchanted world.">
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 9. CTA FINALE ============ -->
+<!-- Per attivare la variante post-lancio: aggiungere class="is-launched" a questa <section>. -->
+<section class="final" id="lancio">
+  <div class="glow" aria-hidden="true"></div>
+
+  <!-- Variante pre-lancio (attiva) -->
+  <div class="final-grid prelaunch-only">
+    <img class="final-cover" src="../img/copertina.webp" width="616" height="900"
+         alt="Cover of A Desert Story: a golden art nouveau arch on a deep bordeaux background.">
+    <div class="inner">
+      <h2>Out soon. You can start already.</h2>
+      <p class="lead">I'll send you the first chapter, and let you know on launch day. Nothing else.</p>
+      <form class="signup" onsubmit="return false;">
+        <input type="email" placeholder="Your email" aria-label="Your email">
+        <button type="submit" class="btn-gold">Start reading tonight</button>
+      </form>
+      <p class="reassure">The first chapter is a gift. Your email stays yours.</p>
+    </div>
+  </div>
+
+  <!-- Variante post-lancio (predisposta, nascosta finché la section non ha .is-launched) -->
+  <div class="inner launched-only">
+    <h2>A Desert Story is out.</h2>
+    <div class="amz-row">
+      <a href="#" class="btn-gold" style="text-decoration:none;color:var(--bordeaux-ink);">Buy on Amazon</a>
+      <a href="#" class="amz-secondary">Send me the first chapter</a>
+    </div>
+    <p class="price-line">Paperback around £12.99. Kindle ebook from £3.99.</p>
+  </div>
+</section>
+
+<!-- ============ 8. FAQ (dopo il form) ============ -->
+<section class="light-soft" id="domande">
+  <div class="wrap" style="text-align:center;margin-bottom:6px;">
+    <p class="kicker bronze">The right questions</p>
+    <h2 class="section-title" style="margin-top:10px;">Before you say yes</h2>
+  </div>
+  <div class="faq-list">
+    <details open>
+      <summary>What formats does it come in?</summary>
+      <div class="answer">Paperback with an illustrated cover and colour interiors, plus the Kindle edition.</div>
+    </details>
+    <details>
+      <summary>How long is it?</summary>
+      <div class="answer">Just under 300 pages, but laid out with room to breathe: airy pages, lines that don't crowd the eye, the kind a child turns happily. A whole novel, with a beginning, seven stages and an ending it has earned. Want to see how it reads? <a href="#lancio" class="softlink">Download the extract</a></div>
+    </details>
+    <details>
+      <summary>What age is it for?</summary>
+      <div class="answer">From 8 to 12 on their own, from 7 up when read aloud. The sweet spot is between 8 and 11.</div>
+    </details>
+    <details>
+      <summary>Isn't it too hard?</summary>
+      <div class="answer">No. The thinking happens inside the adventure: the child solves the trials right alongside Sebastiano, without ever noticing they're learning to reason.</div>
+    </details>
+    <details>
+      <summary>Who wrote the book?</summary>
+      <div class="answer">Sybil, a storyteller in the spirit of the Thousand and One Nights. It's a deliberate choice: the narrating voice has a name and a presence. She is also the illustrator of the plates, drawn in art nouveau style.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-inner">
+    <div class="fw">A Desert Story</div>
+    <div class="fw-sub">by Sybil</div>
+    <nav class="foot-links" aria-label="Legal links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms and Conditions</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="foot-note">[Legal texts in preparation]</div>
+    <div class="foot-copy">© 2026 A Desert Story</div>
+    <div class="lang-switch">
+      <a href="../">IT</a> · <a href="index.html" class="active">EN</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // --- Chiavi interattive ---
+  function toggleKey(btn){
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+  }
+
+  // --- Menu mobile ---
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var menu = document.getElementById('navMenu');
+    if(!toggle || !menu) return;
+    function closeMenu(){
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Open menu');
+    }
+    toggle.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    menu.addEventListener('click', function(e){
+      if(e.target.tagName === 'A') closeMenu();
+    });
+  })();
+</script>
+
+</body>
+</html>

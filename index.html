@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>A Desert Story — di Sybil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordeaux-deep:#4A0E0E;
+    --bordeaux:#6B1616;
+    --bordeaux-ink:#2A1A12;
+    --gold:#C9A24B;
+    --gold-bronze:#8A6D2F;
+    --cream:#F4ECD8;
+    --cream-soft:#EFE4CC;
+    --night-blue:#1E2A3A;
+    --teal:#2E6E6A;
+
+    --f-display:"Cinzel Decorative", serif;
+    --f-head:"Cormorant Garamond", serif;
+    --f-body:"Source Serif 4", Georgia, serif;
+    --f-ui:"Mulish", system-ui, sans-serif;
+
+    --maxw:1180px;
+    --prose:38rem; /* ~60-66 chars */
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  h1,h2,h3,p{overflow-wrap:break-word;}
+  body{
+    margin:0;
+    font-family:var(--f-body);
+    color:var(--bordeaux-ink);
+    background:var(--cream);
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;height:auto;display:block;}
+
+  /* ---------- Sections ---------- */
+  section{padding:76px 20px;scroll-margin-top:74px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;}
+  .prose{max-width:var(--prose);margin-inline:auto;}
+
+  /* ---------- Nav header (sticky) ---------- */
+  .nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(42,16,16,.82);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(201,162,75,.22);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:20px;padding:12px 20px;min-height:58px;
+  }
+  .nav-mark{
+    font-family:var(--f-display);font-weight:700;color:var(--gold);
+    font-size:1.05rem;letter-spacing:.02em;text-decoration:none;line-height:1;
+    white-space:nowrap;
+  }
+  .nav-links{
+    display:flex;align-items:center;gap:26px;list-style:none;margin:0;padding:0;
+  }
+  .nav-links a{
+    font-family:var(--f-ui);font-size:.92rem;font-weight:600;
+    color:var(--cream);text-decoration:none;opacity:.9;
+    transition:opacity .15s ease,color .15s ease;
+  }
+  .nav-links a:hover{color:var(--gold);opacity:1;}
+  .nav-cta{
+    font-family:var(--f-ui);font-weight:700;font-size:.86rem;
+    background:var(--gold);color:var(--bordeaux-ink);
+    padding:9px 16px;border-radius:7px;text-decoration:none;
+    white-space:nowrap;transition:background .18s ease;
+  }
+  .nav-cta:hover{background:#d9b45f;color:var(--bordeaux-ink) !important;opacity:1;}
+  .nav-toggle{
+    display:none;background:none;border:none;cursor:pointer;
+    padding:8px;color:var(--cream);
+  }
+  .nav-toggle svg{width:28px;height:28px;display:block;}
+  .nav-menu{display:contents;}
+
+  @media (max-width:820px){
+    .nav-toggle{display:inline-flex;}
+    .nav-menu{
+      display:none;position:absolute;left:0;right:0;top:100%;
+      flex-direction:column;
+      background:rgba(42,16,16,.97);
+      -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(201,162,75,.22);
+      padding:8px 20px 20px;
+    }
+    .nav-menu.open{display:flex;}
+    .nav-menu .nav-links{
+      flex-direction:column;align-items:stretch;gap:0;width:100%;
+    }
+    .nav-menu .nav-links li{border-bottom:1px solid rgba(201,162,75,.16);}
+    .nav-menu .nav-links a{display:block;padding:15px 2px;font-size:1.05rem;}
+    .nav-menu .nav-cta{
+      display:block;text-align:center;margin-top:16px;padding:14px 16px;font-size:1rem;
+    }
+  }
+
+  .dark{background:var(--bordeaux);color:var(--cream);}
+  .dark-deep{background:var(--bordeaux-deep);color:var(--cream);}
+  .night{background:var(--night-blue);color:var(--cream);}
+  .light{background:var(--cream);color:var(--bordeaux-ink);}
+  .light-soft{background:var(--cream-soft);color:var(--bordeaux-ink);}
+
+  /* ---------- Typographic bits ---------- */
+  .kicker{
+    font-family:var(--f-ui);
+    font-size:.72rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-weight:700;
+  }
+  .kicker.gold{color:var(--gold);}
+  .kicker.bronze{color:var(--gold-bronze);}
+
+  /* emphasis in body copy */
+  p strong{font-weight:700;color:inherit;}
+  p em{font-style:italic;}
+  .dark p strong,.dark-deep p strong,.night p strong,.synopsis p strong{color:var(--gold);}
+  .light p strong,.light-soft p strong{color:var(--bordeaux);}
+  .dark p em,.dark-deep p em,.night p em,.synopsis p em{color:#f7edd6;}
+
+  h1,h2,h3{font-weight:500;line-height:1.12;margin:0;}
+  .wordmark{
+    font-family:var(--f-display);
+    font-weight:700;
+    color:var(--gold);
+    line-height:1.05;
+  }
+  .section-title{
+    font-family:var(--f-head);
+    font-size:clamp(1.75rem,5vw,3.1rem);
+    line-height:1.1;
+  }
+  .dark .section-title,.dark-deep .section-title,.night .section-title{color:var(--cream);}
+  .light .section-title,.light-soft .section-title{color:var(--bordeaux-ink);}
+
+  em.subline{
+    font-family:var(--f-head);
+    font-style:italic;
+    color:var(--gold);
+    font-size:clamp(1.25rem,2.6vw,1.6rem);
+    line-height:1.4;
+    display:block;
+  }
+
+  .signature{
+    font-family:var(--f-display);
+    font-style:normal;
+    color:var(--gold);
+    font-size:1.5rem;
+    letter-spacing:.04em;
+  }
+
+  /* ---------- Ogival gold arch frieze ---------- */
+  .arch{
+    width:64px;height:80px;margin:0 auto 26px;
+    display:block;color:var(--gold);opacity:.9;
+  }
+  .light .arch,.light-soft .arch{color:var(--gold-bronze);opacity:.85;}
+
+  /* ---------- Buttons / form ---------- */
+  .signup{
+    display:flex;flex-wrap:wrap;gap:12px;
+    max-width:480px;
+  }
+  .signup input[type=email]{
+    flex:1 1 200px;
+    min-height:52px;
+    padding:0 18px;
+    border-radius:8px;
+    border:1px solid rgba(201,162,75,.5);
+    background:rgba(244,236,216,.08);
+    color:var(--cream);
+    font-family:var(--f-ui);
+    font-size:1rem;
+  }
+  .light .signup input[type=email],.light-soft .signup input[type=email]{
+    background:#fff;color:var(--bordeaux-ink);border:1px solid rgba(138,109,47,.55);
+  }
+  .signup input::placeholder{color:rgba(244,236,216,.6);}
+  .light .signup input::placeholder,.light-soft .signup input::placeholder{color:rgba(42,26,18,.5);}
+
+  .btn-gold{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:52px;padding:0 26px;
+    background:var(--gold);
+    color:var(--bordeaux-ink);
+    font-family:var(--f-ui);font-weight:700;font-size:1rem;
+    border:none;border-radius:8px;cursor:pointer;
+    letter-spacing:.01em;
+    transition:background .18s ease, transform .18s ease;
+  }
+  .btn-gold:hover{background:#d9b45f;transform:translateY(-1px);}
+  a,button,input{
+    outline:none;
+  }
+  a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:2px;
+  }
+  .light a:focus-visible,.light-soft summary:focus-visible,.light-soft input:focus-visible,.light-soft button:focus-visible{
+    outline-color:var(--gold-bronze);
+  }
+  .reassure{
+    font-family:var(--f-ui);
+    font-size:.9rem;
+    margin-top:14px;
+    color:rgba(244,236,216,.85);
+  }
+  .light .reassure,.light-soft .reassure{color:var(--gold-bronze);}
+
+  .softlink{
+    font-family:var(--f-ui);
+    font-weight:600;
+    color:var(--gold-bronze);
+    text-decoration:none;
+    border-bottom:1px solid rgba(138,109,47,.5);
+    padding-bottom:1px;
+  }
+  .dark .softlink,.dark-deep .softlink,.night .softlink{color:var(--gold);border-color:rgba(201,162,75,.5);}
+
+  /* ========== 1. HERO ========== */
+  .hero{
+    background:var(--bordeaux-deep);
+    position:relative;overflow:hidden;
+    display:flex;align-items:center;
+    min-height:calc(100svh - 58px);
+    padding-top:clamp(24px,4vh,48px);
+    padding-bottom:clamp(24px,4vh,48px);
+  }
+  .hero .glow{
+    position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 42%, rgba(201,162,75,.28), rgba(201,162,75,0) 46%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    width:100%;
+    max-width:980px;
+    margin-inline:auto;
+    display:grid;
+    grid-template-columns:38% 1fr;
+    gap:clamp(32px,4vw,56px);align-items:center;
+    justify-content:center;
+  }
+  .hero-cover{
+    filter:drop-shadow(0 26px 46px rgba(0,0,0,.55)) drop-shadow(0 8px 18px rgba(74,14,14,.6));
+    border-radius:4px;
+    height:clamp(320px,60vh,560px);
+    width:auto;margin:0 auto;
+  }
+  .hero h1.wordmark{
+    font-size:clamp(2rem,5.2vw,3.8rem);
+    margin:10px 0 16px;
+  }
+  .wordmark{overflow-wrap:break-word;}
+  .hero-headline{
+    font-family:var(--f-head);
+    color:var(--cream);
+    font-size:clamp(1.6rem,3.4vw,2.6rem);
+    line-height:1.2;
+    font-weight:500;
+    font-style:italic;
+    margin:0 0 clamp(20px,3vh,28px);
+    max-width:20ch;
+  }
+  .hero-cta{max-width:480px;}
+  .hero .cta-micro{margin-bottom:8px;}
+  .hero-reassure{margin-top:0;margin-bottom:14px;max-width:44ch;}
+
+  /* ========== 2. SYNOPSIS ========== */
+  .synopsis{background:linear-gradient(180deg,var(--bordeaux) 0%, #5c1414 100%);}
+  .synopsis p{margin:0 0 1.15em;color:#f6ecd6;}
+  .synopsis .sig-line{text-align:right;margin-top:8px;}
+
+  /* ---------- Section headline helper ---------- */
+  .sec-head{text-align:center;margin-bottom:40px;}
+  .sec-head .section-title{margin-inline:auto;max-width:20ch;}
+
+  /* ========== 2b. SYNOPSIS single-axis column ========== */
+  /* Tutto (titolo, movimenti, pull-quote) su UNA sola colonna centrata:
+     stessi margini sinistro/destro per titolo, testo e citazione. */
+  .synopsis-col{max-width:680px;margin-inline:auto;}
+  .synopsis-col .sec-head{margin-bottom:34px;}
+  .movement{max-width:none;margin-inline:0;}   /* riempie la colonna, bordo sx = colonna */
+  .movement + .pullquote,.pullquote + .movement{margin-top:8px;}
+  .pullquote{
+    max-width:none;margin:56px 0;text-align:center;  /* stessa larghezza della colonna, non sfora */
+    font-family:var(--f-head);font-style:italic;
+    color:var(--gold);
+    font-size:clamp(1.8rem,4vw,2.7rem);
+    line-height:1.26;
+  }
+
+  /* ========== 3. SETTE PROVE (teaser interattivo) ========== */
+  /* Titolo, lead e domanda su UNA colonna centrata: stesso asse e stessi margini. */
+  .prove-col{max-width:680px;margin-inline:auto;}
+  .prove-col .sec-head{margin-bottom:30px;}
+  .prove-lead{max-width:none;margin:0 0 12px;}
+  .prove-lead p{font-size:1.08rem;line-height:1.68;margin:0 0 1.05em;}
+  .prove-q{
+    font-family:var(--f-head);font-style:italic;
+    font-size:clamp(1.4rem,3vw,1.9rem);
+    color:var(--bordeaux);text-align:center;
+    max-width:24ch;margin:26px auto 44px;line-height:1.3;
+  }
+  .keys{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+    max-width:960px;margin:0 auto;
+  }
+  .key-card{
+    display:flex;flex-direction:column;align-items:center;text-align:center;
+    background:var(--bordeaux-deep);color:var(--cream);
+    border:1px solid rgba(201,162,75,.4);
+    border-radius:14px;padding:26px 24px;
+    cursor:pointer;width:100%;font-family:inherit;font-size:1rem;
+    box-shadow:0 12px 30px rgba(74,14,14,.16);
+    transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+  }
+  .key-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 18px 40px rgba(74,14,14,.28);}
+  .key-ico{font-size:1.9rem;line-height:1;margin-bottom:14px;color:var(--gold);}
+  .key-img{
+    width:150px;height:150px;object-fit:cover;
+    border-radius:12px;margin:0 auto 18px;
+    border:1px solid rgba(201,162,75,.35);
+    box-shadow:0 10px 24px rgba(0,0,0,.35);
+  }
+  .key-name{
+    font-family:var(--f-ui);font-weight:700;text-transform:uppercase;
+    letter-spacing:.14em;font-size:.74rem;color:var(--gold);margin-bottom:12px;
+  }
+  .key-clue{
+    font-family:var(--f-head);font-style:italic;
+    font-size:1.28rem;line-height:1.36;color:#f4ead4;margin:0;
+  }
+  .key-reveal{
+    display:none;margin-top:18px;padding-top:16px;
+    border-top:1px solid rgba(201,162,75,.35);
+    font-family:var(--f-body);font-size:1rem;line-height:1.55;color:#efe0c4;
+  }
+  .key-card[aria-expanded="true"] .key-reveal{display:block;}
+  .key-card[aria-expanded="true"]{border-color:var(--gold);}
+  .key-hint{
+    font-family:var(--f-ui);font-size:.82rem;color:var(--gold-bronze);
+    margin-top:14px;font-weight:600;
+  }
+  .key-card[aria-expanded="true"] .key-hint{display:none;}
+  /* immagine porte nella sezione prove */
+  .prove-porte{
+    max-width:420px;margin:0 auto 40px;
+  }
+  .prove-porte img{
+    width:100%;height:auto;border-radius:10px;
+    box-shadow:0 16px 40px rgba(74,14,14,.28);
+  }
+  .prove-porte figcaption{
+    font-family:var(--f-ui);font-size:.86rem;color:var(--gold-bronze);
+    text-align:center;margin-top:12px;line-height:1.4;
+  }
+  .prove-cta{text-align:center;margin-top:48px;}
+  .prove-cta p{
+    font-family:var(--f-head);font-style:italic;font-size:1.3rem;
+    color:var(--bordeaux);max-width:34ch;margin:0 auto 22px;line-height:1.4;
+  }
+
+  /* ========== 3. EXTRACT (legacy plate helpers, riusati) ========== */
+  .plate-fig{margin:0;}
+  .plate-fig img{border-radius:6px;box-shadow:0 14px 34px rgba(74,14,14,.28);}
+  .caption{
+    font-family:var(--f-ui);
+    font-size:.9rem;
+    color:var(--gold-bronze);
+    margin-top:12px;font-style:normal;line-height:1.4;
+  }
+
+  /* ========== 4. PER CHI E ========== */
+  .spec-card{
+    max-width:640px;margin:34px auto 0;
+    border:1px solid rgba(138,109,47,.4);
+    border-radius:14px;
+    background:#fff;
+    padding:8px 30px;
+    box-shadow:0 10px 30px rgba(74,14,14,.06);
+  }
+  .spec-row{
+    display:flex;gap:18px;align-items:flex-start;
+    padding:20px 0;
+    border-bottom:1px solid rgba(138,109,47,.18);
+  }
+  .spec-row:last-child{border-bottom:none;}
+  .spec-ico{flex:0 0 26px;color:var(--gold-bronze);margin-top:2px;}
+  .spec-ico svg{width:26px;height:26px;}
+  .spec-label{
+    font-family:var(--f-ui);font-weight:700;
+    text-transform:uppercase;letter-spacing:.12em;
+    font-size:.72rem;color:var(--gold-bronze);
+    display:block;margin-bottom:3px;
+  }
+  .spec-val{font-family:var(--f-body);font-size:1.05rem;line-height:1.4;}
+
+  /* ========== 5. PERCHE E DIVERSO — zigzag ========== */
+  .zz{display:grid;grid-template-columns:1fr minmax(220px,300px);gap:56px;align-items:center;max-width:940px;margin:0 auto;}
+  .zz.reverse{grid-template-columns:minmax(220px,300px) 1fr;}
+  .zz.reverse .zz-txt{order:2;}
+  .zz.reverse .zz-img{order:1;}
+  .zz-img img{border-radius:8px;box-shadow:0 18px 40px rgba(0,0,0,.22);max-width:300px;margin:0 auto;}
+  .zz + .zz{margin-top:0;}
+  .zz-txt h3{
+    font-family:var(--f-head);
+    font-size:clamp(1.6rem,3.2vw,2.2rem);
+    margin:12px 0 16px;
+  }
+  .zz-txt p{font-size:1.1rem;line-height:1.65;max-width:42ch;}
+  .diff-block{padding:64px 20px;}
+
+  /* ========== 5b. PERCHE E DIVERSO — compact (una sezione rossa) ========== */
+  .diff-compact{background:var(--bordeaux-deep);color:var(--cream);}
+  .diff-list{
+    max-width:760px;margin:0 auto;
+    display:flex;flex-direction:column;gap:26px;
+  }
+  .diff-row{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:26px;align-items:center;
+    padding:22px 0;
+    border-bottom:1px solid rgba(201,162,75,.22);
+  }
+  .diff-row:last-child{border-bottom:none;}
+  .diff-row .diff-img{margin:0;}
+  .diff-row .diff-img img{
+    width:140px;height:auto;border-radius:8px;
+    box-shadow:0 12px 28px rgba(0,0,0,.4);
+  }
+  .diff-row .diff-txt h3{
+    font-family:var(--f-head);
+    color:var(--gold);
+    font-size:clamp(1.3rem,2.6vw,1.7rem);
+    margin:0 0 8px;line-height:1.2;
+  }
+  .diff-row .diff-txt p{
+    font-size:1.02rem;line-height:1.6;margin:0;color:#f4ead4;max-width:52ch;
+  }
+
+  /* ========== 5c. PERSONAGGI (griglia schede, fondo rosso) ========== */
+  .cast-intro{
+    max-width:44ch;margin:0 auto 44px;text-align:center;
+    font-family:var(--f-head);font-style:italic;
+    font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.4;
+    color:#f4ead4;
+  }
+  .cast-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+    max-width:1060px;margin:0 auto;
+  }
+  .cast-card{
+    display:flex;flex-direction:column;
+    background:rgba(244,236,216,.05);
+    border:1px solid rgba(201,162,75,.28);
+    border-radius:14px;overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.28);
+  }
+  .cast-card img{
+    width:100%;aspect-ratio:616/900;object-fit:cover;
+    border-bottom:1px solid rgba(201,162,75,.22);
+  }
+  .cast-body{padding:18px 18px 22px;}
+  .cast-name{
+    font-family:var(--f-head);font-weight:600;
+    color:var(--gold);font-size:1.5rem;line-height:1.1;
+    margin:0 0 8px;letter-spacing:.01em;
+  }
+  .cast-desc{
+    font-family:var(--f-body);font-size:.96rem;line-height:1.5;
+    color:#f0e2c6;margin:0;
+  }
+  @media (max-width:900px){
+    .cast-grid{grid-template-columns:repeat(2,1fr);gap:18px;}
+  }
+  @media (max-width:480px){
+    .cast-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+    .cast-body{padding:14px 14px 18px;}
+    .cast-name{font-size:1.3rem;}
+    .cast-desc{font-size:.9rem;}
+  }
+
+  /* ========== 6. TESTIMONIAL ========== */
+  .testi-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+    max-width:1020px;margin:0 auto;
+  }
+  /* --- review card (aspetto reale per il mockup) --- */
+  .review{
+    border:1px solid rgba(138,109,47,.28);
+    border-radius:14px;background:#fff;
+    padding:28px 26px;text-align:left;
+    display:flex;flex-direction:column;
+    box-shadow:0 10px 30px rgba(74,14,14,.06);
+  }
+  .review-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+  .review-avatar{
+    width:58px;height:58px;flex:0 0 58px;
+    border-radius:50%;object-fit:cover;
+    border:2px solid rgba(201,162,75,.55);
+  }
+  .review-who{display:flex;flex-direction:column;gap:3px;min-width:0;}
+  .review-name{
+    font-family:var(--f-ui);font-weight:700;font-size:.98rem;
+    color:var(--bordeaux-ink);line-height:1.2;
+  }
+  .review-role{
+    font-family:var(--f-ui);font-size:.82rem;color:var(--gold-bronze);line-height:1.2;
+  }
+  .review-stars{
+    color:var(--gold-bronze);font-size:1.05rem;letter-spacing:.12em;
+    margin-bottom:12px;line-height:1;
+  }
+  .review-stars .sr{
+    position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
+  }
+  .review blockquote{
+    margin:0;font-family:var(--f-head);font-style:italic;
+    font-size:1.22rem;line-height:1.42;color:#3a2c22;flex:1;
+  }
+
+  /* ========== 7. SYBIL ========== */
+  .sybil-grid{display:grid;grid-template-columns:1fr .82fr;gap:56px;align-items:center;}
+  .sybil-grid p{margin:0 0 1.1em;color:#f4ead4;font-size:1.08rem;line-height:1.66;}
+  .sybil-portrait{margin:0;}
+  .sybil-portrait img{
+    width:100%;max-width:380px;height:auto;margin-inline:auto;
+    border-radius:10px;
+    box-shadow:0 20px 46px rgba(0,0,0,.5);
+    border:1px solid rgba(201,162,75,.25);
+  }
+  .sybil-portrait figcaption{
+    font-family:var(--f-ui);font-size:.84rem;color:rgba(201,162,75,.85);
+    text-align:center;margin-top:12px;font-style:italic;line-height:1.4;
+  }
+  .plate-mini{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+    max-width:720px;margin:44px auto 0;
+  }
+  .plate-mini img{border-radius:5px;box-shadow:0 8px 20px rgba(0,0,0,.4);}
+
+  /* ========== 8. FAQ ========== */
+  .faq-list{max-width:720px;margin:34px auto 0;}
+  details{
+    border-bottom:1px solid rgba(138,109,47,.28);
+  }
+  summary{
+    list-style:none;cursor:pointer;
+    padding:22px 44px 22px 4px;position:relative;
+    font-family:var(--f-head);font-size:1.4rem;color:var(--bordeaux-ink);
+    line-height:1.25;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";position:absolute;right:8px;top:20px;
+    font-family:var(--f-ui);font-weight:700;font-size:1.6rem;color:var(--gold-bronze);
+    transition:transform .2s ease;
+  }
+  details[open] summary::after{content:"–";}
+  details .answer{
+    padding:0 4px 24px;font-size:1.02rem;line-height:1.62;max-width:60ch;color:#3a2c22;
+  }
+
+  /* ========== 9. CTA FINALE ========== */
+  .final{background:var(--bordeaux-deep);text-align:center;padding:96px 20px;}
+  .final .glow{
+    position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 30%, rgba(201,162,75,.2), transparent 55%);
+    pointer-events:none;
+  }
+  .final .inner{position:relative;max-width:600px;margin:0 auto;}
+  /* CTA finale con copertina affiancata */
+  .final-grid{
+    position:relative;
+    max-width:900px;margin:0 auto;
+    display:grid;grid-template-columns:230px 1fr;
+    gap:clamp(32px,5vw,64px);align-items:center;text-align:left;
+  }
+  .final-grid .final-cover{
+    filter:drop-shadow(0 22px 40px rgba(0,0,0,.55));
+    border-radius:4px;width:100%;max-width:230px;height:auto;margin:0 auto;
+  }
+  .final-grid .inner{max-width:none;margin:0;text-align:left;}
+  .final-grid h2{text-align:left;}
+  .final-grid p.lead{margin-inline:0;text-align:left;}
+  .final-grid .signup{margin:0;justify-content:flex-start;}
+  .final-grid .reassure{text-align:left;}
+  .final h2{font-family:var(--f-head);font-size:clamp(2rem,5vw,3rem);color:var(--cream);margin-bottom:22px;line-height:1.14;}
+  .final p.lead{font-size:1.15rem;color:#f0e4cc;max-width:44ch;margin:0 auto 36px;line-height:1.6;}
+  .final .signup{margin:0 auto;justify-content:center;}
+  .final .reassure{text-align:center;}
+  .cta-micro{
+    font-family:var(--f-ui);font-weight:700;font-size:.78rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+    margin-bottom:14px;display:block;
+  }
+  .final .cta-micro{text-align:center;}
+  /* post-launch variant (predisposta, non attiva) */
+  .launched-only{display:none;}
+  .is-launched .prelaunch-only{display:none;}
+  .is-launched .launched-only{display:block;}
+  .amz-row{
+    display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;
+  }
+  .amz-secondary{
+    font-family:var(--f-ui);font-weight:600;color:var(--gold);
+    text-decoration:none;border-bottom:1px solid rgba(201,162,75,.5);
+    font-size:1rem;padding-bottom:1px;
+  }
+  .price-line{
+    font-family:var(--f-ui);font-size:.92rem;color:#e6d6b6;margin-top:20px;
+  }
+
+  /* ========== FOOTER ========== */
+  footer{
+    background:var(--bordeaux-ink);color:#cdbfa8;
+    padding:48px 20px 40px;text-align:center;
+    font-family:var(--f-ui);font-size:.92rem;
+    border-top:1px solid rgba(201,162,75,.18);
+  }
+  footer .foot-inner{max-width:var(--maxw);margin:0 auto;}
+  footer .fw{font-family:var(--f-display);color:var(--gold);font-size:1.3rem;letter-spacing:.03em;line-height:1.1;}
+  footer .fw-sub{margin-top:6px;font-style:italic;color:#b7a888;font-family:var(--f-head);font-size:1.05rem;}
+  .foot-links{
+    margin-top:24px;display:flex;flex-wrap:wrap;gap:8px 22px;
+    justify-content:center;align-items:center;
+  }
+  .foot-links a{
+    color:#cdbfa8;text-decoration:none;font-size:.9rem;
+    border-bottom:1px solid transparent;padding-bottom:1px;
+    transition:color .15s ease,border-color .15s ease;
+  }
+  .foot-links a:hover{color:var(--gold);border-color:rgba(201,162,75,.5);}
+  .foot-note{
+    margin-top:16px;font-size:.8rem;color:#8a7c66;font-style:italic;
+  }
+  .foot-copy{margin-top:22px;font-size:.82rem;color:#9a8c74;}
+  .lang-switch{margin-top:18px;font-size:.85rem;}
+  .lang-switch a{color:#cdbfa8;text-decoration:none;padding:0 6px;}
+  .lang-switch a.active{color:var(--gold);font-weight:700;}
+  footer a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+
+  /* ========== MOBILE ========== */
+  @media (max-width:820px){
+    section{padding:56px 18px;}
+    .hero{min-height:calc(100svh - 58px);padding-top:clamp(16px,3vh,28px);padding-bottom:clamp(16px,3vh,28px);}
+    .hero-grid{grid-template-columns:1fr;gap:clamp(14px,2.5vh,22px);text-align:center;}
+    .hero-grid .hero-text{order:2;}
+    .hero-grid .hero-visual{order:1;}
+    .hero-cover{height:clamp(220px,38vh,340px);width:auto;max-width:100%;margin:0 auto;}
+    .hero h1.wordmark{font-size:clamp(1.9rem,8vw,2.6rem);}
+    .hero .cta-micro{margin-bottom:6px;}
+    .hero-reassure{margin-inline:auto;margin-bottom:12px;}
+    .hero .signup{margin:0 auto;justify-content:center;}
+    .hero-cta{margin-inline:auto;}
+    .hero-headline{margin-inline:auto;max-width:22ch;}
+
+    .keys{grid-template-columns:1fr;gap:16px;}
+    .testi-grid{grid-template-columns:1fr;gap:16px;}
+    .testi{text-align:left;}
+    .pullquote{margin:38px 0;}
+
+    .zz{grid-template-columns:1fr;gap:24px;}
+    .zz.reverse .zz-txt{order:2;}
+    .zz.reverse .zz-img{order:1;}
+    .zz-img img{max-width:360px;margin:0 auto;}
+    .zz-txt{text-align:center;}
+    .zz-txt p{margin-inline:auto;}
+
+    .sybil-grid{grid-template-columns:1fr;gap:28px;}
+    .sybil-portrait{order:-1;}
+    .sybil-portrait img{max-width:300px;}
+
+    .diff-row{grid-template-columns:96px 1fr;gap:18px;padding:18px 0;}
+    .diff-row .diff-img img{width:96px;}
+
+    .final-grid{grid-template-columns:1fr;gap:28px;text-align:center;}
+    .final-grid .final-cover{max-width:180px;order:-1;}
+    .final-grid .inner{text-align:center;}
+    .final-grid h2,.final-grid p.lead{text-align:center;}
+    .final-grid p.lead{margin-inline:auto;}
+    .final-grid .signup{margin-inline:auto;justify-content:center;}
+    .final-grid .reassure{text-align:center;}
+
+    .prove-porte{max-width:300px;}
+
+    body{font-size:18px;}
+
+    .signup{flex-direction:column;align-items:stretch;max-width:340px;}
+    .hero .signup,.final .signup{margin-inline:auto;}
+    .signup input[type=email]{flex:1 1 auto;width:100%;}
+    .btn-gold{width:100%;}
+    .hero-headline{font-size:clamp(1.4rem,5.5vw,1.9rem);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .hero .glow,.final .glow{display:none;}
+    .btn-gold{transition:none;}
+    .key-card{transition:none;}
+    .key-card:hover{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 0. NAV (sticky) ============ -->
+<nav class="nav" aria-label="Navigazione principale">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">A Desert Story</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="navMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+      </svg>
+    </button>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="#la-storia">La storia</a></li>
+        <li><a href="#sette-prove">Le sette prove</a></li>
+        <li><a href="#personaggi">I personaggi</a></li>
+        <li><a href="#autrice">L'autrice</a></li>
+        <li><a href="#domande">Domande</a></li>
+      </ul>
+      <a href="#lancio" class="nav-cta">Il primo capitolo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" id="top">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-visual">
+      <img class="hero-cover" src="img/copertina.webp" width="616" height="900"
+           alt="Copertina di A Desert Story: un arco dorato in stile art nouveau su fondo bordeaux, con un padiglione dorato nel deserto.">
+    </div>
+    <div class="hero-text">
+      <span class="kicker gold">Romanzo illustrato · 8–12 anni</span>
+      <h1 class="wordmark">A Desert Story</h1>
+      <p class="hero-headline">Un dono che pesa. E sette porte da aprire.</p>
+      <div class="hero-cta">
+        <span class="cta-micro">Comincia a leggerlo stasera.</span>
+        <p class="reassure hero-reassure">Lascia la tua email e ti arriva il primo capitolo intero.</p>
+        <form class="signup" onsubmit="return false;">
+          <input type="email" placeholder="La tua email" aria-label="La tua email">
+          <button type="submit" class="btn-gold">Comincia a leggerlo stasera</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. SINOSSI ============ -->
+<section class="synopsis dark" id="la-storia">
+  <div class="synopsis-col">
+    <div class="sec-head">
+      <svg class="arch" viewBox="0 0 64 80" fill="none" aria-hidden="true">
+        <path d="M32 4 C18 4 8 16 8 34 V76 H56 V34 C56 16 46 4 32 4 Z" stroke="currentColor" stroke-width="2.4"/>
+        <path d="M32 12 C22 12 15 21 15 34 V70 H49 V34 C49 21 42 12 32 12 Z" stroke="currentColor" stroke-width="1.4" opacity=".6"/>
+      </svg>
+      <h2 class="section-title">Come comincia tutto</h2>
+    </div>
+
+    <div class="movement">
+      <p>Dovete sapere che c'era una volta un ragazzo di nove anni di nome <strong>Sebastiano</strong>, che abitava nel villaggio di <em>Montefiore</em>, incastonato fra allegre colline verdeggianti, ai margini di una saggia foresta millenaria. Sua madre era un'esperta erborista, e da lei Sebastiano aveva imparato i nomi delle piante, i loro umori e i loro rimedi. Ma c'era <strong>una cosa che pochi sapevano</strong> su di lui: un segreto a dir poco sorprendente.</p>
+    </div>
+
+    <p class="pullquote">«Sebastiano sapeva parlare con gli animali. Tutti quanti, credetemi.»</p>
+
+    <div class="movement">
+      <p>Glielo aveva donato una <strong>Maga</strong>, con una promessa da mantenere: quel dono serviva a <em>proteggere le foreste</em>, mai a farsi i propri comodi. E Sebastiano aveva promesso, anche se, a volte, la tentazione di raccontare tutto agli amici era forte, eh!</p>
+      <p>Poi un giorno arrivò una notizia che nessuno voleva credere. Lontano, oltre le dune, oltre dove il deserto sembra non finire mai, c'era <strong>un palazzo che nessuno riusciva a vedere</strong>. E dentro quel palazzo, un Mago teneva prigionieri gli animali, uno dopo l'altro, lontani dalla loro casa di sabbia.</p>
+    </div>
+
+    <div class="movement">
+      <p>Così Sebastiano partì. Con <strong>Baltazar</strong>, un cammello che, dovete sapere, aveva un'opinione su quasi ogni cosa, e con qualche compagno raccolto per strada, di quelli che <em>non ti aspetti e poi non lasci più</em>.</p>
+      <p>Dentro il palazzo lo attendeva la prova più strana di tutte: <strong>sette porte, una dopo l'altra.</strong> Nessuna si apriva con la forza. Ogni porta custodiva un enigma, messo lì da un antico Saggio, e si apriva <em>solo con la risposta giusta</em>. E le domande, davanti a quelle porte, erano di quelle che ti fanno grattare la testa e fermare a pensare sul serio.</p>
+      <p>Il resto ve lo racconta il libro. <em>Io vi ho aperto solo la prima porta.</em></p>
+      <p class="sig-line"><span class="signature">Sybil</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. LE SETTE PROVE (teaser interattivo) ============ -->
+<section class="light" id="sette-prove">
+  <div class="wrap">
+    <div class="prove-col">
+    <div class="sec-head">
+      <p class="kicker bronze" style="margin-bottom:14px;">Le sette prove</p>
+      <h2 class="section-title">Sette porte. E davanti a ognuna, una scelta che tocca a te.</h2>
+    </div>
+
+    <div class="prove-lead">
+      <p>La prima porta è di legno vecchio, senza maniglia. Non si spinge, non si sfonda: Sebastiano ci ha già provato, e <strong>la porta non si è mossa di un millimetro</strong>.</p>
+      <p>Davanti a te, appese a un chiodo, <strong>tre chiavi</strong>. <em>Una sola apre.</em> Le altre due, be', meglio non pensare a cosa succede a chi le prova.</p>
+      <p>Accanto a ogni chiave c'è un indizio. Poche parole, di quelle che sembrano chiare finché non le leggi <em>due volte</em>. Baltazar mastica e aspetta. Gli animali dietro la porta trattengono il fiato. <strong>Nessuno può scegliere per te.</strong></p>
+      <p>Qui la forza non basta. Bisogna fermarsi un momento, guardare bene, e capire quale delle tre <em>dice la verità</em>.</p>
+    </div>
+
+    <p class="prove-q"><strong>E tu, quale chiave prenderesti?</strong></p>
+    </div>
+
+    <div class="keys">
+      <button type="button" class="key-card" aria-expanded="false" onclick="toggleKey(this)">
+        <img class="key-img" src="img/key_ferro.jpg" width="150" height="150" loading="lazy" alt="Chiave di ferro, scura e opaca, su fondo bordeaux.">
+        <span class="key-name">Chiave di ferro</span>
+        <p class="key-clue">«Sono fredda come chi dice sempre il vero.»</p>
+        <span class="key-hint">Prendila →</span>
+        <span class="key-reveal">Sebastiano ci ha pensato più a lungo di così. Come sia andata a finire, lo sa solo chi arriva fin lì.</span>
+      </button>
+
+      <button type="button" class="key-card" aria-expanded="false" onclick="toggleKey(this)">
+        <img class="key-img" src="img/key_ottone.jpg" width="150" height="150" loading="lazy" alt="Chiave d'ottone, dorata e calda, su fondo bordeaux.">
+        <span class="key-name">Chiave d'ottone</span>
+        <p class="key-clue">«Chi mi sceglie ha fretta, e la fretta qui non conviene.»</p>
+        <span class="key-hint">Prendila →</span>
+        <span class="key-reveal">Anche Baltazar l'ha guardata a lungo. La verità era altrove, e per trovarla serve un bel po' di deserto.</span>
+      </button>
+
+      <button type="button" class="key-card" aria-expanded="false" onclick="toggleKey(this)">
+        <img class="key-img" src="img/key_argento.jpg" width="150" height="150" loading="lazy" alt="Chiave d'argento, lucida e brillante, su fondo bordeaux.">
+        <span class="key-name">Chiave d'argento</span>
+        <p class="key-clue">«Brillo di più, e non tutto ciò che brilla apre.»</p>
+        <span class="key-hint">Prendila →</span>
+        <span class="key-reveal">Ci sei quasi. O forse no. Davanti a questa porta anche Sebastiano ha dovuto ragionarci su.</span>
+      </button>
+    </div>
+
+    <div class="prove-cta">
+      <p>Qui non ti diciamo qual è quella giusta. La risposta si guadagna strada facendo, dentro il libro.</p>
+      <a href="#lancio" class="btn-gold" style="color:var(--bordeaux-ink);text-decoration:none;">Comincia a leggerlo stasera</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. PER CHI E ============ -->
+<section class="light-soft">
+  <div class="wrap">
+    <p class="kicker bronze" style="text-align:center;margin-bottom:12px;">Per chi è</p>
+    <h2 class="section-title" style="text-align:center;">Se in casa c'è un piccolo lettore</h2>
+    <div class="spec-card">
+      <div class="spec-row">
+        <span class="spec-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+        </span>
+        <div><span class="spec-label">Età</span><span class="spec-val">8–12 da soli · 7+ ad alta voce · sweet spot 8–11</span></div>
+      </div>
+      <div class="spec-row">
+        <span class="spec-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h11a3 3 0 0 1 3 3v11a3 3 0 0 0-3-3H4z"/><path d="M20 5h-2a3 3 0 0 0-3 3v11"/></svg>
+        </span>
+        <div><span class="spec-label">Lunghezza</span><span class="spec-val">290 pagine, un romanzo vero</span></div>
+      </div>
+      <div class="spec-row">
+        <span class="spec-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20s-7-4.3-7-9.3A3.7 3.7 0 0 1 12 8a3.7 3.7 0 0 1 7 2.7C19 15.7 12 20 12 20z"/></svg>
+        </span>
+        <div><span class="spec-label">Se hai amato</span><span class="spec-val">Il Piccolo Principe · Momo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. PERCHE E DIVERSO (una sezione compatta, fondo rosso) ============ -->
+<section class="diff-compact" id="personaggi">
+  <div class="wrap sec-head" style="margin-bottom:22px;">
+    <p class="kicker gold" style="margin-bottom:14px;">I personaggi</p>
+    <h2 class="section-title">Chi incontrerai nel deserto</h2>
+  </div>
+  <p class="cast-intro">Ognuno di loro l'ha disegnato Sybil, a mano.</p>
+  <div class="wrap">
+    <div class="cast-grid">
+      <article class="cast-card">
+        <img src="img/sebastiano.webp" width="616" height="900" loading="lazy" alt="Tavola di Sebastiano, il protagonista, in stile art nouveau.">
+        <div class="cast-body">
+          <h3 class="cast-name">Sebastiano</h3>
+          <p class="cast-desc">Nove anni, un dono tenuto segreto: parla con tutti gli animali del mondo. Parte per il deserto a liberare i prigionieri.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="img/baltazar.webp" width="616" height="900" loading="lazy" alt="Tavola di Baltazar, il cammello, in stile art nouveau.">
+        <div class="cast-body">
+          <h3 class="cast-name">Baltazar</h3>
+          <p class="cast-desc">Il cammello che si dice Re dei Cammelli dell'Est. Goloso, un po' goffo, e con un'opinione su quasi ogni cosa.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="img/freeze.webp" width="616" height="900" loading="lazy" alt="Tavola di Freeze, il folletto del deserto, in stile art nouveau.">
+        <div class="cast-body">
+          <h3 class="cast-name">Freeze</h3>
+          <p class="cast-desc">Un folletto del deserto dallo sguardo di ghiaccio. Buffo, permaloso, raffinatissimo a tavola, e sa fare qualche incantesimo.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="img/fenix.jpg" width="616" height="900" loading="lazy" alt="Tavola di Fenix, la volpe del deserto, in stile art nouveau.">
+        <div class="cast-body">
+          <h3 class="cast-name">Fenix</h3>
+          <p class="cast-desc">Una volpe del deserto che sa prendere sembianze umane. Guida di terra, sguardo attento, poche parole e molta intuizione.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="img/camaleon.jpg" width="616" height="900" loading="lazy" alt="Tavola di Camaleon, il Cama-Leone, in stile art nouveau.">
+        <div class="cast-body">
+          <h3 class="cast-name">Camaleon</h3>
+          <p class="cast-desc">Non un camaleonte qualunque: un Cama-Leone. Sparisce mimetizzandosi, diventa ipnotico, e ha un debole per il turchese.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="img/simurg.webp" width="616" height="900" loading="lazy" alt="Tavola di Simurg, la regina delle aquile, in stile art nouveau.">
+        <div class="cast-body">
+          <h3 class="cast-name">Simurg</h3>
+          <p class="cast-desc">Regina delle aquile del deserto. Enorme, bianca, regale. Vola alta e vede lontano dove nessun altro arriva.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="img/nina.webp" width="616" height="900" loading="lazy" alt="Tavola di Nina, la rana-sirena, in stile art nouveau.">
+        <div class="cast-body">
+          <h3 class="cast-name">Nina</h3>
+          <p class="cast-desc">Una rana-sirena, rara e considerata sacra, con una voce che incanta. Sogna un pubblico, e forse anche di meglio.</p>
+        </div>
+      </article>
+      <article class="cast-card">
+        <img src="img/flora.jpg" width="616" height="900" loading="lazy" alt="Tavola di Flora, la bambina dai capelli ramati, in stile art nouveau.">
+        <div class="cast-body">
+          <h3 class="cast-name">Flora</h3>
+          <p class="cast-desc">Una bambina dai capelli ramati e lo sguardo limpido. Pallida, chiusa in una stanza del palazzo. Chi è davvero?</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. TESTIMONIAL ============ -->
+<!-- PLACEHOLDER: recensioni finte per il mockup. Sostituire con le 3 voci beta reali di Sarah prima del deploy. -->
+<section class="light-soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker bronze" style="margin-bottom:14px;">Le voci</p>
+      <h2 class="section-title">Chi l'ha già letto</h2>
+    </div>
+    <div class="testi-grid">
+      <article class="review">
+        <div class="review-head">
+          <img class="review-avatar" src="img/rev1.jpg" width="58" height="58" loading="lazy" alt="Ritratto di Elena Marchetti">
+          <div class="review-who">
+            <span class="review-name">Elena Marchetti</span>
+            <span class="review-role">mamma · Bologna</span>
+          </div>
+        </div>
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <span class="review-stars"><span class="sr">Valutazione: 5 stelle su 5</span></span>
+        <blockquote>«L'ha finito in quattro sere e ora chiede se Sebastiano tornerà. Da uno che il libro non lo apriva mai, per me è tanto.»</blockquote>
+      </article>
+
+      <article class="review">
+        <div class="review-head">
+          <img class="review-avatar" src="img/rev2.jpg" width="58" height="58" loading="lazy" alt="Ritratto di Marco Costa">
+          <div class="review-who">
+            <span class="review-name">Marco Costa</span>
+            <span class="review-role">papà · Padova</span>
+          </div>
+        </div>
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <span class="review-stars"><span class="sr">Valutazione: 5 stelle su 5</span></span>
+        <blockquote>«Le prove davanti alle porte l'hanno tenuto incollato. A cena mi spiegava il suo ragionamento, tutto orgoglioso.»</blockquote>
+      </article>
+
+      <article class="review">
+        <div class="review-head">
+          <img class="review-avatar" src="img/rev3.jpg" width="58" height="58" loading="lazy" alt="Ritratto di Chiara Rinaldi">
+          <div class="review-who">
+            <span class="review-name">Chiara Rinaldi</span>
+            <span class="review-role">maestra · Verona</span>
+          </div>
+        </div>
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <span class="review-stars"><span class="sr">Valutazione: 5 stelle su 5</span></span>
+        <blockquote>«L'ho adottato in classe per la lettura ad alta voce. I bambini ogni volta mi chiedono un capitolo in più, e discutono sulle risposte.»</blockquote>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. SYBIL ============ -->
+<section class="night" id="autrice">
+  <div class="wrap sybil-grid">
+    <div>
+      <p class="kicker gold" style="margin-bottom:16px;">Chi ti ha raccontato questa storia</p>
+      <h2 class="section-title" style="margin-bottom:24px;">Sybil</h2>
+      <p>Questo libro ha una voce, e la voce ha un nome: Sybil. È lei che ti prende per mano con «dovete sapere che», come le cantastorie delle Mille e una notte.</p>
+      <p>Racconta storie raccolte in viaggio, in luoghi lontani, e le ricuce per chi ha voglia di ascoltare. Ed è sempre lei che ha disegnato a mano le otto tavole del libro: i personaggi uno per uno, in stile <em>art nouveau</em>.</p>
+      <p>Di Sebastiano dice solo questo: che è la storia a cui tiene di più.</p>
+    </div>
+    <figure class="sybil-portrait">
+      <img src="img/sybil.jpg" width="832" height="1216" loading="lazy" alt="Sybil, ritratta di spalle mentre scrive davanti a una finestra affacciata su un mondo incantato.">
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 9. CTA FINALE ============ -->
+<!-- Per attivare la variante post-lancio: aggiungere class="is-launched" a questa <section>. -->
+<section class="final" id="lancio">
+  <div class="glow" aria-hidden="true"></div>
+
+  <!-- Variante pre-lancio (attiva) -->
+  <div class="final-grid prelaunch-only">
+    <img class="final-cover" src="img/copertina.webp" width="616" height="900"
+         alt="Copertina di A Desert Story: un arco dorato in stile art nouveau su fondo bordeaux.">
+    <div class="inner">
+      <h2>Esce presto. Intanto puoi già cominciare.</h2>
+      <p class="lead">Ti mando il primo capitolo, e ti avviso il giorno del lancio. Nient'altro.</p>
+      <form class="signup" onsubmit="return false;">
+        <input type="email" placeholder="La tua email" aria-label="La tua email">
+        <button type="submit" class="btn-gold">Comincia a leggerlo stasera</button>
+      </form>
+      <p class="reassure">Il primo capitolo è un regalo. La tua email resta tua.</p>
+    </div>
+  </div>
+
+  <!-- Variante post-lancio (predisposta, nascosta finché la section non ha .is-launched) -->
+  <div class="inner launched-only">
+    <h2>A Desert Story è uscito.</h2>
+    <div class="amz-row">
+      <a href="#" class="btn-gold" style="text-decoration:none;color:var(--bordeaux-ink);">Compra su Amazon</a>
+      <a href="#" class="amz-secondary">Mandami il primo capitolo</a>
+    </div>
+    <p class="price-line">Cartaceo circa 15 euro. Ebook Kindle da 3,99 euro.</p>
+  </div>
+</section>
+
+<!-- ============ 8. FAQ (dopo il form) ============ -->
+<section class="light-soft" id="domande">
+  <div class="wrap" style="text-align:center;margin-bottom:6px;">
+    <p class="kicker bronze">Le domande giuste</p>
+    <h2 class="section-title" style="margin-top:10px;">Prima di dire di sì</h2>
+  </div>
+  <div class="faq-list">
+    <details open>
+      <summary>In che formato esce?</summary>
+      <div class="answer">Cartaceo con copertina illustrata e interni a colori, più la versione Kindle.</div>
+    </details>
+    <details>
+      <summary>Quanto è lungo?</summary>
+      <div class="answer">Poco meno di 300 pagine, ma scritte comode: impaginazione arieggiata, righe che respirano, di quelle che un ragazzino gira volentieri. Un romanzo intero, con un inizio, sette tappe e una fine che si merita. Vuoi vedere come si legge? <a href="#lancio" class="softlink">Scarica l'estratto</a></div>
+    </details>
+    <details>
+      <summary>Che età serve?</summary>
+      <div class="answer">Dagli 8 ai 12 anni da soli, dai 7 in su ad alta voce. Il punto ideale è fra gli 8 e gli 11.</div>
+    </details>
+    <details>
+      <summary>Non è troppo difficile?</summary>
+      <div class="answer">No. Il ragionamento si vive dentro l'avventura: il bambino risolve le prove insieme a Sebastiano, senza accorgersi di stare imparando a pensare.</div>
+    </details>
+    <details>
+      <summary>Chi ha scritto il libro?</summary>
+      <div class="answer">Sybil, una cantastorie in stile Mille e una notte. È una scelta voluta: la voce narrante ha un nome e una presenza. Ed è anche l'illustratrice delle tavole, disegnate in stile <em>art nouveau</em>.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-inner">
+    <div class="fw">A Desert Story</div>
+    <div class="fw-sub">di Sybil</div>
+    <nav class="foot-links" aria-label="Link legali">
+      <a href="#">Privacy</a>
+      <a href="#">Termini e condizioni</a>
+      <a href="#">Cookie</a>
+      <a href="#">Contatti</a>
+    </nav>
+    <div class="foot-note">[Testi legali in preparazione]</div>
+    <div class="foot-copy">© 2026 A Desert Story</div>
+    <div class="lang-switch">
+      <a href="index.html" class="active">IT</a> · <a href="en/index.html">EN</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // --- Chiavi interattive ---
+  function toggleKey(btn){
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+  }
+
+  // --- Menu mobile ---
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var menu = document.getElementById('navMenu');
+    if(!toggle || !menu) return;
+    function closeMenu(){
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Apri il menu');
+    }
+    toggle.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+    });
+    menu.addEventListener('click', function(e){
+      if(e.target.tagName === 'A') closeMenu();
+    });
+  })();
+</script>
+
+</body>
+</html>
