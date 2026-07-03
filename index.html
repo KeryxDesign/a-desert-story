@@ -263,23 +263,49 @@
     width:auto;margin:0 auto;
   }
   .hero h1.wordmark{
-    font-size:clamp(2rem,5.2vw,3.8rem);
-    margin:10px 0 16px;
+    font-size:clamp(2rem,5vw,3.6rem);
+    margin:0 0 10px;
   }
   .wordmark{overflow-wrap:break-word;}
+  .hero-subtitle{
+    font-family:var(--f-head);
+    font-style:italic;
+    font-weight:500;
+    color:var(--gold);
+    font-size:clamp(1.35rem,2.9vw,2rem);
+    line-height:1.24;
+    margin:0 0 clamp(12px,2vh,18px);
+    max-width:24ch;
+  }
   .hero-headline{
     font-family:var(--f-head);
     color:var(--cream);
-    font-size:clamp(1.6rem,3.4vw,2.6rem);
-    line-height:1.2;
+    font-size:clamp(1.1rem,2.1vw,1.5rem);
+    line-height:1.28;
     font-weight:500;
     font-style:italic;
-    margin:0 0 clamp(20px,3vh,28px);
-    max-width:20ch;
+    margin:0 0 clamp(16px,2.4vh,22px);
+    max-width:30ch;
   }
   .hero-cta{max-width:480px;}
   .hero .cta-micro{margin-bottom:8px;}
   .hero-reassure{margin-top:0;margin-bottom:14px;max-width:44ch;}
+  /* --- badge leggeri sotto il form (chip su fondo scuro) --- */
+  .hero-badges{
+    display:flex;flex-wrap:wrap;gap:9px;
+    margin-top:clamp(14px,2.2vh,20px);max-width:480px;
+  }
+  .hero-badge{
+    font-family:var(--f-ui);
+    font-size:.78rem;font-weight:600;
+    letter-spacing:.01em;
+    color:var(--gold);
+    background:rgba(201,162,75,.07);
+    border:1px solid rgba(201,162,75,.42);
+    border-radius:999px;
+    padding:6px 14px;line-height:1.3;
+    white-space:nowrap;
+  }
 
   /* ========== 2. SYNOPSIS ========== */
   .synopsis{background:linear-gradient(180deg,var(--bordeaux) 0%, #5c1414 100%);}
@@ -686,15 +712,18 @@
     .hero-grid{grid-template-columns:1fr;gap:clamp(10px,1.6vh,16px);text-align:center;}
     .hero-grid .hero-text{order:2;}
     .hero-grid .hero-visual{order:1;}
-    .hero-cover{height:clamp(180px,30vh,260px);width:auto;max-width:100%;margin:0 auto;}
-    .hero h1.wordmark{font-size:clamp(1.8rem,7vw,2.4rem);margin:4px 0 10px;}
+    .hero-cover{height:clamp(160px,28vh,240px);width:auto;max-width:100%;margin:0 auto;}
+    .hero h1.wordmark{font-size:clamp(1.75rem,7vw,2.3rem);margin:2px 0 6px;}
     .hero .kicker{font-size:.68rem;}
+    .hero-subtitle{margin:0 auto clamp(7px,1.4vh,12px);max-width:26ch;font-size:clamp(1.2rem,5vw,1.6rem);}
     .hero-headline{margin:0 auto clamp(10px,1.8vh,16px);}
     .hero .cta-micro{margin-bottom:5px;}
     .hero-reassure{margin-inline:auto;margin-bottom:10px;}
     .hero .signup{margin:0 auto;justify-content:center;}
     .hero-cta{margin-inline:auto;}
-    .hero-headline{margin-inline:auto;max-width:22ch;}
+    .hero-headline{margin-inline:auto;max-width:26ch;}
+    .hero-badges{justify-content:center;margin-top:clamp(10px,1.8vh,14px);margin-inline:auto;}
+    .hero-badge{font-size:.72rem;padding:5px 11px;}
 
     .keys{grid-template-columns:1fr;gap:16px;}
     .testi-grid{grid-template-columns:1fr;gap:16px;}
@@ -731,7 +760,7 @@
     .hero .signup,.final .signup{margin-inline:auto;}
     .signup input[type=email]{flex:1 1 auto;width:100%;}
     .btn-gold{width:100%;}
-    .hero-headline{font-size:clamp(1.4rem,5.5vw,1.9rem);}
+    .hero-headline{font-size:clamp(1.02rem,4vw,1.25rem);}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -775,15 +804,20 @@
            alt="Copertina di A Desert Story: un arco dorato su fondo bordeaux, con un padiglione dorato nel deserto.">
     </div>
     <div class="hero-text">
-      <span class="kicker gold">Romanzo illustrato · 8–12 anni</span>
       <h1 class="wordmark">A Desert Story</h1>
+      <p class="hero-subtitle">Sebastiano e i prigionieri del palazzo invisibile</p>
       <p class="hero-headline">Gli animali stanno sparendo.<br>E un bambino di nove anni è l'unico che può salvarli.</p>
       <div class="hero-cta">
-        <span class="cta-micro">Leggetelo insieme stasera.</span>
         <form class="signup" onsubmit="return false;">
           <input type="email" placeholder="La tua email" aria-label="La tua email">
           <button type="submit" class="btn-gold">Inviami il primo capitolo</button>
         </form>
+        <div class="hero-badges">
+          <span class="hero-badge">8–12 anni</span>
+          <span class="hero-badge">290 pagine</span>
+          <span class="hero-badge">Se hai amato Il Piccolo Principe e Momo</span>
+          <span class="hero-badge">Illustrato a mano</span>
+        </div>
       </div>
     </div>
   </div>
@@ -816,34 +850,6 @@
       <p>Dentro il palazzo lo attendeva la prova più strana di tutte: <strong>sette porte, una dopo l'altra.</strong> Nessuna si apriva con la forza. Ogni porta custodiva un enigma, messo lì da un antico Saggio, e si apriva <em>solo con la risposta giusta</em>. E le domande, davanti a quelle porte, erano di quelle che ti fanno grattare la testa e fermare a pensare sul serio.</p>
       <p>Il resto ve lo racconta il libro. <em>Io vi ho aperto solo la prima porta.</em></p>
       <p class="sig-line"><span class="signature">Sybil</span></p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 4. PER CHI E ============ -->
-<section class="light-soft">
-  <div class="wrap">
-    <p class="kicker bronze" style="text-align:center;margin-bottom:12px;">Per chi è</p>
-    <h2 class="section-title" style="text-align:center;">Se in casa c'è un piccolo lettore</h2>
-    <div class="spec-card">
-      <div class="spec-row">
-        <span class="spec-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
-        </span>
-        <div><span class="spec-label">Età</span><span class="spec-val">8–12 da soli · 7+ ad alta voce · sweet spot 8–11</span></div>
-      </div>
-      <div class="spec-row">
-        <span class="spec-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h11a3 3 0 0 1 3 3v11a3 3 0 0 0-3-3H4z"/><path d="M20 5h-2a3 3 0 0 0-3 3v11"/></svg>
-        </span>
-        <div><span class="spec-label">Lunghezza</span><span class="spec-val">290 pagine, un romanzo vero</span></div>
-      </div>
-      <div class="spec-row">
-        <span class="spec-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20s-7-4.3-7-9.3A3.7 3.7 0 0 1 12 8a3.7 3.7 0 0 1 7 2.7C19 15.7 12 20 12 20z"/></svg>
-        </span>
-        <div><span class="spec-label">Se hai amato</span><span class="spec-val">Il Piccolo Principe · Momo</span></div>
-      </div>
     </div>
   </div>
 </section>
