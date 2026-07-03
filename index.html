@@ -628,6 +628,12 @@
     margin-bottom:14px;display:block;
   }
   .final .cta-micro{text-align:center;}
+  /* CTA finale a due colonne: forza tutto a sinistra su desktop (override dei centrati) */
+  @media (min-width:821px){
+    .final .final-grid p.lead{max-width:46ch;margin:0 0 36px;text-align:left;}
+    .final .final-grid .signup{margin:0;justify-content:flex-start;}
+    .final .final-grid .reassure{text-align:left;}
+  }
   /* post-launch variant (predisposta, non attiva) */
   .launched-only{display:none;}
   .is-launched .prelaunch-only{display:none;}
