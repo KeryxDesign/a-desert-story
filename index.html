@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>A Desert Story — di Sybil</title>
+<title>A Desert Story — di Sybil Stonecutter</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -52,9 +52,8 @@
   /* ---------- Nav header (sticky) ---------- */
   .nav{
     position:sticky;top:0;z-index:100;
-    background:rgba(42,16,16,.82);
-    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(201,162,75,.22);
+    background:var(--bordeaux-ink);
+    border-bottom:1px solid rgba(201,162,75,.28);
   }
   .nav-inner{
     max-width:var(--maxw);margin:0 auto;
@@ -94,9 +93,8 @@
     .nav-menu{
       display:none;position:absolute;left:0;right:0;top:100%;
       flex-direction:column;
-      background:rgba(42,16,16,.97);
-      -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(201,162,75,.22);
+      background:var(--bordeaux-ink);
+      border-bottom:1px solid rgba(201,162,75,.28);
       padding:8px 20px 20px;
     }
     .nav-menu.open{display:flex;}
@@ -297,6 +295,12 @@
      stessi margini sinistro/destro per titolo, testo e citazione. */
   .synopsis-col{max-width:680px;margin-inline:auto;}
   .synopsis-col .sec-head{margin-bottom:34px;}
+  .synopsis-hero{margin:0 auto 26px;max-width:230px;}
+  .synopsis-hero img{
+    width:100%;height:auto;border-radius:10px;
+    box-shadow:0 18px 42px rgba(0,0,0,.42);
+    border:1px solid rgba(201,162,75,.3);
+  }
   .movement{max-width:none;margin-inline:0;}   /* riempie la colonna, bordo sx = colonna */
   .movement + .pullquote,.pullquote + .movement{margin-top:8px;}
   .pullquote{
@@ -662,14 +666,16 @@
   /* ========== MOBILE ========== */
   @media (max-width:820px){
     section{padding:56px 18px;}
-    .hero{min-height:calc(100svh - 58px);padding-top:clamp(16px,3vh,28px);padding-bottom:clamp(16px,3vh,28px);}
-    .hero-grid{grid-template-columns:1fr;gap:clamp(14px,2.5vh,22px);text-align:center;}
+    .hero{min-height:calc(100svh - 58px);padding-top:clamp(12px,2vh,20px);padding-bottom:clamp(12px,2vh,20px);}
+    .hero-grid{grid-template-columns:1fr;gap:clamp(10px,1.6vh,16px);text-align:center;}
     .hero-grid .hero-text{order:2;}
     .hero-grid .hero-visual{order:1;}
-    .hero-cover{height:clamp(220px,38vh,340px);width:auto;max-width:100%;margin:0 auto;}
-    .hero h1.wordmark{font-size:clamp(1.9rem,8vw,2.6rem);}
-    .hero .cta-micro{margin-bottom:6px;}
-    .hero-reassure{margin-inline:auto;margin-bottom:12px;}
+    .hero-cover{height:clamp(180px,30vh,260px);width:auto;max-width:100%;margin:0 auto;}
+    .hero h1.wordmark{font-size:clamp(1.8rem,7vw,2.4rem);margin:4px 0 10px;}
+    .hero .kicker{font-size:.68rem;}
+    .hero-headline{margin:0 auto clamp(10px,1.8vh,16px);}
+    .hero .cta-micro{margin-bottom:5px;}
+    .hero-reassure{margin-inline:auto;margin-bottom:10px;}
     .hero .signup{margin:0 auto;justify-content:center;}
     .hero-cta{margin-inline:auto;}
     .hero-headline{margin-inline:auto;max-width:22ch;}
@@ -735,7 +741,6 @@
     <div class="nav-menu" id="navMenu">
       <ul class="nav-links">
         <li><a href="#la-storia">La storia</a></li>
-        <li><a href="#sette-prove">Le sette prove</a></li>
         <li><a href="#personaggi">I personaggi</a></li>
         <li><a href="#autrice">L'autrice</a></li>
         <li><a href="#domande">Domande</a></li>
@@ -758,7 +763,7 @@
       <h1 class="wordmark">A Desert Story</h1>
       <p class="hero-headline">Un dono che pesa. E sette porte da aprire.</p>
       <div class="hero-cta">
-        <span class="cta-micro">Comincia a leggerlo stasera.</span>
+        <span class="cta-micro">Stasera, leggetelo insieme.</span>
         <p class="reassure hero-reassure">Lascia la tua email e ti arriva il primo capitolo intero.</p>
         <form class="signup" onsubmit="return false;">
           <input type="email" placeholder="La tua email" aria-label="La tua email">
@@ -773,10 +778,9 @@
 <section class="synopsis dark" id="la-storia">
   <div class="synopsis-col">
     <div class="sec-head">
-      <svg class="arch" viewBox="0 0 64 80" fill="none" aria-hidden="true">
-        <path d="M32 4 C18 4 8 16 8 34 V76 H56 V34 C56 16 46 4 32 4 Z" stroke="currentColor" stroke-width="2.4"/>
-        <path d="M32 12 C22 12 15 21 15 34 V70 H49 V34 C49 21 42 12 32 12 Z" stroke="currentColor" stroke-width="1.4" opacity=".6"/>
-      </svg>
+      <figure class="synopsis-hero">
+        <img src="img/sebastiano.webp" width="616" height="900" loading="lazy" alt="Sebastiano, il protagonista">
+      </figure>
       <h2 class="section-title">Come comincia tutto</h2>
     </div>
 
@@ -796,58 +800,6 @@
       <p>Dentro il palazzo lo attendeva la prova più strana di tutte: <strong>sette porte, una dopo l'altra.</strong> Nessuna si apriva con la forza. Ogni porta custodiva un enigma, messo lì da un antico Saggio, e si apriva <em>solo con la risposta giusta</em>. E le domande, davanti a quelle porte, erano di quelle che ti fanno grattare la testa e fermare a pensare sul serio.</p>
       <p>Il resto ve lo racconta il libro. <em>Io vi ho aperto solo la prima porta.</em></p>
       <p class="sig-line"><span class="signature">Sybil</span></p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3. LE SETTE PROVE (teaser interattivo) ============ -->
-<section class="light" id="sette-prove">
-  <div class="wrap">
-    <div class="prove-col">
-    <div class="sec-head">
-      <p class="kicker bronze" style="margin-bottom:14px;">Le sette prove</p>
-      <h2 class="section-title">Sette porte. E davanti a ognuna, una scelta che tocca a te.</h2>
-    </div>
-
-    <div class="prove-lead">
-      <p>La prima porta è di legno vecchio, senza maniglia. Non si spinge, non si sfonda: Sebastiano ci ha già provato, e <strong>la porta non si è mossa di un millimetro</strong>.</p>
-      <p>Davanti a te, appese a un chiodo, <strong>tre chiavi</strong>. <em>Una sola apre.</em> Le altre due, be', meglio non pensare a cosa succede a chi le prova.</p>
-      <p>Accanto a ogni chiave c'è un indizio. Poche parole, di quelle che sembrano chiare finché non le leggi <em>due volte</em>. Baltazar mastica e aspetta. Gli animali dietro la porta trattengono il fiato. <strong>Nessuno può scegliere per te.</strong></p>
-      <p>Qui la forza non basta. Bisogna fermarsi un momento, guardare bene, e capire quale delle tre <em>dice la verità</em>.</p>
-    </div>
-
-    <p class="prove-q"><strong>E tu, quale chiave prenderesti?</strong></p>
-    </div>
-
-    <div class="keys">
-      <button type="button" class="key-card" aria-expanded="false" onclick="toggleKey(this)">
-        <img class="key-img" src="img/key_ferro.jpg" width="150" height="150" loading="lazy" alt="Chiave di ferro, scura e opaca, su fondo bordeaux.">
-        <span class="key-name">Chiave di ferro</span>
-        <p class="key-clue">«Sono fredda come chi dice sempre il vero.»</p>
-        <span class="key-hint">Prendila →</span>
-        <span class="key-reveal">Sebastiano ci ha pensato più a lungo di così. Come sia andata a finire, lo sa solo chi arriva fin lì.</span>
-      </button>
-
-      <button type="button" class="key-card" aria-expanded="false" onclick="toggleKey(this)">
-        <img class="key-img" src="img/key_ottone.jpg" width="150" height="150" loading="lazy" alt="Chiave d'ottone, dorata e calda, su fondo bordeaux.">
-        <span class="key-name">Chiave d'ottone</span>
-        <p class="key-clue">«Chi mi sceglie ha fretta, e la fretta qui non conviene.»</p>
-        <span class="key-hint">Prendila →</span>
-        <span class="key-reveal">Anche Baltazar l'ha guardata a lungo. La verità era altrove, e per trovarla serve un bel po' di deserto.</span>
-      </button>
-
-      <button type="button" class="key-card" aria-expanded="false" onclick="toggleKey(this)">
-        <img class="key-img" src="img/key_argento.jpg" width="150" height="150" loading="lazy" alt="Chiave d'argento, lucida e brillante, su fondo bordeaux.">
-        <span class="key-name">Chiave d'argento</span>
-        <p class="key-clue">«Brillo di più, e non tutto ciò che brilla apre.»</p>
-        <span class="key-hint">Prendila →</span>
-        <span class="key-reveal">Ci sei quasi. O forse no. Davanti a questa porta anche Sebastiano ha dovuto ragionarci su.</span>
-      </button>
-    </div>
-
-    <div class="prove-cta">
-      <p>Qui non ti diciamo qual è quella giusta. La risposta si guadagna strada facendo, dentro il libro.</p>
-      <a href="#lancio" class="btn-gold" style="color:var(--bordeaux-ink);text-decoration:none;">Comincia a leggerlo stasera</a>
     </div>
   </div>
 </section>
@@ -1005,7 +957,7 @@
   <div class="wrap sybil-grid">
     <div>
       <p class="kicker gold" style="margin-bottom:16px;">Chi ti ha raccontato questa storia</p>
-      <h2 class="section-title" style="margin-bottom:24px;">Sybil</h2>
+      <h2 class="section-title" style="margin-bottom:24px;">Sybil Stonecutter</h2>
       <p>Questo libro ha una voce, e la voce ha un nome: Sybil. È lei che ti prende per mano con «dovete sapere che», come le cantastorie delle Mille e una notte.</p>
       <p>Racconta storie raccolte in viaggio, in luoghi lontani, e le ricuce per chi ha voglia di ascoltare. Ed è sempre lei che ha disegnato a mano le otto tavole del libro: i personaggi uno per uno, in stile <em>art nouveau</em>.</p>
       <p>Di Sebastiano dice solo questo: che è la storia a cui tiene di più.</p>
@@ -1081,7 +1033,7 @@
 <footer>
   <div class="foot-inner">
     <div class="fw">A Desert Story</div>
-    <div class="fw-sub">di Sybil</div>
+    <div class="fw-sub">di Sybil Stonecutter</div>
     <nav class="foot-links" aria-label="Link legali">
       <a href="#">Privacy</a>
       <a href="#">Termini e condizioni</a>
