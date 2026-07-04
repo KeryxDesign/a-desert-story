@@ -885,12 +885,54 @@
     .hero-headline{font-size:clamp(1.2rem,4.8vw,1.5rem);}
   }
 
+  /* ---- Carosello guardiani (riusa .cast-carousel/.cast-track) ---- */
+  .guardian-carousel .cast-card{
+    text-align:center;
+    padding-top:26px;
+    background:rgba(244,236,216,.06);
+  }
+  .guardian-carousel .cast-card .guardian-portrait{
+    width:132px;height:132px;object-fit:cover;
+    border-radius:50%;margin:0 auto 18px;
+    border-bottom:none;aspect-ratio:auto;
+    box-shadow:0 10px 26px rgba(0,0,0,.4);
+  }
+  .guardian-carousel .cast-body{padding:0 24px 26px;}
+  .guardian-carousel .guardian-name{
+    font-family:var(--f-head);font-weight:600;
+    color:var(--gold);font-size:1.8rem;line-height:1.08;
+    margin:0 0 6px;letter-spacing:.01em;
+  }
+  .guardian-carousel .guardian-role{
+    font-family:var(--f-ui);font-weight:700;
+    text-transform:uppercase;letter-spacing:.16em;
+    font-size:.7rem;color:#cbb26f;margin:0 0 14px;
+  }
+  .guardian-carousel .guardian-desc{
+    font-family:var(--f-head);font-style:italic;
+    font-size:1.12rem;line-height:1.4;color:#f4ead4;margin:0;
+  }
+  @media (max-width:640px){
+    .guardian-carousel .guardian-name{font-size:1.5rem;}
+    .guardian-carousel .guardian-desc{font-size:1rem;}
+  }
+
+  /* ---- Reveal on scroll (attivo solo con JS: classe .reveal su <html>) ---- */
+  .reveal .revl{
+    opacity:0;transform:translateY(20px);
+    transition:opacity .6s ease-out, transform .6s ease-out;
+    will-change:opacity, transform;
+  }
+  .reveal .revl.is-in{opacity:1;transform:none;}
+
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     .hero .glow,.final .glow{display:none;}
     .btn-gold{transition:none;}
     .key-card{transition:none;}
     .key-card:hover{transform:none;}
+    /* Reveal: mostra tutto subito, nessuna animazione */
+    .reveal .revl{opacity:1 !important;transform:none !important;transition:none !important;}
   }
 </style>
 </head>
@@ -1008,37 +1050,51 @@
   </div>
   <p class="trials-lead">Dentro il palazzo, dietro sette porte, non c'erano serrature né chiavi che tenessero. C'erano loro: alcune delle menti più grandi mai esistite, decise a misurare la stoffa di Sebastiano.</p>
   <div class="wrap">
-    <div class="guardian-grid">
-      <article class="guardian-card guardian">
-        <img class="guardian-portrait" src="img/guard_aristotele.jpg" width="132" height="132" loading="lazy" alt="Ritratto di Aristotele">
-        <h3 class="guardian-name">Aristotele</h3>
-        <p class="guardian-role">Il filosofo</p>
-        <p class="guardian-desc">«La logica. Un ragionamento da seguire fino in fondo, senza inciampare.»</p>
-      </article>
-      <article class="guardian-card guardian">
-        <img class="guardian-portrait" src="img/guard_dante.jpg" width="132" height="132" loading="lazy" alt="Ritratto di Dante">
-        <h3 class="guardian-name">Dante</h3>
-        <p class="guardian-role">Il poeta</p>
-        <p class="guardian-desc">«I versi. Riconoscere la bellezza giusta tra mille parole.»</p>
-      </article>
-      <article class="guardian-card guardian">
-        <img class="guardian-portrait" src="img/guard_leonardo.jpg" width="132" height="132" loading="lazy" alt="Ritratto di Leonardo">
-        <h3 class="guardian-name">Leonardo</h3>
-        <p class="guardian-role">L'artista</p>
-        <p class="guardian-desc">«Lo sguardo. Vedere ciò che manca dove tutti vedono il vuoto.»</p>
-      </article>
-      <article class="guardian-card guardian">
-        <img class="guardian-portrait" src="img/guard_bach.jpg" width="132" height="132" loading="lazy" alt="Ritratto di Bach">
-        <h3 class="guardian-name">Bach</h3>
-        <p class="guardian-role">Il compositore</p>
-        <p class="guardian-desc">«La musica. Una prova da ascoltare più che da risolvere.»</p>
-      </article>
-      <article class="guardian-card guardian">
-        <img class="guardian-portrait" src="img/guard_einstein.jpg" width="132" height="132" loading="lazy" alt="Ritratto di Einstein">
-        <h3 class="guardian-name">Einstein</h3>
-        <p class="guardian-role">Lo scienziato</p>
-        <p class="guardian-desc">«Le leggi dell'universo. Dove il vero e il falso non bastano più.»</p>
-      </article>
+    <div class="cast-carousel guardian-carousel">
+      <button class="cast-arrow prev" type="button" aria-label="Guardiano precedente">‹</button>
+      <div class="cast-track" id="guardTrack" tabindex="0" role="region" aria-label="Carosello dei guardiani">
+        <article class="cast-card">
+          <img class="guardian-portrait" src="img/guard_aristotele.jpg" width="132" height="132" loading="lazy" alt="Ritratto di Aristotele">
+          <div class="cast-body">
+            <h3 class="guardian-name">Aristotele</h3>
+            <p class="guardian-role">Il filosofo</p>
+            <p class="guardian-desc">«La logica. Un ragionamento da seguire fino in fondo, senza inciampare.»</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img class="guardian-portrait" src="img/guard_dante.jpg" width="132" height="132" loading="lazy" alt="Ritratto di Dante">
+          <div class="cast-body">
+            <h3 class="guardian-name">Dante</h3>
+            <p class="guardian-role">Il poeta</p>
+            <p class="guardian-desc">«I versi. Riconoscere la bellezza giusta tra mille parole.»</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img class="guardian-portrait" src="img/guard_leonardo.jpg" width="132" height="132" loading="lazy" alt="Ritratto di Leonardo">
+          <div class="cast-body">
+            <h3 class="guardian-name">Leonardo</h3>
+            <p class="guardian-role">L'artista</p>
+            <p class="guardian-desc">«Lo sguardo. Vedere ciò che manca dove tutti vedono il vuoto.»</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img class="guardian-portrait" src="img/guard_bach.jpg" width="132" height="132" loading="lazy" alt="Ritratto di Bach">
+          <div class="cast-body">
+            <h3 class="guardian-name">Bach</h3>
+            <p class="guardian-role">Il compositore</p>
+            <p class="guardian-desc">«La musica. Una prova da ascoltare più che da risolvere.»</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img class="guardian-portrait" src="img/guard_einstein.jpg" width="132" height="132" loading="lazy" alt="Ritratto di Einstein">
+          <div class="cast-body">
+            <h3 class="guardian-name">Einstein</h3>
+            <p class="guardian-role">Lo scienziato</p>
+            <p class="guardian-desc">«Le leggi dell'universo. Dove il vero e il falso non bastano più.»</p>
+          </div>
+        </article>
+      </div>
+      <button class="cast-arrow next" type="button" aria-label="Guardiano successivo">›</button>
     </div>
   </div>
   <p class="trials-close">Ogni porta mette alla prova una parte diversa di lui. Sbagliare non è concesso.</p>
@@ -1049,6 +1105,7 @@
   <div class="wrap sec-head" style="margin-bottom:22px;">
     <p class="kicker gold" style="margin-bottom:14px;">I personaggi</p>
     <h2 class="section-title">Sebastiano non sarà da solo in queste prove</h2>
+    <p class="cast-intro" style="margin-top:18px;margin-bottom:0;">Ecco i personaggi che lo aiuteranno.</p>
   </div>
   <div class="wrap">
     <div class="cast-carousel">
@@ -1283,15 +1340,25 @@
     });
   })();
 
-  // --- Carosello personaggi (loop continuo, swipe nativo) ---
-  (function(){
-    var track = document.getElementById('castTrack');
+  // --- Carosello riusabile (loop continuo, swipe nativo, autoplay lento) ---
+  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initCarousel(trackId, opts){
+    var track = document.getElementById(trackId);
     if(!track) return;
+    opts = opts || {};
+    var speed = opts.speed || 0.4;      // px per frame (autoplay lento)
     var carousel = track.closest('.cast-carousel');
     var prevBtn = carousel.querySelector('.cast-arrow.prev');
     var nextBtn = carousel.querySelector('.cast-arrow.next');
     var originals = Array.prototype.slice.call(track.children);
     var count = originals.length;
+
+    // Il CSS ha scroll-behavior:smooth. Con lo smooth, riassegnare scrollLeft
+    // ogni frame nell'autoplay riparte l'animazione da capo e non avanza mai.
+    // Forziamo behavior:auto sul track; lo scroll animato di frecce/tastiera
+    // usa scrollBy con behavior:'smooth' esplicito, che sovrascrive per-chiamata.
+    track.style.scrollBehavior = 'auto';
 
     // Cloni prima e dopo per un loop continuo in entrambe le direzioni.
     var before = document.createDocumentFragment();
@@ -1310,43 +1377,162 @@
     }
     function blockWidth(){ return step() * count; }
 
+    // Il CSS ha scroll-behavior:smooth: assegnare scrollLeft direttamente
+    // verrebbe ignorato. Uso scrollTo con behavior:auto per i salti istantanei.
+    function setScroll(x){ track.scrollTo({left:x, behavior:'auto'}); }
+
     // Parte centrato sul blocco originale (salta i cloni iniziali).
-    function recenter(){ track.scrollLeft = blockWidth(); }
-    // Attende layout/immagini per calcolare le larghezze giuste.
+    function recenter(){ setScroll(blockWidth()); }
     if(document.readyState === 'complete') recenter();
     else window.addEventListener('load', recenter);
     setTimeout(recenter, 200);
 
+    // Mantiene la posizione dentro il blocco centrale spostando di un blocco
+    // quando si esce dai cloni. Usato sia dallo scroll manuale che dall'autoplay.
+    // Ritorna lo shift applicato (0 se nessun wrap), cosi l'autoplay puo
+    // aggiornare il proprio accumulatore senza perdere la parte frazionaria.
+    function normalize(){
+      var bw = blockWidth();
+      if(bw <= 0) return 0;
+      if(track.scrollLeft < bw * 0.5){
+        setScroll(track.scrollLeft + bw);
+        return bw;
+      } else if(track.scrollLeft > bw * 2.5){
+        setScroll(track.scrollLeft - bw);
+        return -bw;
+      }
+      return 0;
+    }
+
     var wrapping = false;
     track.addEventListener('scroll', function(){
       if(wrapping) return;
-      var bw = blockWidth();
-      // Uscito dai limiti dei cloni: riporta al blocco centrale senza animazione.
-      if(track.scrollLeft < bw * 0.5){
-        wrapping = true;
-        var prevBehavior = track.style.scrollBehavior;
-        track.style.scrollBehavior = 'auto';
-        track.scrollLeft += bw;
-        track.style.scrollBehavior = prevBehavior;
-        wrapping = false;
-      } else if(track.scrollLeft > bw * 2.5){
-        wrapping = true;
-        var pb = track.style.scrollBehavior;
-        track.style.scrollBehavior = 'auto';
-        track.scrollLeft -= bw;
-        track.style.scrollBehavior = pb;
-        wrapping = false;
-      }
+      wrapping = true;
+      var prevBehavior = track.style.scrollBehavior;
+      track.style.scrollBehavior = 'auto';
+      normalize();
+      track.style.scrollBehavior = prevBehavior;
+      wrapping = false;
     }, {passive:true});
 
     function go(dir){ track.scrollBy({left: dir * step(), behavior:'smooth'}); }
-    if(nextBtn) nextBtn.addEventListener('click', function(){ go(1); });
-    if(prevBtn) prevBtn.addEventListener('click', function(){ go(-1); });
+    if(nextBtn) nextBtn.addEventListener('click', function(){ go(1); pauseNow(); });
+    if(prevBtn) prevBtn.addEventListener('click', function(){ go(-1); pauseNow(); });
     track.addEventListener('keydown', function(e){
-      if(e.key === 'ArrowRight'){ e.preventDefault(); go(1); }
-      else if(e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); }
+      if(e.key === 'ArrowRight'){ e.preventDefault(); go(1); pauseNow(); }
+      else if(e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); pauseNow(); }
     });
     window.addEventListener('resize', recenter);
+
+    // ----- Autoplay lento (nastro che scorre) -----
+    // Disattivo scroll-snap per l'autoplay continuo; lo riattivo durante
+    // l'interazione manuale cosi frecce/swipe agganciano bene.
+    if(REDUCED) return;
+
+    var paused = false;
+    var resumeTimer = null;
+    var rafId = null;
+
+    function pauseNow(){
+      paused = true;
+      track.style.scrollSnapType = 'x proximity';
+      if(resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function(){
+        paused = false;
+        track.style.scrollSnapType = 'none';
+      }, 1500);
+    }
+
+    // Autoplay senza snap (snap solo quando l'utente interagisce).
+    track.style.scrollSnapType = 'none';
+
+    // Accumulatore float: scrollLeft e intero, incrementi <1px si perderebbero
+    // se rileggessi scrollLeft ogni frame. Tengo la posizione in acc e la
+    // correggo solo dello shift di wrap restituito da normalize().
+    var acc = track.scrollLeft;
+    function tick(){
+      if(!paused){
+        acc += speed;
+        setScroll(acc);
+        acc += normalize(); // se c'e stato un wrap, sposta acc dello stesso blocco
+      } else {
+        acc = track.scrollLeft; // resta agganciato alla posizione manuale
+      }
+      rafId = requestAnimationFrame(tick);
+    }
+    rafId = requestAnimationFrame(tick);
+
+    // Pausa su interazione utente, ripresa dopo ~1.5s di inattivita.
+    ['pointerenter','pointerdown','focusin','touchstart','wheel'].forEach(function(ev){
+      track.addEventListener(ev, pauseNow, {passive:true});
+    });
+    carousel.addEventListener('pointerenter', pauseNow, {passive:true});
+    // Su hover teniamo in pausa finche il puntatore resta dentro.
+    carousel.addEventListener('pointerleave', function(){
+      if(resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function(){
+        paused = false;
+        track.style.scrollSnapType = 'none';
+      }, 1500);
+    }, {passive:true});
+  }
+
+  initCarousel('castTrack', {speed:0.4});
+  initCarousel('guardTrack', {speed:0.35});
+
+  // --- Reveal on scroll (fade-in + slide-up, una volta sola) ---
+  (function(){
+    var root = document.documentElement;
+    // Segna gli elementi da rivelare.
+    var sel = [
+      '.kicker', '.section-title', '.hero-subtitle', '.hero-headline',
+      '.cast-intro', '.trials-lead', '.trials-close', '.pullquote',
+      '.movement', '.synopsis-hero', '.spec-card',
+      '.cast-card', '.guardian-card', '.review',
+      '.sybil-portrait', '.final-grid', '.faq-list details',
+      '.infobar-item', '.synopsis-overline'
+    ].join(',');
+
+    var nodes = Array.prototype.slice.call(document.querySelectorAll(sel));
+    // Escludi cloni del carosello e l'above-the-fold dell'hero (leggibile subito).
+    var hero = document.getElementById('top');
+    nodes = nodes.filter(function(el){
+      if(el.getAttribute('aria-hidden') === 'true') return false;
+      if(hero && hero.contains(el)) return false;
+      return true;
+    });
+
+    if(REDUCED || !('IntersectionObserver' in window)){
+      return; // tutto resta visibile (nessuna classe .reveal aggiunta)
+    }
+
+    // Attiva lo stato iniziale nascosto SOLO ora che il JS c'e.
+    root.classList.add('reveal');
+    nodes.forEach(function(el){ el.classList.add('revl'); });
+
+    // Stagger a cascata per gruppi di card/voci vicine.
+    function staggerGroup(parentSel, childSel){
+      Array.prototype.forEach.call(document.querySelectorAll(parentSel), function(parent){
+        var kids = parent.querySelectorAll(childSel);
+        Array.prototype.forEach.call(kids, function(k, i){
+          if(k.classList.contains('revl')) k.style.transitionDelay = Math.min(i,6)*80 + 'ms';
+        });
+      });
+    }
+    staggerGroup('.cast-track', '.cast-card');
+    staggerGroup('.testi-grid', '.review');
+    staggerGroup('.infobar-inner', '.infobar-item');
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+
+    nodes.forEach(function(el){ io.observe(el); });
   })();
 </script>
 

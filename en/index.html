@@ -881,12 +881,54 @@
     .hero-headline{font-size:clamp(1.2rem,4.8vw,1.5rem);}
   }
 
+  /* ---- Carosello guardiani (riusa .cast-carousel/.cast-track) ---- */
+  .guardian-carousel .cast-card{
+    text-align:center;
+    padding-top:26px;
+    background:rgba(244,236,216,.06);
+  }
+  .guardian-carousel .cast-card .guardian-portrait{
+    width:132px;height:132px;object-fit:cover;
+    border-radius:50%;margin:0 auto 18px;
+    border-bottom:none;aspect-ratio:auto;
+    box-shadow:0 10px 26px rgba(0,0,0,.4);
+  }
+  .guardian-carousel .cast-body{padding:0 24px 26px;}
+  .guardian-carousel .guardian-name{
+    font-family:var(--f-head);font-weight:600;
+    color:var(--gold);font-size:1.8rem;line-height:1.08;
+    margin:0 0 6px;letter-spacing:.01em;
+  }
+  .guardian-carousel .guardian-role{
+    font-family:var(--f-ui);font-weight:700;
+    text-transform:uppercase;letter-spacing:.16em;
+    font-size:.7rem;color:#cbb26f;margin:0 0 14px;
+  }
+  .guardian-carousel .guardian-desc{
+    font-family:var(--f-head);font-style:italic;
+    font-size:1.12rem;line-height:1.4;color:#f4ead4;margin:0;
+  }
+  @media (max-width:640px){
+    .guardian-carousel .guardian-name{font-size:1.5rem;}
+    .guardian-carousel .guardian-desc{font-size:1rem;}
+  }
+
+  /* ---- Reveal on scroll (attivo solo con JS: classe .reveal su <html>) ---- */
+  .reveal .revl{
+    opacity:0;transform:translateY(20px);
+    transition:opacity .6s ease-out, transform .6s ease-out;
+    will-change:opacity, transform;
+  }
+  .reveal .revl.is-in{opacity:1;transform:none;}
+
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     .hero .glow,.final .glow{display:none;}
     .btn-gold{transition:none;}
     .key-card{transition:none;}
     .key-card:hover{transform:none;}
+    /* Reveal: mostra tutto subito, nessuna animazione */
+    .reveal .revl{opacity:1 !important;transform:none !important;transition:none !important;}
   }
 </style>
 </head>
@@ -1004,37 +1046,51 @@
   </div>
   <p class="trials-lead">Inside the palace, behind seven doors, no lock and no key could hold. What waited there was something else: some of the greatest minds who ever lived, set on taking the measure of Sebastiano.</p>
   <div class="wrap">
-    <div class="guardian-grid">
-      <article class="guardian-card guardian">
-        <img class="guardian-portrait" src="../img/guard_aristotele.jpg" width="132" height="132" loading="lazy" alt="Portrait of Aristotle">
-        <h3 class="guardian-name">Aristotle</h3>
-        <p class="guardian-role">The philosopher</p>
-        <p class="guardian-desc">«Logic. A line of reasoning to follow all the way, without a stumble.»</p>
-      </article>
-      <article class="guardian-card guardian">
-        <img class="guardian-portrait" src="../img/guard_dante.jpg" width="132" height="132" loading="lazy" alt="Portrait of Dante">
-        <h3 class="guardian-name">Dante</h3>
-        <p class="guardian-role">The poet</p>
-        <p class="guardian-desc">«Verse. To recognise the right beauty among a thousand words.»</p>
-      </article>
-      <article class="guardian-card guardian">
-        <img class="guardian-portrait" src="../img/guard_leonardo.jpg" width="132" height="132" loading="lazy" alt="Portrait of Leonardo">
-        <h3 class="guardian-name">Leonardo</h3>
-        <p class="guardian-role">The artist</p>
-        <p class="guardian-desc">«The eye. To see what is missing where everyone else sees empty space.»</p>
-      </article>
-      <article class="guardian-card guardian">
-        <img class="guardian-portrait" src="../img/guard_bach.jpg" width="132" height="132" loading="lazy" alt="Portrait of Bach">
-        <h3 class="guardian-name">Bach</h3>
-        <p class="guardian-role">The composer</p>
-        <p class="guardian-desc">«Music. A trial to be heard more than solved.»</p>
-      </article>
-      <article class="guardian-card guardian">
-        <img class="guardian-portrait" src="../img/guard_einstein.jpg" width="132" height="132" loading="lazy" alt="Portrait of Einstein">
-        <h3 class="guardian-name">Einstein</h3>
-        <p class="guardian-role">The scientist</p>
-        <p class="guardian-desc">«The laws of the universe. Where true and false are no longer enough.»</p>
-      </article>
+    <div class="cast-carousel guardian-carousel">
+      <button class="cast-arrow prev" type="button" aria-label="Previous guardian">‹</button>
+      <div class="cast-track" id="guardTrack" tabindex="0" role="region" aria-label="Guardians carousel">
+        <article class="cast-card">
+          <img class="guardian-portrait" src="../img/guard_aristotele.jpg" width="132" height="132" loading="lazy" alt="Portrait of Aristotle">
+          <div class="cast-body">
+            <h3 class="guardian-name">Aristotle</h3>
+            <p class="guardian-role">The philosopher</p>
+            <p class="guardian-desc">«Logic. A line of reasoning to follow all the way, without a stumble.»</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img class="guardian-portrait" src="../img/guard_dante.jpg" width="132" height="132" loading="lazy" alt="Portrait of Dante">
+          <div class="cast-body">
+            <h3 class="guardian-name">Dante</h3>
+            <p class="guardian-role">The poet</p>
+            <p class="guardian-desc">«Verse. To recognise the right beauty among a thousand words.»</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img class="guardian-portrait" src="../img/guard_leonardo.jpg" width="132" height="132" loading="lazy" alt="Portrait of Leonardo">
+          <div class="cast-body">
+            <h3 class="guardian-name">Leonardo</h3>
+            <p class="guardian-role">The artist</p>
+            <p class="guardian-desc">«The eye. To see what is missing where everyone else sees empty space.»</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img class="guardian-portrait" src="../img/guard_bach.jpg" width="132" height="132" loading="lazy" alt="Portrait of Bach">
+          <div class="cast-body">
+            <h3 class="guardian-name">Bach</h3>
+            <p class="guardian-role">The composer</p>
+            <p class="guardian-desc">«Music. A trial to be heard more than solved.»</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img class="guardian-portrait" src="../img/guard_einstein.jpg" width="132" height="132" loading="lazy" alt="Portrait of Einstein">
+          <div class="cast-body">
+            <h3 class="guardian-name">Einstein</h3>
+            <p class="guardian-role">The scientist</p>
+            <p class="guardian-desc">«The laws of the universe. Where true and false are no longer enough.»</p>
+          </div>
+        </article>
+      </div>
+      <button class="cast-arrow next" type="button" aria-label="Next guardian">›</button>
     </div>
   </div>
   <p class="trials-close">Each door tests a different part of him. There is no room for a wrong answer.</p>
@@ -1045,6 +1101,7 @@
   <div class="wrap sec-head" style="margin-bottom:22px;">
     <p class="kicker gold" style="margin-bottom:14px;">The characters</p>
     <h2 class="section-title">Sebastiano won't face the trials alone</h2>
+    <p class="cast-intro" style="margin-top:18px;margin-bottom:0;">Here are the companions who will help him.</p>
   </div>
   <div class="wrap">
     <div class="cast-carousel">
@@ -1279,15 +1336,25 @@
     });
   })();
 
-  // --- Characters carousel (continuous loop, native swipe) ---
-  (function(){
-    var track = document.getElementById('castTrack');
+  // --- Reusable carousel (continuous loop, native swipe, slow autoplay) ---
+  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initCarousel(trackId, opts){
+    var track = document.getElementById(trackId);
     if(!track) return;
+    opts = opts || {};
+    var speed = opts.speed || 0.4;      // px per frame (slow autoplay)
     var carousel = track.closest('.cast-carousel');
     var prevBtn = carousel.querySelector('.cast-arrow.prev');
     var nextBtn = carousel.querySelector('.cast-arrow.next');
     var originals = Array.prototype.slice.call(track.children);
     var count = originals.length;
+
+    // Il CSS ha scroll-behavior:smooth. Con lo smooth, riassegnare scrollLeft
+    // ogni frame nell'autoplay riparte l'animazione da capo e non avanza mai.
+    // Forziamo behavior:auto sul track; lo scroll animato di frecce/tastiera
+    // usa scrollBy con behavior:'smooth' esplicito, che sovrascrive per-chiamata.
+    track.style.scrollBehavior = 'auto';
 
     var before = document.createDocumentFragment();
     var after = document.createDocumentFragment();
@@ -1304,40 +1371,151 @@
       return first.getBoundingClientRect().width + gap;
     }
     function blockWidth(){ return step() * count; }
-    function recenter(){ track.scrollLeft = blockWidth(); }
+
+    // Il CSS ha scroll-behavior:smooth: assegnare scrollLeft direttamente
+    // verrebbe ignorato. Uso scrollTo con behavior:auto per i salti istantanei.
+    function setScroll(x){ track.scrollTo({left:x, behavior:'auto'}); }
+
+    function recenter(){ setScroll(blockWidth()); }
     if(document.readyState === 'complete') recenter();
     else window.addEventListener('load', recenter);
     setTimeout(recenter, 200);
 
+    // Ritorna lo shift applicato (0 se nessun wrap), cosi l'autoplay puo
+    // aggiornare il proprio accumulatore senza perdere la parte frazionaria.
+    function normalize(){
+      var bw = blockWidth();
+      if(bw <= 0) return 0;
+      if(track.scrollLeft < bw * 0.5){
+        setScroll(track.scrollLeft + bw);
+        return bw;
+      } else if(track.scrollLeft > bw * 2.5){
+        setScroll(track.scrollLeft - bw);
+        return -bw;
+      }
+      return 0;
+    }
+
     var wrapping = false;
     track.addEventListener('scroll', function(){
       if(wrapping) return;
-      var bw = blockWidth();
-      if(track.scrollLeft < bw * 0.5){
-        wrapping = true;
-        var pb = track.style.scrollBehavior;
-        track.style.scrollBehavior = 'auto';
-        track.scrollLeft += bw;
-        track.style.scrollBehavior = pb;
-        wrapping = false;
-      } else if(track.scrollLeft > bw * 2.5){
-        wrapping = true;
-        var pb2 = track.style.scrollBehavior;
-        track.style.scrollBehavior = 'auto';
-        track.scrollLeft -= bw;
-        track.style.scrollBehavior = pb2;
-        wrapping = false;
-      }
+      wrapping = true;
+      var prevBehavior = track.style.scrollBehavior;
+      track.style.scrollBehavior = 'auto';
+      normalize();
+      track.style.scrollBehavior = prevBehavior;
+      wrapping = false;
     }, {passive:true});
 
     function go(dir){ track.scrollBy({left: dir * step(), behavior:'smooth'}); }
-    if(nextBtn) nextBtn.addEventListener('click', function(){ go(1); });
-    if(prevBtn) prevBtn.addEventListener('click', function(){ go(-1); });
+    if(nextBtn) nextBtn.addEventListener('click', function(){ go(1); pauseNow(); });
+    if(prevBtn) prevBtn.addEventListener('click', function(){ go(-1); pauseNow(); });
     track.addEventListener('keydown', function(e){
-      if(e.key === 'ArrowRight'){ e.preventDefault(); go(1); }
-      else if(e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); }
+      if(e.key === 'ArrowRight'){ e.preventDefault(); go(1); pauseNow(); }
+      else if(e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); pauseNow(); }
     });
     window.addEventListener('resize', recenter);
+
+    // ----- Slow autoplay (ribbon scroll) -----
+    if(REDUCED) return;
+
+    var paused = false;
+    var resumeTimer = null;
+    var rafId = null;
+
+    function pauseNow(){
+      paused = true;
+      track.style.scrollSnapType = 'x proximity';
+      if(resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function(){
+        paused = false;
+        track.style.scrollSnapType = 'none';
+      }, 1500);
+    }
+
+    track.style.scrollSnapType = 'none';
+
+    // Accumulatore float: scrollLeft e intero, incrementi <1px si perderebbero
+    // se rileggessi scrollLeft ogni frame. Tengo la posizione in acc e la
+    // correggo solo dello shift di wrap restituito da normalize().
+    var acc = track.scrollLeft;
+    function tick(){
+      if(!paused){
+        acc += speed;
+        setScroll(acc);
+        acc += normalize(); // se c'e stato un wrap, sposta acc dello stesso blocco
+      } else {
+        acc = track.scrollLeft; // resta agganciato alla posizione manuale
+      }
+      rafId = requestAnimationFrame(tick);
+    }
+    rafId = requestAnimationFrame(tick);
+
+    ['pointerenter','pointerdown','focusin','touchstart','wheel'].forEach(function(ev){
+      track.addEventListener(ev, pauseNow, {passive:true});
+    });
+    carousel.addEventListener('pointerenter', pauseNow, {passive:true});
+    carousel.addEventListener('pointerleave', function(){
+      if(resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function(){
+        paused = false;
+        track.style.scrollSnapType = 'none';
+      }, 1500);
+    }, {passive:true});
+  }
+
+  initCarousel('castTrack', {speed:0.4});
+  initCarousel('guardTrack', {speed:0.35});
+
+  // --- Reveal on scroll (fade-in + slide-up, once) ---
+  (function(){
+    var root = document.documentElement;
+    var sel = [
+      '.kicker', '.section-title', '.hero-subtitle', '.hero-headline',
+      '.cast-intro', '.trials-lead', '.trials-close', '.pullquote',
+      '.movement', '.synopsis-hero', '.spec-card',
+      '.cast-card', '.guardian-card', '.review',
+      '.sybil-portrait', '.final-grid', '.faq-list details',
+      '.infobar-item', '.synopsis-overline'
+    ].join(',');
+
+    var nodes = Array.prototype.slice.call(document.querySelectorAll(sel));
+    var hero = document.getElementById('top');
+    nodes = nodes.filter(function(el){
+      if(el.getAttribute('aria-hidden') === 'true') return false;
+      if(hero && hero.contains(el)) return false;
+      return true;
+    });
+
+    if(REDUCED || !('IntersectionObserver' in window)){
+      return;
+    }
+
+    root.classList.add('reveal');
+    nodes.forEach(function(el){ el.classList.add('revl'); });
+
+    function staggerGroup(parentSel, childSel){
+      Array.prototype.forEach.call(document.querySelectorAll(parentSel), function(parent){
+        var kids = parent.querySelectorAll(childSel);
+        Array.prototype.forEach.call(kids, function(k, i){
+          if(k.classList.contains('revl')) k.style.transitionDelay = Math.min(i,6)*80 + 'ms';
+        });
+      });
+    }
+    staggerGroup('.cast-track', '.cast-card');
+    staggerGroup('.testi-grid', '.review');
+    staggerGroup('.infobar-inner', '.infobar-item');
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+
+    nodes.forEach(function(el){ io.observe(el); });
   })();
 </script>
 
