@@ -837,20 +837,18 @@
   /* ========== MOBILE ========== */
   @media (max-width:820px){
     section{padding:56px 18px;}
-    .hero{min-height:calc(100svh - 58px);padding-top:clamp(12px,2vh,20px);padding-bottom:clamp(12px,2vh,20px);}
-    .hero-grid{grid-template-columns:1fr;gap:clamp(10px,1.6vh,16px);text-align:center;}
-    .hero-grid .hero-text{order:2;}
+    .hero{min-height:calc(100svh - 58px);padding-top:clamp(14px,2.4vh,22px);padding-bottom:clamp(14px,2.4vh,22px);}
+    .hero-grid{grid-template-columns:1fr;gap:clamp(26px,6vh,64px);text-align:center;}
+    .hero-grid .hero-text{order:2;min-width:0;max-width:100%;}
     .hero-grid .hero-visual{order:1;}
-    .hero-cover{height:clamp(160px,28vh,240px);width:auto;max-width:100%;margin:0 auto;}
+    .hero-cover{height:clamp(210px,36vh,340px);width:auto;max-width:100%;margin:0 auto;}
     .hero h1.wordmark{font-size:clamp(1.85rem,7vw,2.4rem);margin:2px 0 6px;}
     .hero .kicker{font-size:.68rem;}
     .hero-subtitle{margin:0 auto clamp(7px,1.4vh,12px);max-width:24ch;font-size:clamp(1.35rem,5.4vw,1.85rem);}
-    .hero-headline{margin:0 auto clamp(10px,1.8vh,16px);}
     .hero .cta-micro{margin-bottom:5px;}
     .hero-reassure{margin-inline:auto;margin-bottom:10px;}
     .hero .signup{margin:0 auto;justify-content:center;}
     .hero-cta{margin-inline:auto;}
-    .hero-headline{margin-inline:auto;max-width:26ch;}
 
     .keys{grid-template-columns:1fr;gap:16px;}
     .testi-grid{grid-template-columns:1fr;gap:16px;}
@@ -887,7 +885,16 @@
     .hero .signup,.final .signup{margin-inline:auto;}
     .signup input[type=email],.signup input[type=text]{flex:1 1 46%;min-width:0;width:auto;}
     .btn-gold{width:100%;}
-    .hero-headline{font-size:clamp(1.3rem,5vw,1.85rem);}
+    /* Headline hero mobile: unica regola. Grande, va a capo nel viewport, mai tagliata. */
+    .hero-headline{
+      font-size:clamp(1.6rem,6.2vw,2.2rem);
+      line-height:1.18;
+      max-width:100%;
+      margin:0 auto clamp(14px,2.4vh,20px);
+      overflow-wrap:break-word;
+      word-break:normal;
+      text-wrap:balance;
+    }
     .hero-book{font-size:clamp(.78rem,3.4vw,.95rem);max-width:34ch;margin-inline:auto;}
   }
 
@@ -999,6 +1006,10 @@
 
     /* Riga hero-book (un filo più grande, resta contenuta) */
     .hero-book{font-size:clamp(.86rem,3.7vw,1rem);}
+
+    /* Pull-quote sinossi: peso da titolo su mobile (quasi come .section-title).
+       Selettore .synopsis p.pullquote per battere .synopsis p (media 480px). */
+    .synopsis p.pullquote{font-size:clamp(1.9rem,6.6vw,2.5rem);line-height:1.24;}
 
     /* Caption / didascalie: sopra 14px */
     .caption,.prove-porte figcaption,.sybil-portrait figcaption{font-size:.92rem;}
