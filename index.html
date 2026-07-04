@@ -944,6 +944,81 @@
     /* Reveal: mostra tutto subito, nessuna animazione */
     .reveal .revl{opacity:1 !important;transform:none !important;transition:none !important;}
   }
+
+  /* ========== MOBILE READABILITY BOOST (leggibilità telefono) ========== */
+  /* Ingrandisce i testi su mobile mantenendo la gerarchia. NON tocca hero (già ok) né i section-title. */
+  @media (max-width:820px){
+    body{font-size:18px;line-height:1.66;}
+
+    /* Kicker: leggibili ma restano label (min ~12.5px) */
+    .kicker{font-size:.78rem;}
+
+    /* Info-bar: etichette + icone più grandi */
+    .infobar-text{font-size:.98rem;line-height:1.35;}
+    .infobar-ico svg{width:27px;height:27px;}
+
+    /* Lead / overline di sezione */
+    .synopsis-overline{font-size:clamp(1.28rem,4.6vw,1.55rem);}
+    .cast-intro{font-size:clamp(1.28rem,4.8vw,1.55rem);line-height:1.42;}
+    .trials-lead{font-size:1.18rem;line-height:1.7;}
+    .prove-lead p{font-size:1.16rem;line-height:1.72;}
+    .trials-close{font-size:clamp(1.3rem,4.4vw,1.6rem);}
+
+    /* Prosa / corpo generale */
+    .synopsis p{font-size:1.14rem;line-height:1.7;}
+    .zz-txt p{font-size:1.16rem;line-height:1.7;}
+    .diff-row .diff-txt p{font-size:1.1rem;line-height:1.64;}
+    .sybil-grid p{font-size:1.15rem;line-height:1.7;}
+    .spec-val{font-size:1.14rem;}
+
+    /* Card personaggi */
+    .cast-name{font-size:1.5rem;}
+    .cast-desc{font-size:1.08rem;line-height:1.55;}
+
+    /* Guardiani (griglia + carosello) */
+    .guardian-desc,
+    .guardian-carousel .guardian-desc{font-size:1.18rem;line-height:1.45;}
+    .guardian-role,
+    .guardian-carousel .guardian-role{font-size:.78rem;}
+
+    /* Recensioni */
+    .review blockquote{font-size:1.22rem;line-height:1.5;}
+    .review-name{font-size:1.06rem;}
+    .review-role{font-size:.9rem;}
+
+    /* FAQ */
+    summary{font-size:1.28rem;line-height:1.28;}
+    details .answer{font-size:1.12rem;line-height:1.62;}
+
+    /* CTA: microcopy e riga sotto */
+    .cta-micro{font-size:.86rem;}
+    .reassure{font-size:1rem;}
+    .final p.lead{font-size:1.16rem;line-height:1.62;}
+    .prove-cta p{font-size:1.28rem;line-height:1.42;}
+    .prove-q{font-size:clamp(1.5rem,5.2vw,1.9rem);}
+    .amz-secondary{font-size:1.04rem;}
+    .price-line{font-size:1rem;}
+    .key-clue{font-size:1.26rem;}
+    .key-reveal{font-size:1.06rem;line-height:1.58;}
+
+    /* Riga hero-book (un filo più grande, resta contenuta) */
+    .hero-book{font-size:clamp(.86rem,3.7vw,1rem);}
+
+    /* Caption / didascalie: sopra 14px */
+    .caption,.prove-porte figcaption,.sybil-portrait figcaption{font-size:.92rem;}
+  }
+
+  @media (max-width:480px){
+    /* Rifiniture sul telefono stretto: minimi ancora più comodi */
+    .cast-desc{font-size:1.06rem;}
+    .guardian-carousel .guardian-desc{font-size:1.14rem;}
+    .review blockquote{font-size:1.18rem;}
+    .trials-lead{font-size:1.14rem;}
+    .prove-lead p{font-size:1.12rem;}
+    .synopsis p,.sybil-grid p,.zz-txt p{font-size:1.12rem;}
+    details .answer{font-size:1.08rem;}
+    summary{font-size:1.22rem;}
+  }
 </style>
 </head>
 <body>
