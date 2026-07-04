@@ -280,13 +280,22 @@
   .hero-headline{
     font-family:var(--f-head);
     color:var(--cream);
-    font-size:clamp(1.2rem,2.5vw,1.72rem);
-    line-height:1.28;
+    font-size:clamp(1.7rem,3.7vw,2.8rem);
+    line-height:1.2;
     font-weight:500;
     font-style:italic;
-    margin:0 0 clamp(16px,2.4vh,22px);
-    max-width:30ch;
+    margin:0 0 clamp(18px,2.6vh,26px);
+    max-width:34ch;
   }
+  .hero-book{
+    margin:clamp(18px,3vh,30px) auto 0;
+    text-align:center;line-height:1.35;
+    font-size:clamp(.82rem,1.5vw,1.02rem);
+    font-weight:400;
+  }
+  .hero-book .hb-title{font-family:var(--f-display);font-weight:700;color:var(--gold);letter-spacing:.02em;}
+  .hero-book .hb-sep{color:var(--gold-bronze);margin:0 .45em;}
+  .hero-book .hb-sub{font-family:var(--f-head);font-style:italic;color:#e9d9b6;}
   .hero-cta{max-width:480px;}
   .hero .cta-micro{margin-bottom:8px;}
   .hero-reassure{margin-top:0;margin-bottom:14px;max-width:44ch;}
@@ -882,7 +891,8 @@
     .hero .signup,.final .signup{margin-inline:auto;}
     .signup input[type=email],.signup input[type=text]{flex:1 1 46%;min-width:0;width:auto;}
     .btn-gold{width:100%;}
-    .hero-headline{font-size:clamp(1.2rem,4.8vw,1.5rem);}
+    .hero-headline{font-size:clamp(1.3rem,5vw,1.85rem);}
+    .hero-book{font-size:clamp(.78rem,3.4vw,.95rem);max-width:34ch;margin-inline:auto;}
   }
 
   /* ---- Carosello guardiani (riusa .cast-carousel/.cast-track) ---- */
@@ -969,8 +979,6 @@
            alt="Copertina di A Desert Story: un arco dorato su fondo bordeaux, con un padiglione dorato nel deserto.">
     </div>
     <div class="hero-text">
-      <h1 class="wordmark">A Desert Story</h1>
-      <p class="hero-subtitle">Sebastiano e i prigionieri del palazzo invisibile</p>
       <p class="hero-headline">Gli animali stanno sparendo.<br>E un bambino di nove anni è l'unico che può salvarli.</p>
       <div class="hero-cta">
         <form class="signup" onsubmit="return false;">
@@ -979,6 +987,7 @@
           <button type="submit" class="btn-gold">Inviami il primo capitolo</button>
         </form>
       </div>
+      <h1 class="hero-book"><span class="hb-title">A Desert Story</span> <span class="hb-sep">·</span> <span class="hb-sub">Sebastiano e i prigionieri del palazzo invisibile</span></h1>
     </div>
   </div>
 </section>
