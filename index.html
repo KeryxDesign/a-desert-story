@@ -570,6 +570,62 @@
     .cast-desc{font-size:.9rem;}
   }
 
+  /* ========== 5d. LE PROVE / GUARDIANI (fondo night-blue) ========== */
+  .trials-head{max-width:760px;margin:0 auto 18px;text-align:center;}
+  .trials-lead{
+    max-width:52ch;margin:0 auto 46px;text-align:center;
+    font-family:var(--f-body);font-size:1.08rem;line-height:1.68;
+    color:#efe0c4;
+  }
+  .guardian-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+    max-width:1000px;margin:0 auto;
+  }
+  /* le ultime due card centrate quando la griglia va a 3+2 */
+  .guardian-grid .guardian:nth-child(4){grid-column:1 / 2;}
+  .guardian-card{
+    display:flex;flex-direction:column;
+    background:rgba(244,236,216,.06);
+    border:1px solid rgba(201,162,75,.28);
+    border-radius:14px;padding:30px 26px 28px;
+    box-shadow:0 12px 30px rgba(0,0,0,.28);
+    text-align:center;
+  }
+  .guardian-orn{
+    color:var(--gold);opacity:.85;margin:0 auto 14px;
+    font-family:var(--f-head);font-size:1.4rem;line-height:1;letter-spacing:.3em;
+  }
+  .guardian-name{
+    font-family:var(--f-head);font-weight:600;
+    color:var(--gold);font-size:2rem;line-height:1.08;
+    margin:0 0 6px;letter-spacing:.01em;
+  }
+  .guardian-role{
+    font-family:var(--f-ui);font-weight:700;
+    text-transform:uppercase;letter-spacing:.16em;
+    font-size:.7rem;color:#cbb26f;margin:0 0 16px;
+  }
+  .guardian-desc{
+    font-family:var(--f-head);font-style:italic;
+    font-size:1.18rem;line-height:1.4;color:#f4ead4;margin:0;
+  }
+  .trials-close{
+    max-width:46ch;margin:46px auto 0;text-align:center;
+    font-family:var(--f-head);font-style:italic;
+    font-size:clamp(1.2rem,2.6vw,1.6rem);line-height:1.4;
+    color:var(--gold);
+  }
+  @media (max-width:820px){
+    .guardian-grid{grid-template-columns:1fr 1fr;gap:16px;}
+    .guardian-grid .guardian:nth-child(4){grid-column:auto;}
+    .guardian-card{padding:22px 18px 20px;}
+    .guardian-name{font-size:1.6rem;}
+    .guardian-desc{font-size:1.05rem;}
+  }
+  @media (max-width:440px){
+    .guardian-grid{grid-template-columns:1fr;}
+  }
+
   /* ========== 6. TESTIMONIAL ========== */
   .testi-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
@@ -815,6 +871,7 @@
     <div class="nav-menu" id="navMenu">
       <ul class="nav-links">
         <li><a href="#la-storia">La storia</a></li>
+        <li><a href="#le-prove">Le prove</a></li>
         <li><a href="#personaggi">I personaggi</a></li>
         <li><a href="#autrice">L'autrice</a></li>
         <li><a href="#domande">Domande</a></li>
@@ -893,20 +950,63 @@
       </figure>
     </div>
 
-    <p class="pullquote">«Sebastiano sapeva parlare con gli animali. Tutti quanti, credetemi.»</p>
+    <p class="pullquote">«Sebastiano aveva un dono segreto. Poteva parlare con gli animali.»</p>
 
     <div class="movement">
-      <p>Glielo aveva donato una <strong>Maga</strong>, con una promessa da mantenere: quel dono serviva a <em>proteggere le foreste</em>, mai a farsi i propri comodi. E Sebastiano aveva promesso, anche se, a volte, la tentazione di raccontare tutto agli amici era forte, eh!</p>
-      <p>Poi un giorno arrivò una notizia che nessuno voleva credere. Lontano, oltre le dune, oltre dove il deserto sembra non finire mai, c'era <strong>un palazzo che nessuno riusciva a vedere</strong>. E dentro quel palazzo, un Mago teneva prigionieri gli animali, uno dopo l'altro.</p>
+      <p>Dovete sapere che questo dono a Sebastiano l'aveva fatto una <strong>Maga</strong>, e non senza una promessa: parlare con gli animali serviva a <em>proteggerli</em>, mai a farsi i propri comodi. E lui, a nove anni, aveva promesso.</p>
+      <p>Poi un giorno arrivò una notizia a cui nessuno voleva credere: gli animali, in ogni angolo del mondo, avevano cominciato a <strong>sparire</strong>. Dietro tutto sembrava esserci un Mago, che li teneva prigionieri nel suo palazzo. Un palazzo di cui si conosceva l'esistenza, e che pure nessuno riusciva a trovare: <em>nascosto nel deserto, invisibile persino ai falchi, alle aquile, a tutti gli uccelli del cielo.</em></p>
     </div>
 
     <div class="movement">
-      <p>Così Sebastiano partì. Con <strong>Baltazar</strong>, un cammello che, dovete sapere, aveva un'opinione su quasi ogni cosa, e con qualche compagno raccolto per strada, di quelli che <em>non ti aspetti e poi non lasci più</em>.</p>
-      <p>Dentro il palazzo lo attendeva la prova più strana di tutte: <strong>sette porte, una dopo l'altra.</strong> Nessuna si apriva con la forza. Ogni porta custodiva un enigma, messo lì da un antico Saggio, e si apriva <em>solo con la risposta giusta</em>. E le domande, davanti a quelle porte, erano di quelle che ti fanno grattare la testa e fermare a pensare sul serio.</p>
+      <p>Fu allora che <strong>Baltazar</strong> venne a cercare aiuto proprio da Sebastiano. Baltazar, il goffo, goloso e un tantino egoista Re dei Cammelli dell'Est, sapeva una cosa: che quel ragazzo era l'unico umano capace di parlare con gli animali. E forse l'unico che poteva davvero fare qualcosa.</p>
       <p>Il resto ve lo racconta il libro. <em>Io vi ho aperto solo la prima porta.</em></p>
       <p class="sig-line"><span class="signature">Sybil</span></p>
     </div>
   </div>
+</section>
+
+<!-- ============ 2c. LE PROVE / GUARDIANI (fondo night-blue) ============ -->
+<section class="night" id="le-prove">
+  <div class="trials-head sec-head" style="margin-bottom:18px;">
+    <p class="kicker gold" style="margin-bottom:14px;">Le prove</p>
+    <h2 class="section-title" style="max-width:22ch;">Sette porte. E ad attenderlo, le più grandi menti di sempre.</h2>
+  </div>
+  <p class="trials-lead">Dentro il palazzo, dietro sette porte, non c'erano serrature né chiavi che tenessero. C'erano loro: alcune delle menti più grandi mai esistite, decise a misurare la stoffa di Sebastiano.</p>
+  <div class="wrap">
+    <div class="guardian-grid">
+      <article class="guardian-card guardian">
+        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <h3 class="guardian-name">Aristotele</h3>
+        <p class="guardian-role">Il filosofo</p>
+        <p class="guardian-desc">«La logica. Un ragionamento da seguire fino in fondo, senza inciampare.»</p>
+      </article>
+      <article class="guardian-card guardian">
+        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <h3 class="guardian-name">Dante</h3>
+        <p class="guardian-role">Il poeta</p>
+        <p class="guardian-desc">«I versi. Riconoscere la bellezza giusta tra mille parole.»</p>
+      </article>
+      <article class="guardian-card guardian">
+        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <h3 class="guardian-name">Leonardo</h3>
+        <p class="guardian-role">L'artista</p>
+        <p class="guardian-desc">«Lo sguardo. Vedere ciò che manca dove tutti vedono il vuoto.»</p>
+      </article>
+      <article class="guardian-card guardian">
+        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <h3 class="guardian-name">Bach</h3>
+        <p class="guardian-role">Il compositore</p>
+        <p class="guardian-desc">«La musica. Una prova da ascoltare più che da risolvere.»</p>
+      </article>
+      <article class="guardian-card guardian">
+        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <h3 class="guardian-name">Einstein</h3>
+        <p class="guardian-role">Lo scienziato</p>
+        <p class="guardian-desc">«Le leggi dell'universo. Dove il vero e il falso non bastano più.»</p>
+      </article>
+    </div>
+  </div>
+  <p class="trials-close">Ogni porta mette alla prova una parte diversa di lui. Sbagliare non è concesso.</p>
 </section>
 
 <!-- ============ 5. PERCHE E DIVERSO (una sezione compatta, fondo rosso) ============ -->

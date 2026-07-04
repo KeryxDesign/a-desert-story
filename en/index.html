@@ -567,6 +567,61 @@
     .cast-desc{font-size:.9rem;}
   }
 
+  /* ========== 5d. LE PROVE / GUARDIANI (fondo night-blue) ========== */
+  .trials-head{max-width:760px;margin:0 auto 18px;text-align:center;}
+  .trials-lead{
+    max-width:52ch;margin:0 auto 46px;text-align:center;
+    font-family:var(--f-body);font-size:1.08rem;line-height:1.68;
+    color:#efe0c4;
+  }
+  .guardian-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+    max-width:1000px;margin:0 auto;
+  }
+  .guardian-grid .guardian:nth-child(4){grid-column:1 / 2;}
+  .guardian-card{
+    display:flex;flex-direction:column;
+    background:rgba(244,236,216,.06);
+    border:1px solid rgba(201,162,75,.28);
+    border-radius:14px;padding:30px 26px 28px;
+    box-shadow:0 12px 30px rgba(0,0,0,.28);
+    text-align:center;
+  }
+  .guardian-orn{
+    color:var(--gold);opacity:.85;margin:0 auto 14px;
+    font-family:var(--f-head);font-size:1.4rem;line-height:1;letter-spacing:.3em;
+  }
+  .guardian-name{
+    font-family:var(--f-head);font-weight:600;
+    color:var(--gold);font-size:2rem;line-height:1.08;
+    margin:0 0 6px;letter-spacing:.01em;
+  }
+  .guardian-role{
+    font-family:var(--f-ui);font-weight:700;
+    text-transform:uppercase;letter-spacing:.16em;
+    font-size:.7rem;color:#cbb26f;margin:0 0 16px;
+  }
+  .guardian-desc{
+    font-family:var(--f-head);font-style:italic;
+    font-size:1.18rem;line-height:1.4;color:#f4ead4;margin:0;
+  }
+  .trials-close{
+    max-width:46ch;margin:46px auto 0;text-align:center;
+    font-family:var(--f-head);font-style:italic;
+    font-size:clamp(1.2rem,2.6vw,1.6rem);line-height:1.4;
+    color:var(--gold);
+  }
+  @media (max-width:820px){
+    .guardian-grid{grid-template-columns:1fr 1fr;gap:16px;}
+    .guardian-grid .guardian:nth-child(4){grid-column:auto;}
+    .guardian-card{padding:22px 18px 20px;}
+    .guardian-name{font-size:1.6rem;}
+    .guardian-desc{font-size:1.05rem;}
+  }
+  @media (max-width:440px){
+    .guardian-grid{grid-template-columns:1fr;}
+  }
+
   /* ========== 6. TESTIMONIAL ========== */
   .testi-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
@@ -812,6 +867,7 @@
     <div class="nav-menu" id="navMenu">
       <ul class="nav-links">
         <li><a href="#la-storia">The Story</a></li>
+        <li><a href="#le-prove">The Trials</a></li>
         <li><a href="#personaggi">The Characters</a></li>
         <li><a href="#autrice">The Storyteller</a></li>
         <li><a href="#domande">Questions</a></li>
@@ -890,20 +946,63 @@
       </figure>
     </div>
 
-    <p class="pullquote">Sebastiano could speak with the animals. Every last one of them, believe me.</p>
+    <p class="pullquote">Sebastiano had a secret gift. He could speak with the animals.</p>
 
     <div class="movement">
-      <p>The gift had come from a <strong>Sorceress</strong>, and it came with a promise to keep: those powers were meant to <em>protect the forests</em>, never to serve his own whims. And Sebastiano had promised, though sometimes, I must say, the urge to tell his friends everything was almost too much to bear!</p>
-      <p>Then one day came a piece of news no one wanted to believe. Far away, beyond the dunes, beyond where the desert seems never to end, there stood <strong>a palace no one could see</strong>. And inside that palace, a Magician kept the animals prisoner, one after another.</p>
+      <p>Now, you should know that this gift had come to Sebastiano from a <strong>Sorceress</strong>, and not without a promise: speaking with the animals was meant to <em>protect them</em>, never to serve his own whims. And he, at nine years old, had promised.</p>
+      <p>Then one day came a piece of news no one wanted to believe: the animals, in every corner of the world, had begun to <strong>vanish</strong>. Behind it all seemed to stand a Magician, who kept them prisoner in his palace. A palace everyone knew existed, and that no one could find: <em>hidden in the desert, invisible even to the falcons, to the eagles, to every bird in the sky.</em></p>
     </div>
 
     <div class="movement">
-      <p>So Sebastiano set off. With <strong>Baltazar</strong>, a camel who, you should know, had an opinion about very nearly everything, and with a few companions gathered along the way, the kind <em>you don't expect and then never leave behind</em>.</p>
-      <p>Inside the palace, the strangest trial of all was waiting for him: <strong>seven doors, one after another.</strong> Not one of them opened by force. Each door guarded a riddle, set there by an ancient Sage, and it opened <em>only with the right answer</em>. And the questions, before those doors, were the kind that make you scratch your head and stop to think, truly think.</p>
+      <p>That was when <strong>Baltazar</strong> came looking for help from Sebastiano himself. Baltazar, the clumsy, greedy, ever so slightly selfish King of the Camels of the East, knew one thing: that this boy was the only human who could speak with the animals. And perhaps the only one who could truly do something about it.</p>
       <p>The rest, the book will tell you. <em>I have only opened the first door for you.</em></p>
       <p class="sig-line"><span class="signature">Sybil</span></p>
     </div>
   </div>
+</section>
+
+<!-- ============ 2c. LE PROVE / GUARDIANI (fondo night-blue) ============ -->
+<section class="night" id="le-prove">
+  <div class="trials-head sec-head" style="margin-bottom:18px;">
+    <p class="kicker gold" style="margin-bottom:14px;">The trials</p>
+    <h2 class="section-title" style="max-width:22ch;">Seven doors. And behind them, the greatest minds who ever lived.</h2>
+  </div>
+  <p class="trials-lead">Inside the palace, behind seven doors, no lock and no key could hold. What waited there was something else: some of the greatest minds who ever lived, set on taking the measure of Sebastiano.</p>
+  <div class="wrap">
+    <div class="guardian-grid">
+      <article class="guardian-card guardian">
+        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <h3 class="guardian-name">Aristotle</h3>
+        <p class="guardian-role">The philosopher</p>
+        <p class="guardian-desc">«Logic. A line of reasoning to follow all the way, without a stumble.»</p>
+      </article>
+      <article class="guardian-card guardian">
+        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <h3 class="guardian-name">Dante</h3>
+        <p class="guardian-role">The poet</p>
+        <p class="guardian-desc">«Verse. To recognise the right beauty among a thousand words.»</p>
+      </article>
+      <article class="guardian-card guardian">
+        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <h3 class="guardian-name">Leonardo</h3>
+        <p class="guardian-role">The artist</p>
+        <p class="guardian-desc">«The eye. To see what is missing where everyone else sees empty space.»</p>
+      </article>
+      <article class="guardian-card guardian">
+        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <h3 class="guardian-name">Bach</h3>
+        <p class="guardian-role">The composer</p>
+        <p class="guardian-desc">«Music. A trial to be heard more than solved.»</p>
+      </article>
+      <article class="guardian-card guardian">
+        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <h3 class="guardian-name">Einstein</h3>
+        <p class="guardian-role">The scientist</p>
+        <p class="guardian-desc">«The laws of the universe. Where true and false are no longer enough.»</p>
+      </article>
+    </div>
+  </div>
+  <p class="trials-close">Each door tests a different part of him. There is no room for a wrong answer.</p>
 </section>
 
 <!-- ============ 5. PERCHE E DIVERSO (una sezione compatta, fondo rosso) ============ -->
