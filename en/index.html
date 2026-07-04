@@ -176,7 +176,7 @@
     display:flex;flex-wrap:wrap;gap:12px;
     max-width:480px;
   }
-  .signup input[type=email]{
+  .signup input[type=email],.signup input[type=text]{
     flex:1 1 200px;
     min-height:52px;
     padding:0 18px;
@@ -187,7 +187,7 @@
     font-family:var(--f-ui);
     font-size:1rem;
   }
-  .light .signup input[type=email],.light-soft .signup input[type=email]{
+  .light .signup input[type=email],.light .signup input[type=text],.light-soft .signup input[type=email],.light-soft .signup input[type=text]{
     background:#fff;color:var(--bordeaux-ink);border:1px solid rgba(138,109,47,.55);
   }
   .signup input::placeholder{color:rgba(244,236,216,.6);}
@@ -874,9 +874,9 @@
 
     body{font-size:18px;}
 
-    .signup{flex-direction:column;align-items:stretch;max-width:340px;}
+    .signup{align-items:stretch;max-width:360px;}
     .hero .signup,.final .signup{margin-inline:auto;}
-    .signup input[type=email]{flex:1 1 auto;width:100%;}
+    .signup input[type=email],.signup input[type=text]{flex:1 1 46%;min-width:0;width:auto;}
     .btn-gold{width:100%;}
     .hero-headline{font-size:clamp(1.2rem,4.8vw,1.5rem);}
   }
@@ -970,6 +970,7 @@
       <p class="hero-headline">The animals are disappearing.<br>And a nine-year-old boy is the only one who can save them.</p>
       <div class="hero-cta">
         <form class="signup" onsubmit="return false;">
+          <input type="text" placeholder="Your name" aria-label="Your name">
           <input type="email" placeholder="Your email" aria-label="Your email">
           <button type="submit" class="btn-gold">Send me the first chapter</button>
         </form>
@@ -1250,10 +1251,10 @@
       <h2>Out soon. You can start already.</h2>
       <p class="lead">I'll send you the first chapter, and let you know on launch day. Nothing else.</p>
       <form class="signup" onsubmit="return false;">
+        <input type="text" placeholder="Your name" aria-label="Your name">
         <input type="email" placeholder="Your email" aria-label="Your email">
         <button type="submit" class="btn-gold">Send me the first chapter</button>
       </form>
-      <p class="reassure">The first chapter is a gift. Your email stays yours.</p>
     </div>
   </div>
 
