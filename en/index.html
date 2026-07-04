@@ -532,11 +532,23 @@
     font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.4;
     color:#f4ead4;
   }
-  .cast-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
-    max-width:1060px;margin:0 auto;
+  /* ---- Carosello personaggi ---- */
+  .cast-carousel{
+    position:relative;max-width:1120px;margin:0 auto;padding:0 clamp(4px,3vw,52px);
   }
+  .cast-track{
+    display:flex;gap:24px;
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scroll-behavior:smooth;
+    padding:4px 4px 14px;margin:0 -4px;
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .cast-track::-webkit-scrollbar{display:none;height:0;width:0;}
   .cast-card{
+    flex:0 0 calc((100% - 48px) / 3);
+    scroll-snap-align:start;
     display:flex;flex-direction:column;
     background:rgba(244,236,216,.05);
     border:1px solid rgba(201,162,75,.28);
@@ -557,14 +569,31 @@
     font-family:var(--f-body);font-size:.96rem;line-height:1.5;
     color:#f0e2c6;margin:0;
   }
-  @media (max-width:900px){
-    .cast-grid{grid-template-columns:repeat(2,1fr);gap:18px;}
+  .cast-arrow{
+    position:absolute;top:calc(50% - 20px);transform:translateY(-50%);
+    z-index:3;display:flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:999px;cursor:pointer;
+    background:rgba(30,10,10,.72);color:var(--gold);
+    border:1px solid rgba(201,162,75,.55);
+    font-size:1.2rem;line-height:1;
+    transition:background .2s ease,border-color .2s ease,opacity .2s ease;
+    backdrop-filter:blur(3px);
   }
-  @media (max-width:480px){
-    .cast-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .cast-arrow:hover{background:rgba(201,162,75,.2);border-color:var(--gold);}
+  .cast-arrow:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  .cast-arrow.prev{left:2px;}
+  .cast-arrow.next{right:2px;}
+  @media (max-width:900px){
+    .cast-card{flex:0 0 calc((100% - 24px) / 2);}
+  }
+  @media (max-width:640px){
+    .cast-carousel{padding:0 8px;}
+    .cast-track{gap:16px;}
+    .cast-card{flex:0 0 78%;}
     .cast-body{padding:14px 14px 18px;}
     .cast-name{font-size:1.3rem;}
     .cast-desc{font-size:.9rem;}
+    .cast-arrow{display:none;}
   }
 
   /* ========== 5d. LE PROVE / GUARDIANI (fondo night-blue) ========== */
@@ -590,6 +619,14 @@
   .guardian-orn{
     color:var(--gold);opacity:.85;margin:0 auto 14px;
     font-family:var(--f-head);font-size:1.4rem;line-height:1;letter-spacing:.3em;
+  }
+  .guardian-portrait{
+    width:132px;height:132px;object-fit:cover;
+    border-radius:50%;margin:0 auto 18px;
+    box-shadow:0 10px 26px rgba(0,0,0,.4);
+  }
+  @media (max-width:820px){
+    .guardian-portrait{width:120px;height:120px;margin-bottom:14px;}
   }
   .guardian-name{
     font-family:var(--f-head);font-weight:600;
@@ -969,31 +1006,31 @@
   <div class="wrap">
     <div class="guardian-grid">
       <article class="guardian-card guardian">
-        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <img class="guardian-portrait" src="../img/guard_aristotele.jpg" width="132" height="132" loading="lazy" alt="Portrait of Aristotle">
         <h3 class="guardian-name">Aristotle</h3>
         <p class="guardian-role">The philosopher</p>
         <p class="guardian-desc">«Logic. A line of reasoning to follow all the way, without a stumble.»</p>
       </article>
       <article class="guardian-card guardian">
-        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <img class="guardian-portrait" src="../img/guard_dante.jpg" width="132" height="132" loading="lazy" alt="Portrait of Dante">
         <h3 class="guardian-name">Dante</h3>
         <p class="guardian-role">The poet</p>
         <p class="guardian-desc">«Verse. To recognise the right beauty among a thousand words.»</p>
       </article>
       <article class="guardian-card guardian">
-        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <img class="guardian-portrait" src="../img/guard_leonardo.jpg" width="132" height="132" loading="lazy" alt="Portrait of Leonardo">
         <h3 class="guardian-name">Leonardo</h3>
         <p class="guardian-role">The artist</p>
         <p class="guardian-desc">«The eye. To see what is missing where everyone else sees empty space.»</p>
       </article>
       <article class="guardian-card guardian">
-        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <img class="guardian-portrait" src="../img/guard_bach.jpg" width="132" height="132" loading="lazy" alt="Portrait of Bach">
         <h3 class="guardian-name">Bach</h3>
         <p class="guardian-role">The composer</p>
         <p class="guardian-desc">«Music. A trial to be heard more than solved.»</p>
       </article>
       <article class="guardian-card guardian">
-        <div class="guardian-orn" aria-hidden="true">✦</div>
+        <img class="guardian-portrait" src="../img/guard_einstein.jpg" width="132" height="132" loading="lazy" alt="Portrait of Einstein">
         <h3 class="guardian-name">Einstein</h3>
         <p class="guardian-role">The scientist</p>
         <p class="guardian-desc">«The laws of the universe. Where true and false are no longer enough.»</p>
@@ -1010,63 +1047,60 @@
     <h2 class="section-title">Sebastiano won't face the trials alone</h2>
   </div>
   <div class="wrap">
-    <div class="cast-grid">
-      <article class="cast-card">
-        <img src="../img/sebastiano.webp" width="616" height="900" loading="lazy" alt="Plate of Sebastiano, the main character.">
-        <div class="cast-body">
-          <h3 class="cast-name">Sebastiano</h3>
-          <p class="cast-desc">Nine years old, with a secret gift: he speaks with every animal in the world. He sets off across the desert to free the prisoners.</p>
-        </div>
-      </article>
-      <article class="cast-card">
-        <img src="../img/baltazar.webp" width="616" height="900" loading="lazy" alt="Plate of Baltazar the camel.">
-        <div class="cast-body">
-          <h3 class="cast-name">Baltazar</h3>
-          <p class="cast-desc">The camel who calls himself King of the Camels of the East. Greedy, a little clumsy, and with an opinion about very nearly everything.</p>
-        </div>
-      </article>
-      <article class="cast-card">
-        <img src="../img/freeze.webp" width="616" height="900" loading="lazy" alt="Plate of Freeze the desert sprite.">
-        <div class="cast-body">
-          <h3 class="cast-name">Freeze</h3>
-          <p class="cast-desc">A desert sprite with a frosty stare. Funny, touchy, exquisitely fussy at the table, and able to work a spell or two.</p>
-        </div>
-      </article>
-      <article class="cast-card">
-        <img src="../img/fenix.jpg" width="616" height="900" loading="lazy" alt="Plate of Fenix the desert fox.">
-        <div class="cast-body">
-          <h3 class="cast-name">Fenix</h3>
-          <p class="cast-desc">A desert fox who can take human form. Guide of the land: watchful gaze, few words, and plenty of intuition.</p>
-        </div>
-      </article>
-      <article class="cast-card">
-        <img src="../img/camaleon.jpg" width="616" height="900" loading="lazy" alt="Plate of Camaleon the Chame-Lion.">
-        <div class="cast-body">
-          <h3 class="cast-name">Camaleon</h3>
-          <p class="cast-desc">Not your ordinary chameleon: a Chame-Lion. He vanishes by blending in, turns hypnotic, and has a soft spot for turquoise.</p>
-        </div>
-      </article>
-      <article class="cast-card">
-        <img src="../img/simurg.webp" width="616" height="900" loading="lazy" alt="Plate of Simurg the queen of the eagles.">
-        <div class="cast-body">
-          <h3 class="cast-name">Simurg</h3>
-          <p class="cast-desc">Queen of the desert eagles. Vast, white, regal. She flies high and sees far, where no one else can reach.</p>
-        </div>
-      </article>
-      <article class="cast-card">
-        <img src="../img/nina.webp" width="616" height="900" loading="lazy" alt="Plate of Nina the siren-frog.">
-        <div class="cast-body">
-          <h3 class="cast-name">Nina</h3>
-          <p class="cast-desc">A siren-frog, rare and held to be sacred, with a voice that enchants. She dreams of an audience, and perhaps of more.</p>
-        </div>
-      </article>
-      <article class="cast-card">
-        <img src="../img/flora.jpg" width="616" height="900" loading="lazy" alt="Plate of Flora the girl with copper hair.">
-        <div class="cast-body">
-          <h3 class="cast-name">Flora</h3>
-          <p class="cast-desc">A girl with copper hair and a clear, bright gaze. Pale, shut away in a room of the palace. Who is she, really?</p>
-        </div>
-      </article>
+    <div class="cast-carousel">
+      <button class="cast-arrow prev" type="button" aria-label="Previous character">‹</button>
+      <div class="cast-track" id="castTrack" tabindex="0" role="region" aria-label="Characters carousel">
+        <article class="cast-card">
+          <img src="../img/baltazar.webp" width="616" height="900" loading="lazy" alt="Plate of Baltazar the camel.">
+          <div class="cast-body">
+            <h3 class="cast-name">Baltazar</h3>
+            <p class="cast-desc">The King of the Camels of the East. Greedy and a little clumsy, but determined to save his subjects.</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img src="../img/freeze.webp" width="616" height="900" loading="lazy" alt="Plate of Freeze the desert sprite.">
+          <div class="cast-body">
+            <h3 class="cast-name">Freeze</h3>
+            <p class="cast-desc">A desert sprite. He can freeze creatures in time, and order gourmet dishes straight from across the universe.</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img src="../img/fenix.jpg" width="616" height="900" loading="lazy" alt="Plate of Fenix the desert fox.">
+          <div class="cast-body">
+            <h3 class="cast-name">Fenix</h3>
+            <p class="cast-desc">A desert fox who can take human form. The mind of the group: she can talk enemies into letting them pass, or letting them go.</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img src="../img/camaleon.jpg" width="616" height="900" loading="lazy" alt="Plate of Camaleon the Chame-Lion.">
+          <div class="cast-body">
+            <h3 class="cast-name">Camaleon</h3>
+            <p class="cast-desc">Not your ordinary chameleon: a Chame-Lion. He vanishes by blending in, but when he gets angry he turns into a ferocious beast.</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img src="../img/simurg.webp" width="616" height="900" loading="lazy" alt="Plate of Simurg the queen of the eagles.">
+          <div class="cast-body">
+            <h3 class="cast-name">Simurg</h3>
+            <p class="cast-desc">Queen of the desert eagles. Vast, white, regal. She flies high and sees far, where no one else can reach.</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img src="../img/nina.webp" width="616" height="900" loading="lazy" alt="Plate of Nina the siren-frog.">
+          <div class="cast-body">
+            <h3 class="cast-name">Nina</h3>
+            <p class="cast-desc">A siren-frog, rare and held to be sacred, with a voice that enchants. She dreams of an audience, and perhaps of more.</p>
+          </div>
+        </article>
+        <article class="cast-card">
+          <img src="../img/flora.jpg" width="616" height="900" loading="lazy" alt="Plate of Flora the girl with copper hair.">
+          <div class="cast-body">
+            <h3 class="cast-name">Flora</h3>
+            <p class="cast-desc">A girl with copper hair and a clear, bright gaze. Pale, shut away in a room of the palace. Who is she, really?</p>
+          </div>
+        </article>
+      </div>
+      <button class="cast-arrow next" type="button" aria-label="Next character">›</button>
     </div>
   </div>
 </section>
@@ -1128,9 +1162,9 @@
     <div>
       <p class="kicker gold" style="margin-bottom:16px;">Who will tell you this story</p>
       <h2 class="section-title" style="margin-bottom:24px;">Sybil Stonecutter</h2>
-      <p>This book has a voice, and the voice has a name: Sybil. She is the one who takes you by the hand with "now, let me tell you", like the storytellers of the Thousand and One Nights.</p>
-      <p>She tells stories gathered on her travels, in faraway places, and stitches them together for anyone willing to listen. And she is also the one who drew, by hand, the eight plates in the book: the characters one by one.</p>
-      <p>Of Sebastiano she says only this: that it is the story she holds dearest.</p>
+      <p>Sybil never stopped looking for wonder, in a world that grew greyer year after year.</p>
+      <p>Some people believe in magic, and some go looking for the rule behind everything they can see. Sybil belongs to a small resistance: those who, though they are no longer nine years old, still look at the world wide-eyed.</p>
+      <p>She wrote and illustrated this book for one reason: to pass that wonder on, to those who are still children, and to those who carry a child inside who never once surrendered to the grey.</p>
     </div>
     <figure class="sybil-portrait">
       <img src="../img/sybil.jpg" width="832" height="1216" loading="lazy" alt="Sybil, seen from behind as she writes at a window that looks out onto an enchanted world.">
@@ -1243,6 +1277,67 @@
     menu.addEventListener('click', function(e){
       if(e.target.tagName === 'A') closeMenu();
     });
+  })();
+
+  // --- Characters carousel (continuous loop, native swipe) ---
+  (function(){
+    var track = document.getElementById('castTrack');
+    if(!track) return;
+    var carousel = track.closest('.cast-carousel');
+    var prevBtn = carousel.querySelector('.cast-arrow.prev');
+    var nextBtn = carousel.querySelector('.cast-arrow.next');
+    var originals = Array.prototype.slice.call(track.children);
+    var count = originals.length;
+
+    var before = document.createDocumentFragment();
+    var after = document.createDocumentFragment();
+    originals.forEach(function(el){
+      var c1 = el.cloneNode(true); c1.setAttribute('aria-hidden','true'); before.appendChild(c1);
+      var c2 = el.cloneNode(true); c2.setAttribute('aria-hidden','true'); after.appendChild(c2);
+    });
+    track.appendChild(after);
+    track.insertBefore(before, track.firstChild);
+
+    function step(){
+      var first = track.children[0];
+      var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+      return first.getBoundingClientRect().width + gap;
+    }
+    function blockWidth(){ return step() * count; }
+    function recenter(){ track.scrollLeft = blockWidth(); }
+    if(document.readyState === 'complete') recenter();
+    else window.addEventListener('load', recenter);
+    setTimeout(recenter, 200);
+
+    var wrapping = false;
+    track.addEventListener('scroll', function(){
+      if(wrapping) return;
+      var bw = blockWidth();
+      if(track.scrollLeft < bw * 0.5){
+        wrapping = true;
+        var pb = track.style.scrollBehavior;
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft += bw;
+        track.style.scrollBehavior = pb;
+        wrapping = false;
+      } else if(track.scrollLeft > bw * 2.5){
+        wrapping = true;
+        var pb2 = track.style.scrollBehavior;
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft -= bw;
+        track.style.scrollBehavior = pb2;
+        wrapping = false;
+      }
+    }, {passive:true});
+
+    function go(dir){ track.scrollBy({left: dir * step(), behavior:'smooth'}); }
+    if(nextBtn) nextBtn.addEventListener('click', function(){ go(1); });
+    if(prevBtn) prevBtn.addEventListener('click', function(){ go(-1); });
+    track.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowRight'){ e.preventDefault(); go(1); }
+      else if(e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); }
+    });
+    window.addEventListener('resize', recenter);
   })();
 </script>
 
