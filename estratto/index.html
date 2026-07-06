@@ -121,6 +121,12 @@
   .signup input::placeholder{color:rgba(244,236,216,.6);}
   .signup .btn-gold{flex:0 0 auto;}
   .waitlist .note{font-family:var(--f-ui);font-size:.82rem;color:#d8c6a4;margin:16px auto 0;max-width:40ch;}
+  /* --- Kit form: allineamento al brand --- */
+  .kit-embed{max-width:480px;margin:0 auto;}
+  .kit-embed .formkit-submit,.kit-embed .formkit-submit:hover{background-color:var(--gold)!important;border-radius:8px!important;}
+  .kit-embed .formkit-submit:hover{background-color:#d9b45f!important;}
+  .kit-embed .formkit-submit>div{color:var(--bordeaux-ink)!important;font-family:var(--f-ui)!important;font-weight:700!important;}
+  .kit-embed .formkit-input{border-radius:8px!important;font-family:var(--f-ui)!important;}
 
   /* ---------- Footer ---------- */
   footer{background:var(--bordeaux-ink);color:#cdbfa8;padding:48px 20px 40px;text-align:center;font-family:var(--f-ui);font-size:.92rem;border-top:1px solid rgba(201,162,75,.18);}
@@ -194,11 +200,9 @@
   <div class="waitlist-inner">
     <h2>Vuoi sapere quando esce la versione completa?</h2>
     <p class="lead">Lascia la mail e ti avviso al lancio. Nient'altro.</p>
-    <form class="signup" onsubmit="return false;">
-      <input type="text" placeholder="Il tuo nome" aria-label="Il tuo nome">
-      <input type="email" placeholder="La tua email" aria-label="La tua email">
-      <button type="submit" class="btn-gold">Avvisami al lancio</button>
-    </form>
+    <div class="kit-embed">
+      <script async data-uid="6454468437" src="https://keryxdesign.kit.com/6454468437/index.js"></script>
+    </div>
     <p class="note">Solo un messaggio il giorno del lancio. Ti disiscrivi quando vuoi.</p>
   </div>
 </section>
@@ -224,6 +228,18 @@
   (function(){
     var t=document.getElementById('navToggle'),m=document.getElementById('navMenu');
     if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});}
+  })();
+  // Placeholder italiani sul form Kit (che carica in inglese di default)
+  (function(){
+    function it(){
+      var n=document.querySelector('.kit-embed input[name="fields[first_name]"]');
+      var e=document.querySelector('.kit-embed input[name="email_address"]');
+      if(n) n.placeholder='Il tuo nome';
+      if(e) e.placeholder='La tua email';
+      return n||e;
+    }
+    var iv=setInterval(function(){ if(it()) clearInterval(iv); },250);
+    setTimeout(function(){ clearInterval(iv); },9000);
   })();
 </script>
 </body>
