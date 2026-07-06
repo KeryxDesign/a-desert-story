@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Il primo capitolo — A Desert Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordeaux-deep:#4A0E0E;
+    --bordeaux:#6B1616;
+    --bordeaux-ink:#2A1A12;
+    --gold:#C9A24B;
+    --gold-bronze:#8A6D2F;
+    --cream:#F4ECD8;
+    --cream-soft:#EFE4CC;
+    --f-display:"Cinzel Decorative", serif;
+    --f-head:"Cormorant Garamond", serif;
+    --f-body:"Source Serif 4", Georgia, serif;
+    --f-ui:"Mulish", system-ui, sans-serif;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  h1,h2,h3,p{overflow-wrap:break-word;}
+  body{
+    margin:0;font-family:var(--f-body);color:var(--bordeaux-ink);
+    background:var(--cream);font-size:18px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;height:auto;display:block;}
+
+  /* ---------- Nav ---------- */
+  .nav{position:sticky;top:0;z-index:100;background:var(--bordeaux-ink);border-bottom:1px solid rgba(201,162,75,.28);}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 20px;min-height:58px;}
+  .nav-mark{font-family:var(--f-display);font-weight:700;color:var(--gold);font-size:1.05rem;letter-spacing:.02em;text-decoration:none;line-height:1;white-space:nowrap;}
+  .nav-links{display:flex;align-items:center;gap:26px;list-style:none;margin:0;padding:0;}
+  .nav-links a{font-family:var(--f-ui);font-size:.92rem;font-weight:600;color:var(--cream);text-decoration:none;opacity:.9;transition:opacity .15s ease,color .15s ease;}
+  .nav-links a:hover{color:var(--gold);opacity:1;}
+  .nav-cta{font-family:var(--f-ui);font-weight:700;font-size:.86rem;background:var(--gold);color:var(--bordeaux-ink);padding:9px 16px;border-radius:7px;text-decoration:none;white-space:nowrap;transition:background .18s ease;}
+  .nav-cta:hover{background:#d9b45f;}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--cream);}
+  .nav-toggle svg{width:28px;height:28px;display:block;}
+  .nav-menu{display:contents;}
+  @media (max-width:820px){
+    .nav-toggle{display:inline-flex;}
+    .nav-menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--bordeaux-ink);border-bottom:1px solid rgba(201,162,75,.28);padding:8px 20px 20px;}
+    .nav-menu.open{display:flex;}
+    .nav-menu .nav-links{flex-direction:column;align-items:stretch;gap:0;width:100%;}
+    .nav-menu .nav-links li{border-bottom:1px solid rgba(201,162,75,.16);}
+    .nav-menu .nav-links a{display:block;padding:15px 2px;font-size:1.05rem;}
+    .nav-menu .nav-cta{display:block;text-align:center;margin-top:16px;padding:14px 16px;font-size:1rem;}
+  }
+
+  /* ---------- Typographic bits ---------- */
+  .kicker{font-family:var(--f-ui);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--gold-bronze);}
+  h1,h2{font-weight:500;line-height:1.12;margin:0;}
+
+  /* ---------- Head band ---------- */
+  .ex-head{background:var(--cream-soft);border-bottom:1px solid rgba(138,109,47,.22);padding:clamp(40px,7vw,72px) 20px clamp(34px,5vw,52px);text-align:center;}
+  .ex-head-inner{max-width:720px;margin:0 auto;}
+  .ex-book{font-family:var(--f-display);color:var(--gold-bronze);font-size:.9rem;letter-spacing:.06em;margin:0 0 14px;}
+  .ex-title{font-family:var(--f-head);color:var(--bordeaux);font-size:clamp(2.1rem,6.4vw,3.4rem);line-height:1.08;margin:0 0 10px;}
+  .ex-sub{font-family:var(--f-head);font-style:italic;color:var(--bordeaux-ink);opacity:.85;font-size:clamp(1.15rem,2.6vw,1.5rem);margin:0 0 30px;}
+  .ex-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;}
+
+  .btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;background:var(--gold);color:var(--bordeaux-ink);font-family:var(--f-ui);font-weight:700;font-size:1rem;border:none;border-radius:8px;cursor:pointer;letter-spacing:.01em;text-decoration:none;transition:background .18s ease, transform .18s ease;}
+  .btn-gold:hover{background:#d9b45f;transform:translateY(-1px);}
+  .btn-gold svg{width:20px;height:20px;flex:none;}
+  .btn-ghost{display:inline-flex;align-items:center;min-height:52px;padding:0 8px;font-family:var(--f-ui);font-weight:600;font-size:.95rem;color:var(--gold-bronze);text-decoration:none;border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease;}
+  .btn-ghost:hover{color:var(--bordeaux);border-color:rgba(138,109,47,.5);}
+
+  /* ---------- Reading ---------- */
+  .reading{max-width:38rem;margin:0 auto;padding:clamp(44px,7vw,72px) 20px;}
+  .reading h2{font-family:var(--f-head);color:var(--bordeaux);font-size:clamp(1.7rem,4.4vw,2.4rem);text-align:center;margin:0 0 4px;}
+  .chap-rule{width:54px;height:1px;background:var(--gold-bronze);opacity:.55;margin:12px auto clamp(24px,4vw,36px);}
+  .chap + .chap{margin-top:clamp(48px,7vw,76px);}
+  .reading p{margin:0 0 1.15em;}
+  .reading .lead-para::first-letter{
+    font-family:var(--f-head);font-weight:600;color:var(--bordeaux);
+    float:left;font-size:3.2em;line-height:.82;padding:.06em .09em 0 0;
+  }
+  .verse{font-family:var(--f-head);font-style:italic;color:var(--bordeaux);
+    font-size:clamp(1.15rem,2.5vw,1.4rem);line-height:1.55;text-align:center;
+    margin:1.6em auto;padding:0 8px;}
+  .verse-sign{font-family:var(--f-ui);font-style:normal;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-bronze);text-align:center;margin:0 0 1.15em;}
+
+  /* ---------- Waitlist ---------- */
+  .waitlist{background:var(--bordeaux);color:var(--cream);padding:clamp(52px,8vw,84px) 20px;text-align:center;}
+  .waitlist-inner{max-width:600px;margin:0 auto;}
+  .waitlist h2{font-family:var(--f-head);color:var(--cream);font-size:clamp(1.8rem,5vw,2.7rem);margin:0 0 14px;}
+  .waitlist p.lead{font-size:1.1rem;color:#f1e6cf;margin:0 auto 28px;max-width:44ch;}
+  .signup{display:flex;flex-wrap:wrap;gap:12px;max-width:480px;margin:0 auto;justify-content:center;}
+  .signup input[type=email],.signup input[type=text]{flex:1 1 200px;min-height:52px;padding:0 18px;border-radius:8px;border:1px solid rgba(201,162,75,.5);background:rgba(244,236,216,.08);color:var(--cream);font-family:var(--f-ui);font-size:1rem;}
+  .signup input::placeholder{color:rgba(244,236,216,.6);}
+  .signup .btn-gold{flex:0 0 auto;}
+  .waitlist .note{font-family:var(--f-ui);font-size:.82rem;color:#d8c6a4;margin:16px auto 0;max-width:40ch;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--bordeaux-ink);color:#cdbfa8;padding:48px 20px 40px;text-align:center;font-family:var(--f-ui);font-size:.92rem;border-top:1px solid rgba(201,162,75,.18);}
+  footer .foot-inner{max-width:var(--maxw);margin:0 auto;}
+  footer .fw{font-family:var(--f-display);color:var(--gold);font-size:1.3rem;letter-spacing:.03em;line-height:1.1;}
+  footer .fw-sub{margin-top:6px;font-style:italic;color:#b7a888;font-family:var(--f-head);font-size:1.05rem;}
+  .foot-links{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;}
+  .foot-links a{color:#cdbfa8;text-decoration:none;font-size:.9rem;border-bottom:1px solid transparent;padding-bottom:1px;transition:color .15s ease,border-color .15s ease;}
+  .foot-links a:hover{color:var(--gold);border-color:rgba(201,162,75,.5);}
+  .foot-copy{margin-top:22px;font-size:.82rem;color:#9a8c74;}
+  .lang-switch{margin-top:18px;font-size:.85rem;}
+  .lang-switch a{color:#cdbfa8;text-decoration:none;padding:0 6px;}
+  .lang-switch a.active{color:var(--gold);font-weight:700;}
+
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  @media (max-width:560px){
+    .signup .btn-gold{flex:1 1 100%;}
+    .ex-actions{flex-direction:column;}
+    .ex-actions .btn-gold,.ex-actions .btn-ghost{width:100%;justify-content:center;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Navigazione principale">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark">A Desert Story</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="navMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+      </svg>
+    </button>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="../index.html#la-storia">La storia</a></li>
+        <li><a href="../index.html#le-prove">Le prove</a></li>
+        <li><a href="../index.html#personaggi">I personaggi</a></li>
+        <li><a href="../index.html#autrice">L'autrice</a></li>
+      </ul>
+      <a href="#avvisami" class="nav-cta">Avvisami al lancio</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HEAD BAND ============ -->
+<header class="ex-head">
+  <div class="ex-head-inner">
+    <p class="ex-book">A Desert Story</p>
+    <h1 class="ex-title">Il primo capitolo</h1>
+    <p class="ex-sub">Sebastiano e i prigionieri del palazzo invisibile</p>
+    <div class="ex-actions">
+      <a class="btn-gold" href="https://www.dropbox.com/scl/fo/7fkx4lr23trmgvhaox4lz/AHJMz9Zjb8bz0x1cBbAEIfw?rlkey=ovkl22yc549r8brk41e35tr4w&dl=0" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/>
+        </svg>
+        Scarica il capitolo
+      </a>
+      <a class="btn-ghost" href="#avvisami">Oppure lascia la mail per il lancio</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ READING ============ -->
+<article class="reading">
+
+  <section class="chap">
+    <h2>Sebastiano</h2>
+    <div class="chap-rule" aria-hidden="true"></div>
+    <p class="lead-para">C'era una volta un ragazzo di nove anni di nome Sebastiano, che abitava nel villaggio di Montefiore, incastonato fra allegre colline verdeggianti, ai margini di una saggia foresta millenaria. Le casette di Montefiore sembravano vestite a festa, ciascuna con muri colorati e finestre adornate da vasi di fiori ed erbe profumate, come rosmarino, timo, alloro e origano; gli abitanti erano buongustai e ottimi cuochi. La comunità era colorita ma affiatata: agricoltori, poeti, allevatori, musicisti, mercanti viaggiatori, alchimisti e abili artigiani. Il gruppo, eterogeneo e piuttosto vivace, viveva occasionali incomprensioni che talvolta esplodevano in focose liti, ma che presto si risolvevano.</p>
+    <p>Sebastiano amava indossare camicie colorate – possibilmente con qualche tocco di turchese, il suo colore preferito – un regalo speciale fattogli dalla sarta del paese. Frequentava la scuola del villaggio, dove, insieme ai suoi compagni di classe, si cimentava nell'apprendimento: biologia, alchimia, poesia, botanica, pastorizia, musica (sapeva suonare il flauto traverso) e arte culinaria erano tra le sue materie preferite.</p>
+    <p>Ma il pomeriggio era il momento che amava di più: finiti i compiti, usciva con la mamma e il suo adorato fratellino Merlino alla ricerca di erbe nella Foresta Millenaria. Questo accadeva con una certa regolarità. Dovete sapere che la madre di Sebastiano era un'esperta erborista e, nel villaggio, tutti si rivolgevano a lei in caso di disturbi fisici, che curava con essenze, impacchi, tisane e altri balsami, o di cuori spezzati, che trattava prescrivendo qualche dose extra di cioccolato, passeggiate nel bosco, ritrovi con gli amici e… il tempo.</p>
+    <p>Ma c'era una cosa che pochi sapevano su Sebastiano: un segreto a dir poco sorprendente. Era dotato di un dono piuttosto raro: oltre a essere gentile e curioso, conosceva tutti – ma proprio tutti – gli animali del mondo, inclusi quelli viventi in paesi lontani! La sua mente era un vasto archivio di conoscenze su tutte le specie di mammiferi, uccelli, pesci, rettili e insetti, per citarne alcuni.</p>
+    <p>Questo potere gli era stato donato da una Maga benevola, che aveva deciso che, da grande, Sebastiano sarebbe diventato il protettore delle foreste. Ma non si limitava ad avere familiarità con le specie animali: Sebastiano parlava anche con loro! Conosceva tutte le loro lingue e, regolarmente, si intratteneva in conversazioni con gli animali che popolavano i boschi e i campi vicino a casa. Non c'era nulla di più emozionante, per lui, che ascoltare le storie degli uccelli migratori, dei lupi che ululavano alla luna (in realtà poemi di struggente bellezza) o dei piccoli scoiattoli che volavano da un ramo all'altro.</p>
+    <p>Nonostante la grandezza del suo dono, Sebastiano conosceva l'importanza di mantenerlo segreto. Solo sua madre, suo padre e Merlino ne erano a conoscenza. La Maga che gliel'aveva concesso era stata chiara: «Questi poteri non sono tuoi. Puoi trarne gioia, ma non benefici egoistici. Se lo farai, ti saranno tolti. Ti sono stati dati per proteggere, un giorno, le foreste e insegnare ai tuoi fratelli umani a fare altrettanto.»</p>
+    <p>Sebastiano si abituò gradualmente al suo nuovo stato e abbracciò il suo destino di custode silenzioso della natura – anche se, a volte, la tentazione di raccontare tutto agli amici era forte, eh! Ma poi pensava alla foresta e agli animali… e resisteva.</p>
+  </section>
+
+  <section class="chap">
+    <h2>Baltazar</h2>
+    <div class="chap-rule" aria-hidden="true"></div>
+    <p class="lead-para">Era una bellissima mattina nel villaggio di Montefiore. Sebastiano camminava insieme a sua madre e Merlino verso il mercato, uno dei luoghi più vivaci e colorati del villaggio. L'aria era profumata di frutta fresca e pane caldo e Sebastiano non vedeva l'ora di esplorare le bancarelle.</p>
+    <p>«Mamma, posso comprare un po' di mele?» chiese Sebastiano, attratto dai bei frutti succosi e croccanti.</p>
+    <p>«Certo, Sebastiano, prendimi anche chiodi di garofano e curcuma, che li ho finiti,» rispose la madre, china sul banco del ramaio a frugare alla ricerca di pentolini e casseruole.</p>
+    <p>Proprio mentre si avvicinavano al fruttivendolo, qualcosa di molto strano attirò la loro attenzione. Un gruppo di abitanti del villaggio si era radunato attorno a un animale che nessuno aveva mai visto prima.</p>
+    <p>«Ulala!» esclamò il sindaco, sbalordito. «Ma che prodigioso animale è mai questo?!?»</p>
+    <p>«Accorrete a vedere!» gridò il panettiere, gesticolando entusiasta.</p>
+    <p>«Mamma, andiamo!» disse Sebastiano, strizzando l'occhio al suo fratellino e accelerando il passo.</p>
+    <p>Merlino, saltellando per l'entusiasmo, lo seguì. Giunti lì, sentirono il figlio del pescivendolo che decantava: «Ha quattro zampe ed è molto alto, come un cavallo. Sulla schiena ha però due grosse… gobbe!»</p>
+    <p>Sebastiano comprese al volo. «È un cammello!» esclamò, mentre si avvicinava al maestoso animale.</p>
+    <p>Non appena vide Sebastiano, il cammello si agitò e iniziò a fare dei versi particolari, come se stesse chiamando proprio lui. Sebastiano, incuriosito, si avvicinò ancora di più; appena lo toccò, il cammello si calmò e, con una voce profonda, calma, ma anche un po' triste, in una lingua che solo Sebastiano poteva comprendere, iniziò a raccontare la sua storia.</p>
+    <p>«Caro Sebastiano, ho fatto un viaggio lunghissimo per venire da te. Le Fate del Vento mi hanno detto che solo tu potrai aiutarmi,» spiegò il cammello, mentre scrutava il ragazzo con i suoi occhioni brillanti.</p>
+    <p>«Come ti chiami?» domandò Sebastiano, stupito, curiosissimo e anche un pochino allarmato.</p>
+    <p>«Mi chiamo Baltazar e sono il Re dei Cammelli dell'Est,» dichiarò con fierezza, lanciando occhiate furtive alle mele che spuntavano dal cestino di Sebastiano. «Un Mago, piuttosto potente, sta tormentando gli animali del Deserto, incluso il nostro gregge. Vuole catturare gli esemplari più maestosi e rinchiuderli nel suo grande Giardino.»</p>
+    <p>Fece una pausa. Il suo sguardo si abbassò. «…Quattro dei miei fratelli sono già stati rapiti.»</p>
+    <p>Gli occhi di Sebastiano si spalancarono. «E dove si trova questo Giardino?» chiese, con voce tesa.</p>
+    <p>«È nascosto dentro un Palazzo meraviglioso, pieno di trappole-incantesimi,» rispose Baltazar. «Il Mago l'ha costruito nel cuore del deserto, ma non riusciamo a trovarlo… perché lo ha reso invisibile!»</p>
+    <p>«Il deserto…» rifletté Sebastiano, mentre le parole di Baltazar risuonavano nella sua mente. «Com'è?»</p>
+    <p>Baltazar, con un'espressione nostalgica, iniziò a descrivere: «Il deserto è la nostra casa, con il suo mare di sabbia soffice come cipria, le sue raffiche di vento cariche di messaggi e le sue notti silenziose e sacre, illuminate a festa dalle stelle. Se i miei fratelli non torneranno liberi nel deserto al più presto, moriranno di nostalgia, o, quantomeno, si intristiranno parecchio.»</p>
+    <p>Sebastiano sentì una fitta al cuore. «Io ti aiuterò, Baltazar,» promise. «Con l'aiuto di mia madre, dei miei amici, degli abitanti del villaggio… troveremo un modo per liberare i tuoi fratelli!» Poi fece una pausa e disse: «ma come facciamo ad aiutarti da qui? E contro un Mago poi?!?»</p>
+    <p>Per tutta risposta, Baltazar emise un gran sospiro, infilò il muso nel cestino di Sebastiano, addentò una bella mela e, mentre se la gustava, disse: «Da qui si può fare pochino. Ma se vieni con me nel Deserto…»</p>
+  </section>
+
+  <section class="chap">
+    <h2>L'annuncio</h2>
+    <div class="chap-rule" aria-hidden="true"></div>
+    <p class="lead-para">Fu in quel momento che, come per magia – anzi, proprio per magia – un meraviglioso gruppo di farfalle apparve nel cielo azzurro. Volteggiavano nella brezza leggera, scintillanti di colori vivaci. A poco a poco, formarono un cerchio intorno a Sebastiano, danzando con grazia. I loro movimenti, però, erano diversi dal solito. Il ragazzo se ne accorse subito.</p>
+    <p>Le farfalle arrivarono a decine, accompagnate da una musica che sembrava trasportata dal vento. Avevano un messaggio speciale da comunicare a Sebastiano e a sua madre:</p>
+    <p class="verse">«Sebastiano ascolta, il tuo cuore puro,<br>lascia andare ora, quel timore oscuro<br>Sebastiano ascolta, il tuo cuore aperto,<br>pronto ad esplorare, or'anche il deserto<br>Cara madre ascolta, l'accorato coro<br>Sebastiano è scelto, per il cuore d'oro<br>Mai sarà lasciato, solo al suo destino<br>Sempre accompagnato, sarà nel cammino.»</p>
+    <p class="verse-sign">Firmato: le Fate del Vento</p>
+    <p>Sebastiano e la madre si guardarono, pieni di sorpresa: all'inizio furono invasi da un'ondata di preoccupazione, che poi, a poco a poco, si trasformò in una sorta di resa e poi di fiducia.</p>
+    <p>La madre non aveva nessuna voglia di separarsi da Sebastiano, figuriamoci di lasciarlo andare in un posto remoto ed estremo come il Deserto, eppure… Guardò le farfalle, che ancora svolazzavano sulle loro teste, e, mentre la mente continuava, comprensibilmente, a tormentarla con dubbi e paure, sentì che un «SÌ» le si schiudeva nel cuore… Guardò Sebastiano e capì che lo stesso SÌ (era più un SÌÌÌ!!! URRAAAHHH!!!) era sbocciato in lui.</p>
+  </section>
+
+</article>
+
+<!-- ============ WAITLIST ============ -->
+<section class="waitlist" id="avvisami">
+  <div class="waitlist-inner">
+    <h2>Ti è piaciuto?</h2>
+    <p class="lead">Lascia la mail e ti avviso quando esce il libro completo. Nient'altro.</p>
+    <form class="signup" onsubmit="return false;">
+      <input type="text" placeholder="Il tuo nome" aria-label="Il tuo nome">
+      <input type="email" placeholder="La tua email" aria-label="La tua email">
+      <button type="submit" class="btn-gold">Avvisami al lancio</button>
+    </form>
+    <p class="note">Solo un messaggio il giorno del lancio. Niente spam, la tua mail resta tua.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="fw">A Desert Story</div>
+    <div class="fw-sub">di Sybil Stonecutter</div>
+    <nav class="foot-links" aria-label="Link legali">
+      <a href="#">Privacy</a>
+      <a href="#">Termini e condizioni</a>
+      <a href="#">Cookie</a>
+      <a href="#">Contatti</a>
+    </nav>
+    <div class="foot-copy">© 2026 A Desert Story</div>
+    <div class="lang-switch">
+      <a href="index.html" class="active">IT</a> · <a href="../en/index.html">EN</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var t=document.getElementById('navToggle'),m=document.getElementById('navMenu');
+    if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});}
+  })();
+</script>
+</body>
+</html>
