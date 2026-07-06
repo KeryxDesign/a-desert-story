@@ -87,6 +87,13 @@
     font-size:clamp(1.15rem,2.5vw,1.4rem);line-height:1.55;text-align:center;
     margin:1.6em auto;padding:0 8px;}
   .verse-sign{font-family:var(--f-ui);font-style:normal;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-bronze);text-align:center;margin:0 0 1.15em;}
+  .act-label{text-align:center;margin:0 0 clamp(30px,5vw,48px);}
+  .act-label .act-n{display:block;font-family:var(--f-ui);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--gold-bronze);margin-bottom:8px;}
+  .act-label .act-t{font-family:var(--f-head);font-style:italic;color:var(--bordeaux);font-size:clamp(1.4rem,3.4vw,1.9rem);}
+  .prep-list{list-style:none;margin:0 0 1.15em;padding:0;}
+  .prep-list li{position:relative;padding:0 0 .55em 1.4em;}
+  .prep-list li::before{content:"";position:absolute;left:.2em;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--gold-bronze);}
+  .aside{font-family:var(--f-head);font-style:italic;color:var(--gold-bronze);text-align:center;font-size:1.12rem;margin:1.4em 0 1.15em;}
 
   /* ---------- Waitlist ---------- */
   .waitlist{background:var(--bordeaux);color:var(--cream);padding:clamp(52px,8vw,84px) 20px;text-align:center;}
@@ -163,10 +170,12 @@
 <!-- ============ READING ============ -->
 <article class="reading">
 
+  <div class="act-label"><span class="act-n">Atto I</span><span class="act-t">la chiamata</span></div>
+
   <section class="chap">
     <h2>Sebastiano</h2>
     <div class="chap-rule" aria-hidden="true"></div>
-    <p class="lead-para">C'era una volta un ragazzo di nove anni di nome Sebastiano, che abitava nel villaggio di Montefiore, incastonato fra allegre colline verdeggianti, ai margini di una saggia foresta millenaria. Le casette di Montefiore sembravano vestite a festa, ciascuna con muri colorati e finestre adornate da vasi di fiori ed erbe profumate, come rosmarino, timo, alloro e origano; gli abitanti erano buongustai e ottimi cuochi. La comunità era colorita ma affiatata: agricoltori, poeti, allevatori, musicisti, mercanti viaggiatori, alchimisti e abili artigiani. Il gruppo, eterogeneo e piuttosto vivace, viveva occasionali incomprensioni che talvolta esplodevano in focose liti, ma che presto si risolvevano.</p>
+    <p class="lead-para">C'era una volta un ragazzo di dieci anni di nome Sebastiano, che abitava nel villaggio di Montefiore, incastonato fra allegre colline verdeggianti, ai margini di una saggia foresta millenaria. Le casette di Montefiore sembravano vestite a festa, ciascuna con muri colorati e finestre adornate da vasi di fiori ed erbe profumate, come rosmarino, timo, alloro e origano; gli abitanti erano buongustai e ottimi cuochi. La comunità era colorita ma affiatata: agricoltori, poeti, allevatori, musicisti, mercanti viaggiatori, alchimisti e abili artigiani. Il gruppo, eterogeneo e piuttosto vivace, viveva occasionali incomprensioni che talvolta esplodevano in focose liti, ma che presto si risolvevano.</p>
     <p>Sebastiano amava indossare camicie colorate – possibilmente con qualche tocco di turchese, il suo colore preferito – un regalo speciale fattogli dalla sarta del paese. Frequentava la scuola del villaggio, dove, insieme ai suoi compagni di classe, si cimentava nell'apprendimento: biologia, alchimia, poesia, botanica, pastorizia, musica (sapeva suonare il flauto traverso) e arte culinaria erano tra le sue materie preferite.</p>
     <p>Ma il pomeriggio era il momento che amava di più: finiti i compiti, usciva con la mamma e il suo adorato fratellino Merlino alla ricerca di erbe nella Foresta Millenaria. Questo accadeva con una certa regolarità. Dovete sapere che la madre di Sebastiano era un'esperta erborista e, nel villaggio, tutti si rivolgevano a lei in caso di disturbi fisici, che curava con essenze, impacchi, tisane e altri balsami, o di cuori spezzati, che trattava prescrivendo qualche dose extra di cioccolato, passeggiate nel bosco, ritrovi con gli amici e… il tempo.</p>
     <p>Ma c'era una cosa che pochi sapevano su Sebastiano: un segreto a dir poco sorprendente. Era dotato di un dono piuttosto raro: oltre a essere gentile e curioso, conosceva tutti – ma proprio tutti – gli animali del mondo, inclusi quelli viventi in paesi lontani! La sua mente era un vasto archivio di conoscenze su tutte le specie di mammiferi, uccelli, pesci, rettili e insetti, per citarne alcuni.</p>
@@ -181,21 +190,22 @@
     <p class="lead-para">Era una bellissima mattina nel villaggio di Montefiore. Sebastiano camminava insieme a sua madre e Merlino verso il mercato, uno dei luoghi più vivaci e colorati del villaggio. L'aria era profumata di frutta fresca e pane caldo e Sebastiano non vedeva l'ora di esplorare le bancarelle.</p>
     <p>«Mamma, posso comprare un po' di mele?» chiese Sebastiano, attratto dai bei frutti succosi e croccanti.</p>
     <p>«Certo, Sebastiano, prendimi anche chiodi di garofano e curcuma, che li ho finiti,» rispose la madre, china sul banco del ramaio a frugare alla ricerca di pentolini e casseruole.</p>
-    <p>Proprio mentre si avvicinavano al fruttivendolo, qualcosa di molto strano attirò la loro attenzione. Un gruppo di abitanti del villaggio si era radunato attorno a un animale che nessuno aveva mai visto prima.</p>
+    <p>Proprio mentre si avvicinavano al fruttivendolo, un vivace vociferare attirò la loro attenzione. Alcuni abitanti del villaggio, i più temerari e curiosi, si erano radunati attorno a un animale che nessuno aveva mai visto prima.</p>
     <p>«Ulala!» esclamò il sindaco, sbalordito. «Ma che prodigioso animale è mai questo?!?»</p>
     <p>«Accorrete a vedere!» gridò il panettiere, gesticolando entusiasta.</p>
     <p>«Mamma, andiamo!» disse Sebastiano, strizzando l'occhio al suo fratellino e accelerando il passo.</p>
-    <p>Merlino, saltellando per l'entusiasmo, lo seguì. Giunti lì, sentirono il figlio del pescivendolo che decantava: «Ha quattro zampe ed è molto alto, come un cavallo. Sulla schiena ha però due grosse… gobbe!»</p>
-    <p>Sebastiano comprese al volo. «È un cammello!» esclamò, mentre si avvicinava al maestoso animale.</p>
-    <p>Non appena vide Sebastiano, il cammello si agitò e iniziò a fare dei versi particolari, come se stesse chiamando proprio lui. Sebastiano, incuriosito, si avvicinò ancora di più; appena lo toccò, il cammello si calmò e, con una voce profonda, calma, ma anche un po' triste, in una lingua che solo Sebastiano poteva comprendere, iniziò a raccontare la sua storia.</p>
+    <p>Merlino, saltellando per l'entusiasmo, lo seguì.</p>
+    <p>Giunti nei pressi dell'assembramento, che circondava e nascondeva l'oggetto di tanto stupore, sentirono il figlio del pescivendolo che decantava: «Ha quattro zampe ed è molto alto, come un cavallo. Sulla schiena ha però due grosse… gobbe!»</p>
+    <p>Sebastiano sapeva bene. «È un cammello!» esclamò, mentre si faceva largo tra i curiosi, avvicinandosi al maestoso animale.</p>
+    <p>Non appena vide Sebastiano, il cammello si agitò e iniziò a emettere dei versi particolari, come se stesse chiamando proprio lui. Sebastiano capì che era meglio appartarsi, così da non essere ascoltato mentre dialogava in cammellese. Trovò subito una scusa: «Questo povero animale ha una gran sete! Presto, lasciate che lo accompagni alla fontana.» Si incamminò quindi con il nuovo ospite verso il centro della piazza, dove l'acqua zampillava fresca. Il cammello, che davvero aveva sete, bevve a lungo con gratitudine. Poi sollevò la testa e, con una voce profonda e calma, ma velata di tristezza, in una lingua che solo Sebastiano poteva comprendere, iniziò a raccontare la sua storia.</p>
     <p>«Caro Sebastiano, ho fatto un viaggio lunghissimo per venire da te. Le Fate del Vento mi hanno detto che solo tu potrai aiutarmi,» spiegò il cammello, mentre scrutava il ragazzo con i suoi occhioni brillanti.</p>
     <p>«Come ti chiami?» domandò Sebastiano, stupito, curiosissimo e anche un pochino allarmato.</p>
     <p>«Mi chiamo Baltazar e sono il Re dei Cammelli dell'Est,» dichiarò con fierezza, lanciando occhiate furtive alle mele che spuntavano dal cestino di Sebastiano. «Un Mago, piuttosto potente, sta tormentando gli animali del Deserto, incluso il nostro gregge. Vuole catturare gli esemplari più maestosi e rinchiuderli nel suo grande Giardino.»</p>
-    <p>Fece una pausa. Il suo sguardo si abbassò. «…Quattro dei miei fratelli sono già stati rapiti.»</p>
+    <p>Fece una pausa. Il suo sguardo si abbassò. «…Quattro dei miei fratelli sono già stati rapiti e pare che il Mago costringa altri cammelli a servirlo come guardie.»</p>
     <p>Gli occhi di Sebastiano si spalancarono. «E dove si trova questo Giardino?» chiese, con voce tesa.</p>
-    <p>«È nascosto dentro un Palazzo meraviglioso, pieno di trappole-incantesimi,» rispose Baltazar. «Il Mago l'ha costruito nel cuore del deserto, ma non riusciamo a trovarlo… perché lo ha reso invisibile!»</p>
-    <p>«Il deserto…» rifletté Sebastiano, mentre le parole di Baltazar risuonavano nella sua mente. «Com'è?»</p>
-    <p>Baltazar, con un'espressione nostalgica, iniziò a descrivere: «Il deserto è la nostra casa, con il suo mare di sabbia soffice come cipria, le sue raffiche di vento cariche di messaggi e le sue notti silenziose e sacre, illuminate a festa dalle stelle. Se i miei fratelli non torneranno liberi nel deserto al più presto, moriranno di nostalgia, o, quantomeno, si intristiranno parecchio.»</p>
+    <p>«È nascosto dentro un Palazzo meraviglioso, pieno di trappole-incantesimi,» rispose Baltazar. «Il Mago l'ha costruito nel cuore del Deserto, ma non riusciamo a trovarlo… perché lo ha reso invisibile!»</p>
+    <p>«Il Deserto…» rifletté Sebastiano, mentre le parole di Baltazar risuonavano nella sua mente. «Com'è?»</p>
+    <p>Baltazar, con un'espressione nostalgica, iniziò a descrivere: «Il Deserto è la nostra casa, con il suo mare di sabbia soffice come cipria, le sue raffiche di vento cariche di messaggi e le sue notti silenziose e sacre, illuminate a festa dalle stelle. Se i miei fratelli non torneranno liberi nel Deserto al più presto, moriranno di nostalgia, o, quantomeno, si intristiranno parecchio.»</p>
     <p>Sebastiano sentì una fitta al cuore. «Io ti aiuterò, Baltazar,» promise. «Con l'aiuto di mia madre, dei miei amici, degli abitanti del villaggio… troveremo un modo per liberare i tuoi fratelli!» Poi fece una pausa e disse: «ma come facciamo ad aiutarti da qui? E contro un Mago poi?!?»</p>
     <p>Per tutta risposta, Baltazar emise un gran sospiro, infilò il muso nel cestino di Sebastiano, addentò una bella mela e, mentre se la gustava, disse: «Da qui si può fare pochino. Ma se vieni con me nel Deserto…»</p>
   </section>
@@ -205,10 +215,68 @@
     <div class="chap-rule" aria-hidden="true"></div>
     <p class="lead-para">Fu in quel momento che, come per magia – anzi, proprio per magia – un meraviglioso gruppo di farfalle apparve nel cielo azzurro. Volteggiavano nella brezza leggera, scintillanti di colori vivaci. A poco a poco, formarono un cerchio intorno a Sebastiano, danzando con grazia. I loro movimenti, però, erano diversi dal solito. Il ragazzo se ne accorse subito.</p>
     <p>Le farfalle arrivarono a decine, accompagnate da una musica che sembrava trasportata dal vento. Avevano un messaggio speciale da comunicare a Sebastiano e a sua madre:</p>
-    <p class="verse">«Sebastiano ascolta, il tuo cuore puro,<br>lascia andare ora, quel timore oscuro<br>Sebastiano ascolta, il tuo cuore aperto,<br>pronto ad esplorare, or'anche il deserto<br>Cara madre ascolta, l'accorato coro<br>Sebastiano è scelto, per il cuore d'oro<br>Mai sarà lasciato, solo al suo destino<br>Sempre accompagnato, sarà nel cammino.»</p>
+    <p class="verse">«Sebastiano ascolta, il tuo cuore puro,<br>lascia andare ora, quel timore oscuro<br>Sebastiano ascolta, il tuo cuore aperto,<br>pronto ad esplorare, or'anche il Deserto<br>Cara madre ascolta, l'accorato coro<br>Sebastiano è scelto, per il cuore d'oro<br>Mai sarà lasciato, solo al suo destino<br>Sempre accompagnato, sarà nel cammino.»</p>
     <p class="verse-sign">Firmato: le Fate del Vento</p>
     <p>Sebastiano e la madre si guardarono, pieni di sorpresa: all'inizio furono invasi da un'ondata di preoccupazione, che poi, a poco a poco, si trasformò in una sorta di resa e poi di fiducia.</p>
     <p>La madre non aveva nessuna voglia di separarsi da Sebastiano, figuriamoci di lasciarlo andare in un posto remoto ed estremo come il Deserto, eppure… Guardò le farfalle, che ancora svolazzavano sulle loro teste, e, mentre la mente continuava, comprensibilmente, a tormentarla con dubbi e paure, sentì che un «SÌ» le si schiudeva nel cuore… Guardò Sebastiano e capì che lo stesso SÌ (era più un SÌÌÌ!!! URRAAAHHH!!!) era sbocciato in lui.</p>
+  </section>
+
+  <section class="chap">
+    <h2>Pre-Preparativi</h2>
+    <div class="chap-rule" aria-hidden="true"></div>
+    <p class="lead-para">L'indomani, a Montefiore, l'aria era fresca e limpida. Sebastiano si era alzato ben prima dell'alba per prepararsi al viaggio – o meglio, non aveva chiuso occhio per l'eccitazione… e anche per l'agitazione. Da un lato, era entusiasta, ancora incredulo, quasi euforico per ciò che gli stava capitando; dall'altro, l'idea di affrontare un lungo viaggio, l'ignoto, un Mago, il Deserto… beh, l'avventura lo elettrizzava, ma l'ansia per il futuro – diciamocelo – avrebbe fatto tremare anche cavalieri navigati. E poi c'era quella fitta di nostalgia all'idea di separarsi dalla sua amata famiglia, dal suo Montefiore, dalla Foresta, dalla torta di mele della mamma…</p>
+    <p>«Ma come farò senza di voi?» pensò, ricacciando indietro una lacrima cui non voleva cedere.</p>
+    <p>Mentre si preparava, il padre entrò nella stanza. Gli bastò uno sguardo per capire. Per un attimo rimasero in silenzio, poi Sebastiano parlò:</p>
+    <p>«La verità è che sono felice di partire… ma ho anche così tanta paura. Il Deserto è grande e non voglio perdermi. E poi… come farò senza di voi?»</p>
+    <p>Il padre lo guardò e disse: «È normale avere paura quando si parte per qualcosa di sconosciuto. Il Deserto è grande, misterioso… fa impressione anche solo immaginarlo. Ma sai, il coraggio non è non avere paura. Il coraggio è scegliere di andare avanti anche quando la paura c'è. Una paura sana, quella che ci tiene svegli e attenti, può perfino proteggerci. E quando senti che c'è qualcosa di più importante – come aiutare qualcuno, o seguire il tuo destino – allora sì, vale la pena affrontarla.»</p>
+    <p>«Quindi non devo essere invincibile per affrontare il Deserto e il Mago?» chiese Sebastiano, sentendosi un po' più leggero.</p>
+    <p>«Ma assolutamente no, Sebastiano,» disse Baltazar, che aveva origliato fin dall'inizio. Infilando il suo testone nella finestra, confessò: «Io sono il Re dei Cammelli dell'Est, ma in realtà sono uno degli esemplari più goffi! Sono goloso, un po' disordinato… e persino allergico al pelo di gatto! Eppure le Fate del Vento hanno scelto me per guidare il mio popolo, e devo dire che — modestia a parte — la scelta sembra azzeccata. Sotto la mia guida, i Cammelli dell'Est sono diventati ancora più saggi, gioiosi e prosperi.»</p>
+    <p>Il suo bel muso si allargò in un sorriso, che contagiò Sebastiano.</p>
+    <p>Il padre allargò le braccia e disse: «Io i versi di Baltazar non li capisco, ma dalla tua espressione direi che concordo con lui.» Poi accarezzò il muso del cammello.</p>
+    <p>Sebastiano annuì e, abbracciato a Baltazar, lasciò andare quelle lacrime che dalla sera prima gli pungevano gli occhi e gli stringevano la gola. Si sentì più calmo. Più radicato.</p>
+  </section>
+
+  <section class="chap">
+    <h2>Preparativi</h2>
+    <div class="chap-rule" aria-hidden="true"></div>
+    <p class="lead-para">Era proprio arrivato il momento di prepararsi al viaggio. Con l'aiuto di Baltazar, Sebastiano aveva steso una bella lista, che cominciò a seguire punto per punto:</p>
+    <ul class="prep-list">
+      <li>Abiti bianchi in cotone e lana (incluso un copricapo): isolanti, traspiranti e perfetti per riflettere il sole.</li>
+      <li>Coperta di lana: nel Deserto, di notte, la temperatura precipita.</li>
+      <li>Borracce in pelle per l'acqua: proprio come quelle dei beduini.</li>
+      <li>Frutta secca: noci, nocciole, fichi e prugne — leggeri da trasportare e ricchi di energia.</li>
+      <li>Bussola: indispensabile nel Deserto.</li>
+      <li>Monocolo: per scrutare meglio l'orizzonte.</li>
+      <li>Mappa del cielo: utile per orientarsi con le stelle.</li>
+      <li>Libro di poesie: per consolarsi nei momenti di nostalgia.</li>
+    </ul>
+    <p class="aside">Che dite, c'è tutto… o ci stiamo dimenticando qualcosa?</p>
+  </section>
+
+  <section class="chap">
+    <h2>Partenza</h2>
+    <div class="chap-rule" aria-hidden="true"></div>
+    <p>«Sei sicuro di avere tutto, Sebastiano?» chiese la madre, osservando lo zaino. «Tieni acqua e frutta secca a portata di mano, e ricordati di restare idratato.»</p>
+    <p>«Va bene, mamma,» rispose il ragazzo, cercando di rassicurarla mentre sistemava le provviste.</p>
+    <p>Dopo aver controllato ogni cosa, Sebastiano si avvicinò al padre, alla madre e al fratellino. Li abbracciò uno per uno, in silenzio. Qualche lacrima di commozione spuntò dagli occhi di tutti — persino da quelli di Baltazar, che decise di consolarsi con un fico secco.</p>
+    <p>Sebastiano salì con cura sulla schiena del cammello, sistemando lo zaino accanto a sé. «Pronto, Baltazar?»</p>
+    <p>«Prontissimo, si parte!» rispose il cammello, scuotendo leggermente le spalle e facendo ondeggiare la sua grande testa.</p>
+    <p>La madre, il padre e Merlino sventolavano fazzoletti bianchi, gridando «Ciao ciao!» con entusiasmo. Accompagnarono Sebastiano e Baltazar con lo sguardo lungo il sentiero, finché non li videro diventare un puntino all'orizzonte.</p>
+    <p>Mentre la famiglia si voltava per rientrare in casa, una leggera folata di vento attraversò il giardino, portando con sé un sentore di bosco. Proprio in quel momento, una farfalla dai colori brillanti si posò sulla spalla della madre di Sebastiano.</p>
+  </section>
+
+  <section class="chap">
+    <h2>La scorta</h2>
+    <div class="chap-rule" aria-hidden="true"></div>
+    <p class="lead-para">Sebastiano e Baltazar erano in viaggio da un paio d'ore, la fresca brezza mattutina li accarezzava, le grandi gambe di Baltazar si muovevano in modo ritmico.</p>
+    <p>Il sentiero che conduceva fuori dal villaggio era familiare a Sebastiano, l'aveva fatto diverse volte con l'insegnante di Botanica e anche con sua madre; mentre lo percorrevano, molti degli animali che Sebastiano conosceva gli si avvicinarono per salutarlo. Arrivarono gli habitués del paese: cani, gatti, galline, scoiattoli, passerotti, qualche topolino di campagna, un paio di pecore sfuggite dai vicini pascoli e altri ancora; erano tutti curiosi di conoscere Baltazar e di sapere dove i due si stessero dirigendo, non mancando di augurare loro buon viaggio, una volta compresa la situazione.</p>
+    <p>Mentre procedevano, uscendo da Montefiore, Sebastiano percepì una leggera sensazione di essere osservato. Non ci vollero molti secondi per rendersi conto che alcuni corvi, appollaiati sui rami degli alberi lungo il sentiero, li seguivano con attenzione. In cielo, due falchi volavano in cerchi ampi, scrutando il terreno sottostante.</p>
+    <p>«Baltazar,» disse il ragazzo, «vedi i corvi sugli alberi? Sembra che ci stiano controllando! E i due falchi sopra le nostre teste? Sono con noi da che abbiamo lasciato la campagna di Montefiore.»</p>
+    <p>«Ho avuto la stessa impressione,» rispose Baltazar, «perché non glielo chiedi?»</p>
+    <p>Sentendosi chiamati in causa, uno dei corvi decise di avvicinarsi, planando dolcemente di fronte a loro. «Signori buongiorno, mi presento: sono il Duca di Von Corv, esperto aviatore al vostro servizio,» disse il corvo, con un tono di voce cortese ma militare, che intendeva trasmettere grande dignità e far comprendere che, insomma, qui non si scherza; «fanno parte della Squadra alcuni dei miei corvi più fidati e anche due Falchi Pellegrini. Ci inviano le Fate del Vento con la missione di scortarvi fino alle soglie del Deserto.» E, aggiunse con una punta di orgoglio: «Come sapete noi corvi siamo animali intelligentissimi e abili strateghi, mentre i Falchi Pellegrini sono aviatori sceltissimi e capaci di scendere in picchiata sfiorando 390 Km all'ora.»</p>
+    <p>Sebastiano e Baltazar avevano gli occhi spalancati, erano quasi increduli ma anche profondamente grati; Sebastiano, sempre in sella a Baltazar, chinò la testa, giunse le mani in segno di gratitudine e deferenza e disse: «Grazie Duca, i vostri servizi sono profondamente apprezzati, le Fate non potevano scegliere scorta migliore.»</p>
+    <p>Von Corv accolse l'apprezzamento per sé e la sua squadra con dignità e rigore militare e aggiunse: «Da questo momento in poi vi seguiremo in silenzio e vi contatteremo solo in caso di pericolo, non vogliamo correre il rischio di distrarci,» e, senza perdersi in altri convenevoli, volò verso i Falchi Pellegrini.</p>
+    <p>Baltazar emise un suono soddisfatto. «Le Fate del Vento sono veramente efficienti! Questa scorta ci voleva proprio, mi sento più leggero ora… così leggero che quasi quasi mi mangio un altro fico secco.»</p>
   </section>
 
 </article>
