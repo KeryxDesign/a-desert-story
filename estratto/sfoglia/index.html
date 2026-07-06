@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Sfoglia l'estratto — A Desert Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Mulish:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bordeaux-ink:#2A1A12;--gold:#C9A24B;--cream:#F4ECD8;}
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{display:flex;flex-direction:column;height:100vh;height:100svh;background:var(--bordeaux-ink);font-family:"Mulish",system-ui,sans-serif;}
+  .topbar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--bordeaux-ink);border-bottom:1px solid rgba(201,162,75,.28);padding:9px 14px;min-height:54px;}
+  .topbar .back{display:inline-flex;align-items:center;gap:7px;color:var(--cream);text-decoration:none;font-weight:600;font-size:.9rem;opacity:.9;white-space:nowrap;}
+  .topbar .back:hover{color:var(--gold);opacity:1;}
+  .topbar .brand{font-family:"Cinzel Decorative",serif;font-weight:700;color:var(--gold);font-size:.95rem;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .topbar .dl{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--bordeaux-ink);font-weight:700;font-size:.85rem;text-decoration:none;padding:8px 15px;border-radius:7px;white-space:nowrap;}
+  .topbar .dl:hover{background:#d9b45f;}
+  .reader{flex:1 1 auto;border:0;width:100%;display:block;background:#3a1616;}
+  @media (max-width:520px){ .topbar .brand{display:none;} }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="../index.html" aria-label="Torna all'estratto">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      Torna all'estratto
+    </a>
+    <span class="brand">A Desert Story</span>
+    <a class="dl" href="https://www.dropbox.com/scl/fo/7fkx4lr23trmgvhaox4lz/AHJMz9Zjb8bz0x1cBbAEIfw?rlkey=ovkl22yc549r8brk41e35tr4w&dl=0" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+      Scarica
+    </a>
+  </div>
+  <iframe class="reader" title="A Desert Story — Atto I"
+    src="../../pdfjs/web/viewer.html?file=..%2F..%2Fdownload%2FA-Desert-Story_Atto-I.pdf"></iframe>
+</body>
+</html>

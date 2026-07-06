@@ -70,6 +70,9 @@
   .btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;background:var(--gold);color:var(--bordeaux-ink);font-family:var(--f-ui);font-weight:700;font-size:1rem;border:none;border-radius:8px;cursor:pointer;letter-spacing:.01em;text-decoration:none;transition:background .18s ease, transform .18s ease;}
   .btn-gold:hover{background:#d9b45f;transform:translateY(-1px);}
   .btn-gold svg{width:20px;height:20px;flex:none;}
+  .btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;background:transparent;color:var(--gold-bronze);font-family:var(--f-ui);font-weight:700;font-size:1rem;border:1.5px solid rgba(138,109,47,.55);border-radius:8px;cursor:pointer;text-decoration:none;transition:border-color .18s ease,color .18s ease,background .18s ease;}
+  .btn-outline:hover{border-color:var(--gold-bronze);color:var(--bordeaux);background:rgba(138,109,47,.06);}
+  .btn-outline svg{width:20px;height:20px;flex:none;}
   .btn-ghost{display:inline-flex;align-items:center;min-height:52px;padding:0 8px;font-family:var(--f-ui);font-weight:600;font-size:.95rem;color:var(--gold-bronze);text-decoration:none;border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease;}
   .btn-ghost:hover{color:var(--bordeaux);border-color:rgba(138,109,47,.5);}
 
@@ -123,7 +126,7 @@
   @media (max-width:560px){
     .signup .btn-gold{flex:1 1 100%;}
     .ex-actions{flex-direction:column;}
-    .ex-actions .btn-gold,.ex-actions .btn-ghost{width:100%;justify-content:center;}
+    .ex-actions .btn-gold,.ex-actions .btn-ghost,.ex-actions .btn-outline{width:100%;justify-content:center;}
   }
 </style>
 </head>
@@ -156,11 +159,17 @@
     <h1 class="ex-title">L'estratto</h1>
     <p class="ex-sub">Sebastiano e i prigionieri del palazzo invisibile</p>
     <div class="ex-actions">
-      <a class="btn-gold" href="https://www.dropbox.com/scl/fo/7fkx4lr23trmgvhaox4lz/AHJMz9Zjb8bz0x1cBbAEIfw?rlkey=ovkl22yc549r8brk41e35tr4w&dl=0" target="_blank" rel="noopener">
+      <a class="btn-gold" href="sfoglia/index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 7v13"/><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H12v13H5.5A2.5 2.5 0 0 0 3 19.5z"/><path d="M21 6.5A2.5 2.5 0 0 0 18.5 4H12v13h6.5a2.5 2.5 0 0 1 2.5 2.5z"/>
+        </svg>
+        Sfoglia l'estratto
+      </a>
+      <a class="btn-outline" href="https://www.dropbox.com/scl/fo/7fkx4lr23trmgvhaox4lz/AHJMz9Zjb8bz0x1cBbAEIfw?rlkey=ovkl22yc549r8brk41e35tr4w&dl=0" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/>
         </svg>
-        Scarica l'estratto
+        Scarica
       </a>
     </div>
   </div>
