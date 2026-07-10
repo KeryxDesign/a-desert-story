@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Estratto gratuito — A Desert Story | primo atto e tavole</title>
 <meta name="description" content="Sfoglia gratis l'inizio di A Desert Story: il primo atto e le illustrazioni a mano. Lascia la mail per essere avvisato al lancio su Amazon.">
 <link rel="canonical" href="https://adesertstory.com/estratto/">
@@ -19,6 +23,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://adesertstory.com/img/og.jpg">
 <link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="/consent/consent.css">
 <style>
   :root{
     --bordeaux-deep:#4A0E0E;
@@ -200,7 +205,7 @@
     <h2>Vuoi sapere quando esce la versione completa?</h2>
     <p class="lead">Lascia la mail e ti avviso al lancio. Nient'altro.</p>
     <div class="kit-embed">
-      <script async data-uid="6454468437" src="https://keryxdesign.kit.com/6454468437/index.js"></script>
+      <!-- Lo script Kit NON viene caricato qui: lo inietta consent.js solo dopo il consenso. -->
     </div>
     <p class="note">Solo un messaggio il giorno del lancio. Ti disiscrivi quando vuoi.</p>
     <p class="note">Lasciando la mail acconsenti al trattamento dei tuoi dati per ricevere l'avviso di lancio, secondo l'<a href="../privacy/" style="color:var(--gold);">informativa privacy</a>. Gestiamo l'iscrizione tramite il servizio Kit.</p>
@@ -212,10 +217,11 @@
     <div class="fw">A Desert Story</div>
     <div class="fw-sub">di Sybil Stonecutter</div>
     <nav class="foot-links" aria-label="Link legali">
-      <a href="#">Privacy</a>
-      <a href="#">Termini e condizioni</a>
-      <a href="#">Cookie</a>
-      <a href="#">Contatti</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="../termini/">Termini e condizioni</a>
+      <a href="../cookie/">Cookie</a>
+      <a href="#cc-preferenze" data-cc-open>Preferenze cookie</a>
+      <a href="mailto:info@keryxdesign.com">Contatti</a>
     </nav>
     <div class="foot-copy">© 2026 A Desert Story</div>
     <div class="lang-switch">
@@ -242,5 +248,6 @@
     setTimeout(function(){ clearInterval(iv); },9000);
   })();
 </script>
+<script src="/consent/consent.js"></script>
 </body>
 </html>

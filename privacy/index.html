@@ -1,40 +1,204 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Privacy Policy — A Desert Story</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Informativa sulla privacy — A Desert Story</title>
 <link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="/consent/consent.css">
 <style>
-  :root{--bordeaux:#7B1E1E;--gold:#C9A24B;--cream:#F4ECD8;--ink:#2A1A12;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--bordeaux);color:var(--cream);font-family:'Source Serif 4',Georgia,serif;
-       min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px;line-height:1.6;}
-  .card{max-width:620px;text-align:center;}
-  .brand{font-family:'Cinzel Decorative',serif;letter-spacing:.08em;color:var(--gold);
-         font-size:.95rem;text-transform:uppercase;margin-bottom:28px;}
-  h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2rem,6vw,3rem);
-     color:var(--cream);margin-bottom:18px;}
-  p{color:#efe4cd;margin-bottom:14px;font-size:1.05rem;}
-  .tag{display:inline-block;border:1px solid rgba(201,162,75,.5);color:var(--gold);
-       border-radius:999px;padding:6px 16px;font-family:'Mulish',sans-serif;font-size:.8rem;
-       letter-spacing:.04em;margin-bottom:24px;}
-  .en{color:#d8c6a4;font-size:.95rem;font-style:italic;margin-top:8px;}
-  a{color:var(--gold);}
-  .home{display:inline-block;margin-top:30px;font-family:'Mulish',sans-serif;font-size:.9rem;
-        text-decoration:none;border-bottom:1px solid rgba(201,162,75,.5);padding-bottom:2px;}
+  :root{
+    --bordeaux-deep:#4A0E0E;
+    --bordeaux:#6B1616;
+    --bordeaux-ink:#2A1A12;
+    --gold:#C9A24B;
+    --gold-bronze:#8A6D2F;
+    --cream:#F4ECD8;
+    --cream-soft:#EFE4CC;
+    --f-display:"Cinzel Decorative", serif;
+    --f-head:"Cormorant Garamond", serif;
+    --f-body:"Source Serif 4", Georgia, serif;
+    --f-ui:"Mulish", system-ui, sans-serif;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  h1,h2,h3,p{overflow-wrap:break-word;}
+  body{
+    margin:0;font-family:var(--f-body);color:var(--bordeaux-ink);
+    background:var(--cream);font-size:18px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;height:auto;display:block;}
+
+  /* ---------- Nav ---------- */
+  .nav{position:sticky;top:0;z-index:100;background:var(--bordeaux-ink);border-bottom:1px solid rgba(201,162,75,.28);}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 20px;min-height:58px;}
+  .nav-mark{font-family:var(--f-display);font-weight:700;color:var(--gold);font-size:1.05rem;letter-spacing:.02em;text-decoration:none;line-height:1;white-space:nowrap;}
+  .nav-links{display:flex;align-items:center;gap:26px;list-style:none;margin:0;padding:0;}
+  .nav-links a{font-family:var(--f-ui);font-size:.92rem;font-weight:600;color:var(--cream);text-decoration:none;opacity:.9;transition:opacity .15s ease,color .15s ease;}
+  .nav-links a:hover{color:var(--gold);opacity:1;}
+  .nav-cta{font-family:var(--f-ui);font-weight:700;font-size:.86rem;background:var(--gold);color:var(--bordeaux-ink);padding:9px 16px;border-radius:7px;text-decoration:none;white-space:nowrap;transition:background .18s ease;}
+  .nav-cta:hover{background:#d9b45f;}
+  @media (max-width:560px){ .nav-links{display:none;} }
+
+  /* ---------- Legal head ---------- */
+  .legal-head{background:var(--cream-soft);border-bottom:1px solid rgba(138,109,47,.22);padding:clamp(40px,7vw,64px) 20px clamp(28px,4vw,40px);text-align:center;}
+  .legal-head-inner{max-width:720px;margin:0 auto;}
+  .legal-kicker{font-family:var(--f-ui);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--gold-bronze);margin:0 0 12px;}
+  .legal-title{font-family:var(--f-head);color:var(--bordeaux);font-size:clamp(2rem,6vw,3.1rem);line-height:1.1;margin:0 0 12px;}
+  .legal-updated{font-family:var(--f-ui);font-size:.88rem;color:var(--gold-bronze);margin:0;}
+
+  /* ---------- Legal body ---------- */
+  .legal{max-width:720px;margin:0 auto;padding:clamp(40px,6vw,64px) 20px clamp(56px,8vw,88px);}
+  .legal h2{
+    font-family:var(--f-head);color:var(--bordeaux);
+    font-size:clamp(1.4rem,3.4vw,1.85rem);line-height:1.2;
+    margin:2.2em 0 .5em;
+  }
+  .legal h2:first-of-type{margin-top:0;}
+  .legal h3{
+    font-family:var(--f-head);color:var(--bordeaux-ink);
+    font-size:1.2rem;margin:1.6em 0 .4em;
+  }
+  .legal p{margin:0 0 1.1em;}
+  .legal ul{margin:0 0 1.2em;padding:0;list-style:none;}
+  .legal ul li{position:relative;padding:0 0 .55em 1.4em;}
+  .legal ul li::before{content:"";position:absolute;left:.2em;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--gold-bronze);}
+  .legal a{color:var(--bordeaux);text-decoration:underline;text-underline-offset:2px;}
+  .legal a:hover{color:var(--gold-bronze);}
+  .legal .placeholder{
+    background:rgba(201,162,75,.16);
+    border:1px dashed var(--gold-bronze);
+    border-radius:4px;padding:1px 8px;font-family:var(--f-ui);font-weight:700;
+    font-size:.92em;color:var(--bordeaux);white-space:nowrap;
+  }
+  .legal .rule{width:54px;height:1px;background:var(--gold-bronze);opacity:.55;margin:0 0 clamp(24px,4vw,32px);}
+  .legal .back{
+    display:inline-flex;align-items:center;gap:8px;margin-top:8px;
+    font-family:var(--f-ui);font-weight:600;font-size:.95rem;
+    color:var(--gold-bronze);text-decoration:none;
+    border-bottom:1px solid rgba(138,109,47,.5);padding-bottom:2px;
+  }
+  .legal .back:hover{color:var(--bordeaux);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--bordeaux-ink);color:#cdbfa8;padding:48px 20px 40px;text-align:center;font-family:var(--f-ui);font-size:.92rem;border-top:1px solid rgba(201,162,75,.18);}
+  footer .foot-inner{max-width:var(--maxw);margin:0 auto;}
+  footer .fw{font-family:var(--f-display);color:var(--gold);font-size:1.3rem;letter-spacing:.03em;line-height:1.1;}
+  footer .fw-sub{margin-top:6px;font-style:italic;color:#b7a888;font-family:var(--f-head);font-size:1.05rem;}
+  .foot-links{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center;}
+  .foot-links a{color:#cdbfa8;text-decoration:none;font-size:.9rem;border-bottom:1px solid transparent;padding-bottom:1px;transition:color .15s ease,border-color .15s ease;cursor:pointer;}
+  .foot-links a:hover{color:var(--gold);border-color:rgba(201,162,75,.5);}
+  .foot-copy{margin-top:22px;font-size:.82rem;color:#9a8c74;}
+  .lang-switch{margin-top:18px;font-size:.85rem;}
+  .lang-switch a{color:#cdbfa8;text-decoration:none;padding:0 6px;}
+  .lang-switch a.active{color:var(--gold);font-weight:700;}
+
+  a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="brand">A Desert Story</div>
-    <span class="tag">Documento in preparazione</span>
-    <h1>Privacy Policy</h1>
-    <p>L'informativa sul trattamento dei dati personali è in fase di redazione. Nel frattempo, i dati che lasci (nome e email per la lista d'attesa) sono usati solo per avvisarti all'uscita del libro e gestiti tramite il servizio Kit. Puoi chiedere in ogni momento la cancellazione.</p>
-    <p>Per informazioni o per esercitare i tuoi diritti scrivi a <a href="mailto:info@keryxdesign.com">info@keryxdesign.com</a>.</p>
-    <p class="en">This page is being prepared. For any request write to <a href="mailto:info@keryxdesign.com">info@keryxdesign.com</a>.</p>
-    <a class="home" href="../index.html">&larr; Torna al sito</a>
+
+<nav class="nav" aria-label="Navigazione principale">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark">A Desert Story</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#la-storia">La storia</a></li>
+      <li><a href="../estratto/">L'estratto</a></li>
+    </ul>
+    <a href="../estratto/#avvisami" class="nav-cta">Avvisami al lancio</a>
   </div>
+</nav>
+
+<header class="legal-head">
+  <div class="legal-head-inner">
+    <p class="legal-kicker">Note legali</p>
+    <h1 class="legal-title">Informativa sulla privacy</h1>
+    <p class="legal-updated">Ultimo aggiornamento: <span class="placeholder">10 luglio 2026</span></p>
+  </div>
+</header>
+
+<main class="legal">
+  <div class="rule"></div>
+
+  <p>Questa informativa descrive come vengono trattati i dati personali degli utenti che visitano il sito <strong>adesertstory.com</strong> e che si iscrivono alla lista d'attesa per il lancio del romanzo, ai sensi del Regolamento (UE) 2016/679 (GDPR).</p>
+
+  <h2>1. Titolare del trattamento</h2>
+  <p>Il Titolare del trattamento è <strong>Sarah Tagliapietra</strong> (persona fisica).</p>
+  <ul>
+    <li>Codice Fiscale: TGLSRH72R58B157B</li>
+    <li>Indirizzo: Via Ragusa 8, 20125 Milano</li>
+    <li>Email: <a href="mailto:info@keryxdesign.com">info@keryxdesign.com</a></li>
+  </ul>
+
+  <h2>2. Dati raccolti</h2>
+  <p>Raccogliamo esclusivamente il <strong>nome</strong> e l'<strong>indirizzo email</strong> che inserisci nel modulo della lista d'attesa presente nella pagina dell'estratto. Non raccogliamo nessun altro dato personale e non trattiamo categorie particolari di dati (art. 9 GDPR).</p>
+
+  <h2>3. Finalità e base giuridica</h2>
+  <p>I dati vengono trattati per iscriverti alla lista d'attesa e per inviarti comunicazioni relative al lancio del romanzo. La base giuridica del trattamento è il tuo <strong>consenso</strong> (art. 6.1.a GDPR).</p>
+  <p>Il conferimento dei dati è facoltativo, ma è necessario per potersi iscrivere alla lista. Il consenso è <strong>revocabile</strong> in qualsiasi momento, senza pregiudicare la liceità del trattamento effettuato prima della revoca.</p>
+
+  <h2>4. Gestione dell'iscrizione</h2>
+  <p>L'iscrizione è gestita tramite il modulo <strong>Kit</strong> (ex ConvertKit). Al momento dell'iscrizione può essere previsto un <strong>doppio opt-in</strong> (conferma via email). In ogni email che ti inviamo trovi un link di <strong>disiscrizione</strong> con cui puoi cancellarti in ogni momento.</p>
+
+  <h2>5. Destinatari e responsabili del trattamento</h2>
+  <ul>
+    <li><strong>Kit</strong> (Kit.com Inc., USA) tratta i dati come responsabile del trattamento ai sensi dell'art. 28 GDPR, sulla base di un accordo sul trattamento dei dati (DPA) disponibile su <a href="https://kit.com/dpa" target="_blank" rel="noopener">kit.com/dpa</a>.</li>
+    <li><strong>Hostinger</strong> fornisce l'hosting del sito, con server situati nell'Unione Europea.</li>
+  </ul>
+
+  <h2>6. Trasferimento dei dati fuori dall'Unione Europea</h2>
+  <p>Kit ha sede negli Stati Uniti. Il trasferimento dei dati verso gli USA avviene sulla base delle <strong>Clausole Contrattuali Tipo</strong> (Standard Contractual Clauses, decisione UE 2021/914) incorporate nella DPA di Kit, che costituiscono garanzie adeguate ai sensi dell'art. 46 GDPR. Una copia delle garanzie è disponibile su richiesta scrivendo al Titolare.</p>
+
+  <h2>7. Conservazione dei dati</h2>
+  <p>Conserviamo i tuoi dati fino a quando revochi il consenso o ti disiscrivi dalla lista. Dopo la revoca o la disiscrizione, i dati vengono cancellati entro un termine ragionevole.</p>
+
+  <h2>8. Diritti dell'interessato</h2>
+  <p>In qualsiasi momento puoi esercitare i seguenti diritti previsti dal GDPR:</p>
+  <ul>
+    <li>accesso ai tuoi dati;</li>
+    <li>rettifica dei dati inesatti;</li>
+    <li>cancellazione dei dati;</li>
+    <li>limitazione del trattamento;</li>
+    <li>opposizione al trattamento;</li>
+    <li>portabilità dei dati;</li>
+    <li>revoca del consenso.</li>
+  </ul>
+  <p>Puoi esercitare questi diritti scrivendo all'email del Titolare (info@keryxdesign.com). Risponderemo entro un mese dalla richiesta. Hai inoltre il diritto di proporre reclamo all'Autorità Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">garanteprivacy.it</a>).</p>
+
+  <h2>9. Minori</h2>
+  <p>La lista d'attesa non è destinata a minori di 14 anni. L'iscrizione dovrebbe essere effettuata da un adulto o dal genitore.</p>
+
+  <h2>10. Modifiche a questa informativa</h2>
+  <p>Eventuali modifiche a questa informativa verranno pubblicate su questa pagina, con l'indicazione della data di aggiornamento.</p>
+
+  <p><a class="back" href="../index.html">&larr; Torna al sito</a></p>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div class="fw">A Desert Story</div>
+    <div class="fw-sub">di Sybil Stonecutter</div>
+    <nav class="foot-links" aria-label="Link legali">
+      <a href="../privacy/">Privacy</a>
+      <a href="../termini/">Termini e condizioni</a>
+      <a href="../cookie/">Cookie</a>
+      <a href="#cc-preferenze" data-cc-open>Preferenze cookie</a>
+      <a href="mailto:info@keryxdesign.com">Contatti</a>
+    </nav>
+    <div class="foot-copy">© 2026 A Desert Story</div>
+    <div class="lang-switch">
+      <a href="../index.html" class="active">IT</a> · <a href="../en/index.html">EN</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/consent/consent.js"></script>
 </body>
 </html>

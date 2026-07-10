@@ -1,0 +1,108 @@
+/* ============================================================
+   A Desert Story — Cookie consent banner
+   On-brand (bordeaux/oro/crema). Nessuna dipendenza esterna.
+   ============================================================ */
+:root{
+  --cc-bordeaux-deep:#4A0E0E;
+  --cc-bordeaux:#6B1616;
+  --cc-ink:#2A1A12;
+  --cc-gold:#C9A24B;
+  --cc-gold-bronze:#8A6D2F;
+  --cc-cream:#F4ECD8;
+}
+
+/* Banner fisso in basso */
+.cc-banner{
+  position:fixed;left:0;right:0;bottom:0;z-index:2147483000;
+  background:var(--cc-ink);
+  color:var(--cc-cream);
+  border-top:1px solid rgba(201,162,75,.4);
+  box-shadow:0 -12px 40px rgba(0,0,0,.4);
+  font-family:"Mulish",system-ui,sans-serif;
+  padding:18px 20px calc(18px + env(safe-area-inset-bottom,0px));
+  transform:translateY(110%);
+  transition:transform .32s ease;
+}
+.cc-banner.cc-open{transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){
+  .cc-banner{transition:none;}
+}
+
+.cc-inner{
+  max-width:1180px;margin:0 auto;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:16px 28px;
+}
+.cc-text{
+  flex:1 1 380px;min-width:0;
+  font-size:.94rem;line-height:1.55;color:#efe4cd;
+}
+.cc-text strong{color:var(--cc-gold);font-weight:700;}
+.cc-text a{color:var(--cc-gold);text-decoration:underline;text-underline-offset:2px;}
+.cc-text a:hover{color:#d9b45f;}
+
+.cc-actions{
+  flex:0 0 auto;
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px;
+}
+
+/* Bottoni: Accetta e Rifiuta con PARI evidenza (stessa dimensione, stesso peso) */
+.cc-btn{
+  font-family:"Mulish",system-ui,sans-serif;
+  font-weight:700;font-size:.92rem;letter-spacing:.01em;
+  min-height:46px;padding:0 22px;
+  border-radius:8px;cursor:pointer;
+  border:1.5px solid transparent;
+  transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease;
+}
+.cc-btn:hover{transform:translateY(-1px);}
+.cc-accept{
+  background:var(--cc-gold);color:var(--cc-ink);border-color:var(--cc-gold);
+}
+.cc-accept:hover{background:#d9b45f;border-color:#d9b45f;}
+.cc-reject{
+  background:transparent;color:var(--cc-cream);border-color:rgba(201,162,75,.6);
+}
+.cc-reject:hover{background:rgba(201,162,75,.12);border-color:var(--cc-gold);color:var(--cc-cream);}
+
+.cc-tertiary{
+  background:none;border:none;cursor:pointer;padding:6px 4px;
+  font-family:"Mulish",system-ui,sans-serif;font-weight:600;font-size:.85rem;
+  color:#cdbfa8;text-decoration:underline;text-underline-offset:2px;
+}
+.cc-tertiary:hover{color:var(--cc-gold);}
+
+.cc-btn:focus-visible,.cc-tertiary:focus-visible,.cc-banner a:focus-visible{
+  outline:2px solid var(--cc-gold);outline-offset:2px;
+}
+
+@media (max-width:640px){
+  .cc-inner{flex-direction:column;align-items:stretch;gap:14px;}
+  .cc-text{flex:1 1 auto;text-align:left;}
+  .cc-actions{flex-direction:column;align-items:stretch;gap:10px;}
+  .cc-btn{width:100%;justify-content:center;}
+  .cc-tertiary{align-self:center;}
+}
+
+/* Placeholder mostrato dentro .kit-embed quando il consenso non è dato */
+.cc-kit-placeholder{
+  max-width:480px;margin:0 auto;
+  background:rgba(244,236,216,.08);
+  border:1px dashed rgba(201,162,75,.5);
+  border-radius:12px;
+  padding:26px 24px;text-align:center;
+  font-family:"Mulish",system-ui,sans-serif;
+}
+.cc-kit-placeholder p{
+  margin:0 0 16px;color:#f1e6cf;font-size:1rem;line-height:1.55;
+}
+.cc-kit-manage{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:46px;padding:0 22px;
+  background:var(--cc-gold);color:var(--cc-ink);
+  font-family:"Mulish",system-ui,sans-serif;font-weight:700;font-size:.92rem;
+  border:none;border-radius:8px;cursor:pointer;
+  transition:background .18s ease,transform .18s ease;
+}
+.cc-kit-manage:hover{background:#d9b45f;transform:translateY(-1px);}
+.cc-kit-manage:focus-visible{outline:2px solid var(--cc-gold);outline-offset:2px;}
