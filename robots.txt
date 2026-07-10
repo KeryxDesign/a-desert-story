@@ -1,0 +1,11 @@
+# A Desert Story — BOZZA: sito non ancora pubblico.
+# Al lancio: sostituire con la versione aperta (Allow) e rimuovere i meta noindex.
+User-agent: *
+Disallow: /
+
+# Versione da attivare AL LANCIO (togliere il commento e cancellare il Disallow sopra):
+# User-agent: *
+# Allow: /
+# Disallow: /pdfjs/
+# Disallow: /estratto/sfoglia/
+# Sitemap: https://adesertstory.com/sitemap.xml
