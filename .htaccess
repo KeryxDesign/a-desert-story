@@ -3,3 +3,10 @@ AddType text/javascript .mjs
 AddType text/javascript .js
 AddType application/wasm .wasm
 AddType application/pdf .pdf
+
+# PDF: cache breve + rivalidazione, così gli aggiornamenti si propagano subito (evita la cache stale della CDN Hostinger)
+<IfModule mod_headers.c>
+  <FilesMatch "\.pdf$">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
+</IfModule>
