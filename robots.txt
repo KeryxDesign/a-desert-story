@@ -3,5 +3,6 @@ User-agent: *
 Allow: /
 Disallow: /pdfjs/
 Disallow: /estratto/sfoglia/
+Disallow: /download/
 
 Sitemap: https://adesertstory.com/sitemap.xml
