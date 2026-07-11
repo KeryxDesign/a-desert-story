@@ -1,0 +1,5 @@
+# MIME corretti (Hostinger/Apache di default serve .mjs come text/plain, rompendo i moduli ES di pdf.js)
+AddType text/javascript .mjs
+AddType text/javascript .js
+AddType application/wasm .wasm
+AddType application/pdf .pdf
