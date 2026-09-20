@@ -82,6 +82,7 @@
   .ex-book{font-family:var(--f-display);color:var(--gold-bronze);font-size:.9rem;letter-spacing:.06em;margin:0 0 14px;}
   .ex-title{font-family:var(--f-head);color:var(--bordeaux);font-size:clamp(2.1rem,6.4vw,3.4rem);line-height:1.08;margin:0 0 10px;}
   .ex-sub{font-family:var(--f-head);font-style:italic;color:var(--bordeaux-ink);opacity:.85;font-size:clamp(1.15rem,2.6vw,1.5rem);margin:0 0 30px;}
+  .ex-note{max-width:34rem;margin:0 auto 1.25rem;font-size:1rem;line-height:1.55;opacity:.88;}
   .ex-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;}
 
   .btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;background:var(--gold);color:var(--bordeaux-ink);font-family:var(--f-ui);font-weight:700;font-size:1rem;border:none;border-radius:8px;cursor:pointer;letter-spacing:.01em;text-decoration:none;transition:background .18s ease, transform .18s ease;}
@@ -182,19 +183,9 @@
     <p class="ex-book">A Desert Story</p>
     <h1 class="ex-title">L'estratto</h1>
     <p class="ex-sub">Sebastiano e i prigionieri del palazzo invisibile</p>
+    <p class="ex-note">L'estratto è momentaneamente non disponibile: lo stiamo rifacendo. Tornerà qui appena è pronto.</p>
     <div class="ex-actions">
-      <a class="btn-gold" href="sfoglia/index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 7v13"/><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H12v13H5.5A2.5 2.5 0 0 0 3 19.5z"/><path d="M21 6.5A2.5 2.5 0 0 0 18.5 4H12v13h6.5a2.5 2.5 0 0 1 2.5 2.5z"/>
-        </svg>
-        Sfoglia l'estratto
-      </a>
-      <a class="btn-outline" href="../download/A-Desert-Story_Estratto.pdf?v=2" download="A Desert Story - Estratto.pdf">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/>
-        </svg>
-        Scarica
-      </a>
+      <a class="btn-gold" href="#avvisami">Avvisami quando torna</a>
     </div>
   </div>
 </header>
