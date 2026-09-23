@@ -1,0 +1,6 @@
+/* Keryx — fondo del lettore in bordeaux al posto del grigio pdf.js.
+   !important perche' viewer.css ridichiara --body-bg-color dentro
+   prefers-color-scheme: dark (righe 3302 e 3343). */
+:root{
+  --body-bg-color:#7B1E1E !important;
+}
