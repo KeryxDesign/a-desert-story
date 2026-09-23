@@ -320,6 +320,7 @@
   .hero-book .hb-sep{color:var(--gold-bronze);margin:0 .45em;}
   .hero-book .hb-sub{font-family:var(--f-head);font-style:italic;color:#e9d9b6;}
   .hero-cta{max-width:480px;}
+  .hero-format{margin-top:12px;margin-bottom:0;}
   .hero .cta-micro{margin-bottom:8px;}
   .hero-reassure{margin-top:0;margin-bottom:14px;max-width:44ch;}
   /* ========== 1b. INFO-BAR (striscia chiara sotto l'hero) ========== */
@@ -811,6 +812,7 @@
     .final .final-grid p.lead{max-width:46ch;margin:0 0 36px;text-align:left;}
     .final .final-grid .signup{margin:0;justify-content:flex-start;}
     .final .final-grid .reassure{text-align:left;}
+    .final .final-actions{justify-content:flex-start;}
   }
   /* post-launch variant (predisposta, non attiva) */
   .launched-only{display:none;}
@@ -872,6 +874,8 @@
     .hero-reassure{margin-inline:auto;margin-bottom:10px;}
     .hero .signup{margin:0 auto;justify-content:center;}
     .hero-cta{margin-inline:auto;}
+    .hero-cta .amz-row{justify-content:center !important;}
+    .hero-format{text-align:center;}
 
     .keys{grid-template-columns:1fr;gap:16px;}
     .testi-grid{grid-template-columns:1fr;gap:16px;}
@@ -1087,7 +1091,7 @@
         {
           "@type": "Question",
           "name": "What formats does it come in?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Paperback with an illustrated cover and colour interiors, plus the Kindle edition." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Paperback with an illustrated cover and color interiors, plus the Kindle edition." }
         },
         {
           "@type": "Question",
@@ -1150,11 +1154,11 @@
     <div class="hero-text">
       <p class="hero-headline">The animals are disappearing.<br>And a ten-year-old boy is the only one who can save them.</p>
       <div class="hero-cta">
-        <form class="signup" onsubmit="return false;">
-          <input type="text" placeholder="Your name" aria-label="Your name">
-          <input type="email" placeholder="Your email" aria-label="Your email">
-          <button type="submit" class="btn-gold">Send me the excerpt</button>
-        </form>
+        <div class="amz-row" style="justify-content:flex-start;">
+          <a class="btn-gold" href="https://www.amazon.it/dp/B0HKR9F6R9" target="_blank" rel="noopener">Buy the Italian edition on Amazon.it</a>
+          <a class="amz-secondary" href="../estratto/index.html">Read a free sample (Italian)</a>
+        </div>
+        <p class="price-line hero-format">292 pages, in Italian. Paperback €14.90 or Kindle ebook €3.99. The English edition is in the works.</p>
       </div>
       <h1 class="hero-book"><span class="hb-title">A Desert Story</span> <span class="hb-sep">·</span> <span class="hb-sub">Sebastiano and the Prisoners of the Invisible Palace</span></h1>
     </div>
@@ -1331,7 +1335,7 @@
           <img src="../img/camaleon.jpg" width="616" height="900" loading="lazy" alt="Plate of Camaleon the Chame-Lion.">
           <div class="cast-body">
             <h3 class="cast-name">Camaleon</h3>
-            <p class="cast-desc">No ordinary chameleon: a Chame-Lion. An expert in art and all things beautiful, he'll dazzle you with his colours. Just don't make him angry…</p>
+            <p class="cast-desc">No ordinary chameleon: a Chame-Lion. An expert in art and all things beautiful, he'll dazzle you with his colors. Just don't make him angry…</p>
           </div>
         </article>
         <article class="cast-card">
@@ -1376,33 +1380,21 @@
 </section>
 
 <!-- ============ 9. CTA FINALE ============ -->
-<!-- Per attivare la variante post-lancio: aggiungere class="is-launched" a questa <section>. -->
 <section class="final" id="lancio">
   <div class="glow" aria-hidden="true"></div>
 
-  <!-- Variante pre-lancio (attiva) -->
-  <div class="final-grid prelaunch-only">
+  <div class="final-grid">
     <img class="final-cover" src="../img/copertina.webp?v=2" width="900" height="1350"
          alt="Cover of A Desert Story: a golden arch on a deep bordeaux background.">
     <div class="inner">
-      <h2>Out soon. You can start already.</h2>
-      <p class="lead">I'll send you the excerpt, and let you know on launch day. Nothing else.</p>
-      <form class="signup" onsubmit="return false;">
-        <input type="text" placeholder="Your name" aria-label="Your name">
-        <input type="email" placeholder="Your email" aria-label="Your email">
-        <button type="submit" class="btn-gold">Send me the excerpt</button>
-      </form>
+      <h2>The English edition is on its way</h2>
+      <p class="lead">Sebastiano's story came out in Italian on September 22, 2026. We're translating it into English right now, and we won't put a date on it until the book is ready. If you read Italian, you can start tonight. If you don't, this page is the place to come back to.</p>
+      <div class="amz-row final-actions">
+        <a class="btn-gold" href="https://www.amazon.it/dp/B0HKR9F6R9" target="_blank" rel="noopener">Buy the Italian edition on Amazon.it</a>
+        <a class="amz-secondary" href="../estratto/index.html">Read a free sample (Italian)</a>
+      </div>
+      <p class="price-line">One edition for sale today, and it's the Italian one. English when it's done, not before.</p>
     </div>
-  </div>
-
-  <!-- Variante post-lancio (predisposta, nascosta finché la section non ha .is-launched) -->
-  <div class="inner launched-only">
-    <h2>A Desert Story is out.</h2>
-    <div class="amz-row">
-      <a href="#" class="btn-gold" style="text-decoration:none;color:var(--bordeaux-ink);">Buy on Amazon</a>
-      <a href="#" class="amz-secondary">Send me the excerpt</a>
-    </div>
-    <p class="price-line">Paperback around £12.99. Kindle ebook from £3.99.</p>
   </div>
 </section>
 
@@ -1415,7 +1407,7 @@
   <div class="faq-list">
     <details open>
       <summary>What formats does it come in?</summary>
-      <div class="answer">Paperback with an illustrated cover and colour interiors, plus the Kindle edition.</div>
+      <div class="answer">Paperback with an illustrated cover and color interiors, plus the Kindle edition.</div>
     </details>
     <details>
       <summary>How long is it?</summary>

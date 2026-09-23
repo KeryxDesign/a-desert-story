@@ -320,6 +320,7 @@
   .hero-book .hb-sep{color:var(--gold-bronze);margin:0 .45em;}
   .hero-book .hb-sub{font-family:var(--f-head);font-style:italic;color:#e9d9b6;}
   .hero-cta{max-width:480px;}
+  .hero-format{margin-top:12px;margin-bottom:0;}
   .hero .cta-micro{margin-bottom:8px;}
   .hero-reassure{margin-top:0;margin-bottom:14px;max-width:44ch;}
   /* ========== 1b. INFO-BAR (striscia chiara sotto l'hero) ========== */
@@ -815,6 +816,7 @@
     .final .final-grid p.lead{max-width:46ch;margin:0 0 36px;text-align:left;}
     .final .final-grid .signup{margin:0;justify-content:flex-start;}
     .final .final-grid .reassure{text-align:left;}
+    .final .final-actions{justify-content:flex-start;}
   }
   /* post-launch variant (predisposta, non attiva) */
   .launched-only{display:none;}
@@ -876,6 +878,8 @@
     .hero-reassure{margin-inline:auto;margin-bottom:10px;}
     .hero .signup{margin:0 auto;justify-content:center;}
     .hero-cta{margin-inline:auto;}
+    .hero-cta .amz-row{justify-content:center !important;}
+    .hero-format{text-align:center;}
 
     .keys{grid-template-columns:1fr;gap:16px;}
     .testi-grid{grid-template-columns:1fr;gap:16px;}
@@ -1154,7 +1158,11 @@
     <div class="hero-text">
       <p class="hero-headline">Gli animali stanno sparendo.<br>E un bambino di dieci anni è l'unico che può salvarli.</p>
       <div class="hero-cta">
-        <a class="btn-gold" href="estratto/index.html">Leggi l'estratto</a>
+        <div class="amz-row" style="justify-content:flex-start;">
+          <a class="btn-gold" href="https://www.amazon.it/dp/B0HKR9F6R9" target="_blank" rel="noopener">Compra su Amazon</a>
+          <a class="amz-secondary" href="estratto/index.html">Leggi l'estratto</a>
+        </div>
+        <p class="price-line hero-format">Cartaceo ed ebook Kindle.</p>
       </div>
       <h1 class="hero-book"><span class="hb-title">A Desert Story</span> <span class="hb-sep">·</span> <span class="hb-sub">Sebastiano e i prigionieri del palazzo invisibile</span></h1>
     </div>
@@ -1376,29 +1384,21 @@
 </section>
 
 <!-- ============ 9. CTA FINALE ============ -->
-<!-- Per attivare la variante post-lancio: aggiungere class="is-launched" a questa <section>. -->
 <section class="final" id="lancio">
   <div class="glow" aria-hidden="true"></div>
 
-  <!-- Variante pre-lancio (attiva) -->
-  <div class="final-grid prelaunch-only">
+  <div class="final-grid">
     <img class="final-cover" src="img/copertina.webp?v=2" width="900" height="1350"
          alt="Copertina di A Desert Story: un arco dorato su fondo bordeaux.">
     <div class="inner">
-      <h2>Esce presto. Intanto puoi già cominciare.</h2>
-      <p class="lead">L'estratto è libero: leggilo qui, senza lasciare nulla in cambio.</p>
-      <a class="btn-gold" href="estratto/index.html">Leggi l'estratto</a>
+      <h2>A Desert Story è uscito.</h2>
+      <p class="lead">Lo trovi su Amazon, in cartaceo e in ebook Kindle. Se prima vuoi conoscere Sebastiano, l'estratto è libero.</p>
+      <div class="amz-row final-actions">
+        <a class="btn-gold" href="https://www.amazon.it/dp/B0HKR9F6R9" target="_blank" rel="noopener">Compra su Amazon</a>
+        <a class="amz-secondary" href="estratto/index.html">Leggi l'estratto</a>
+      </div>
+      <p class="price-line">Cartaceo 14,90 euro. Ebook Kindle 3,99 euro.</p>
     </div>
-  </div>
-
-  <!-- Variante post-lancio (predisposta, nascosta finché la section non ha .is-launched) -->
-  <div class="inner launched-only">
-    <h2>A Desert Story è uscito.</h2>
-    <div class="amz-row">
-      <a href="#" class="btn-gold" style="text-decoration:none;color:var(--bordeaux-ink);">Compra su Amazon</a>
-      <a href="#" class="amz-secondary">Mandami l'estratto</a>
-    </div>
-    <p class="price-line">Cartaceo circa 15 euro. Ebook Kindle da 3,99 euro.</p>
   </div>
 </section>
 
