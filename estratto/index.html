@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Estratto gratuito — A Desert Story | primo atto e tavole</title>
-<meta name="description" content="Sfoglia gratis l'inizio di A Desert Story: il primo atto e le illustrazioni a mano. Lascia la mail per essere avvisato al lancio su Amazon.">
+<meta name="description" content="Sfoglia gratis l'inizio del romanzo A Desert Story, con sette illustrazioni di Sarah Tagliapietra. Il libro è su Amazon, in cartaceo e in ebook Kindle.">
 <link rel="canonical" href="https://adesertstory.com/estratto/">
 <meta property="og:type" content="book">
 <meta property="og:title" content="A Desert Story · L'estratto">
@@ -128,17 +128,6 @@
   .waitlist-inner{max-width:600px;margin:0 auto;}
   .waitlist h2{font-family:var(--f-head);color:var(--cream);font-size:clamp(1.8rem,5vw,2.7rem);margin:0 0 14px;}
   .waitlist p.lead{font-size:1.1rem;color:#f1e6cf;margin:0 auto 28px;max-width:44ch;}
-  .signup{display:flex;flex-wrap:wrap;gap:12px;max-width:480px;margin:0 auto;justify-content:center;}
-  .signup input[type=email],.signup input[type=text]{flex:1 1 200px;min-height:52px;padding:0 18px;border-radius:8px;border:1px solid rgba(201,162,75,.5);background:rgba(244,236,216,.08);color:var(--cream);font-family:var(--f-ui);font-size:1rem;}
-  .signup input::placeholder{color:rgba(244,236,216,.6);}
-  .signup .btn-gold{flex:0 0 auto;}
-  .waitlist .note{font-family:var(--f-ui);font-size:.82rem;color:#d8c6a4;margin:16px auto 0;max-width:40ch;}
-  /* --- Kit form: allineamento al brand --- */
-  .kit-embed{max-width:480px;margin:0 auto;}
-  .kit-embed .formkit-submit,.kit-embed .formkit-submit:hover{background-color:var(--gold)!important;border-radius:8px!important;}
-  .kit-embed .formkit-submit:hover{background-color:#d9b45f!important;}
-  .kit-embed .formkit-submit>div{color:var(--bordeaux-ink)!important;font-family:var(--f-ui)!important;font-weight:700!important;}
-  .kit-embed .formkit-input{border-radius:8px!important;font-family:var(--f-ui)!important;}
 
   /* ---------- Footer ---------- */
   footer{background:var(--bordeaux-ink);color:#cdbfa8;padding:48px 20px 40px;text-align:center;font-family:var(--f-ui);font-size:.92rem;border-top:1px solid rgba(201,162,75,.18);}
@@ -155,7 +144,6 @@
 
   a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
   @media (max-width:560px){
-    .signup .btn-gold{flex:1 1 100%;}
     .ex-actions{flex-direction:column;}
     .ex-actions .btn-gold,.ex-actions .btn-ghost,.ex-actions .btn-outline{width:100%;justify-content:center;}
   }
@@ -178,7 +166,7 @@
         <li><a href="../index.html#personaggi">I personaggi</a></li>
         <li><a href="../index.html#autrice">L'autrice</a></li>
       </ul>
-      <a href="#avvisami" class="nav-cta">Avvisami al lancio</a>
+      <a href="https://www.amazon.it/dp/B0HKR9F6R9" class="nav-cta" target="_blank" rel="noopener">Compra su Amazon</a>
     </div>
   </div>
 </nav>
@@ -221,13 +209,9 @@
 <!-- ============ WAITLIST ============ -->
 <section class="waitlist" id="avvisami">
   <div class="waitlist-inner">
-    <h2>Vuoi sapere quando esce la versione completa?</h2>
-    <p class="lead">Lascia la mail e ti avviso al lancio. Nient'altro.</p>
-    <div class="kit-embed">
-      <!-- Lo script Kit NON viene caricato qui: lo inietta consent.js solo dopo il consenso. -->
-    </div>
-    <p class="note">Solo un messaggio il giorno del lancio. Ti disiscrivi quando vuoi.</p>
-    <p class="note">Lasciando la mail acconsenti al trattamento dei tuoi dati per ricevere l'avviso di lancio, secondo l'<a href="../privacy/" style="color:var(--gold);">informativa privacy</a>. Gestiamo l'iscrizione tramite il servizio Kit.</p>
+    <h2>Il libro intero è uscito.</h2>
+    <p class="lead">Lo trovi su Amazon: il cartaceo costa 14,90 euro, l'ebook Kindle 3,99 euro.</p>
+    <a class="btn-gold" href="https://www.amazon.it/dp/B0HKR9F6R9" target="_blank" rel="noopener">Compra su Amazon</a>
   </div>
 </section>
 
@@ -253,18 +237,6 @@
   (function(){
     var t=document.getElementById('navToggle'),m=document.getElementById('navMenu');
     if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});}
-  })();
-  // Placeholder italiani sul form Kit (che carica in inglese di default)
-  (function(){
-    function it(){
-      var n=document.querySelector('.kit-embed input[name="fields[first_name]"]');
-      var e=document.querySelector('.kit-embed input[name="email_address"]');
-      if(n) n.placeholder='Il tuo nome';
-      if(e) e.placeholder='La tua email';
-      return n||e;
-    }
-    var iv=setInterval(function(){ if(it()) clearInterval(iv); },250);
-    setTimeout(function(){ clearInterval(iv); },9000);
   })();
 </script>
 <script src="/consent/consent.js"></script>
