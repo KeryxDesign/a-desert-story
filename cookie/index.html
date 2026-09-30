@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Plausible: senza cookie, quindi fuori dal banner di consenso (consent.js). Pageview, download e link in uscita si accendono dal pannello. -->
+<script async src="https://plausible.io/js/pa-6jPm_MkCgFWurwkAUOCcc.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -144,7 +150,7 @@
   <div class="legal-head-inner">
     <p class="legal-kicker">Note legali</p>
     <h1 class="legal-title">Cookie Policy</h1>
-    <p class="legal-updated">Ultimo aggiornamento: <span class="placeholder">10 luglio 2026</span></p>
+    <p class="legal-updated">Ultimo aggiornamento: <span class="placeholder">30 settembre 2026</span></p>
   </div>
 </header>
 
@@ -155,11 +161,12 @@
   <p>I cookie sono piccoli file di testo che i siti salvano sul dispositivo dell'utente durante la navigazione. Insieme ad altre tecnologie simili (come gli identificatori salvati nella memoria locale del browser), permettono al sito di funzionare, di ricordare le scelte e, in alcuni casi, di riconoscere il visitatore.</p>
 
   <h2>Un sito essenziale</h2>
-  <p>Questo è un sito volutamente essenziale. <strong>Non</strong> utilizza Google Analytics, <strong>non</strong> utilizza pixel dei social network, <strong>non</strong> imposta cookie di profilazione propri e <strong>non</strong> carica Google Fonts da server esterni (i caratteri sono ospitati localmente).</p>
+  <p>Questo è un sito volutamente essenziale. <strong>Non</strong> utilizza Google Analytics, <strong>non</strong> utilizza pixel dei social network, <strong>non</strong> imposta cookie di profilazione propri e <strong>non</strong> carica Google Fonts da server esterni (i caratteri sono ospitati localmente). Per contare le visite usa Plausible, uno strumento di statistica che non imposta cookie e non salva nulla sul tuo dispositivo (vedi sotto).</p>
 
   <h2>Cookie e tecnologie presenti</h2>
   <ul>
     <li><strong>Cookie tecnici di Hostinger</strong> (necessari): servono al corretto funzionamento del sito e non richiedono consenso.</li>
+    <li><strong>Statistiche di visita (Plausible)</strong>: uno script di Plausible Insights OÜ (Unione Europea) conta le visite alle pagine, i download del PDF dell'estratto e i clic sui pulsanti verso Amazon. Non imposta cookie e non salva nulla sul tuo dispositivo. A ogni pagina vista, e a ogni download o clic misurato, il browser invia a Plausible l'indirizzo della pagina e la pagina da cui arrivi, insieme all'indirizzo IP e ai dati del browser che accompagnano ogni collegamento. Le Linee guida del Garante del 10 giugno 2021 (par. 7.2) equiparano agli strumenti tecnici quelli di statistica che producono solo dati aggregati per un solo sito e non permettono di individuare il singolo visitatore: per questo lo script funziona senza consenso. I dettagli sono al punto 5 dell'Informativa sulla privacy.</li>
     <li><strong>Modulo Kit nella pagina dell'estratto</strong>: quando è attivo, carica lo script di Kit, imposta l'identificatore <code>ckid</code> nella memoria locale (localStorage) e invia a ConvertKit un evento di tipo "visit". Queste tecnologie <strong>non sono puramente tecniche</strong>: per questo vengono attivate <strong>solo dopo il consenso</strong> prestato tramite il banner. Finché non acconsenti, il modulo non viene caricato e nessun identificatore viene impostato.</li>
   </ul>
 
@@ -183,6 +190,13 @@
           <td>Sessione / breve durata</td>
         </tr>
         <tr>
+          <td>Script Plausible (nessun cookie)</td>
+          <td>Plausible Insights OÜ (UE)</td>
+          <td>Statistiche di visita aggregate</td>
+          <td>Statistico, equiparato a tecnico (senza consenso)</td>
+          <td>Nessun dato salvato sul dispositivo</td>
+        </tr>
+        <tr>
           <td><code>ckid</code></td>
           <td>Kit / ConvertKit</td>
           <td>Identificazione del visitatore del modulo di iscrizione</td>
@@ -197,7 +211,7 @@
   <p>Puoi rivedere la tua scelta in qualsiasi momento tramite il link <button type="button" class="inline-link" data-cc-open>Preferenze cookie</button> presente nel piè di pagina, che riapre il banner. Puoi inoltre gestire e cancellare i cookie dalle impostazioni del tuo browser.</p>
 
   <h2>Ulteriori informazioni</h2>
-  <p>Per il trattamento dei dati personali che ci fornisci tramite il modulo di iscrizione, consulta l'<a href="../privacy/">Informativa sulla privacy</a>.</p>
+  <p>Per il trattamento dei dati personali, comprese le statistiche di visita, consulta l'<a href="../privacy/">Informativa sulla privacy</a>.</p>
 
   <p><a class="back" href="../index.html">&larr; Torna al sito</a></p>
 </main>

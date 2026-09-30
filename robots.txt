@@ -1,7 +1,6 @@
 # A Desert Story — sito pubblico.
 User-agent: *
 Allow: /
-Disallow: /pdfjs/
 Disallow: /estratto/sfoglia/
 Disallow: /download/
 

@@ -1,0 +1,5 @@
+# Visualizzatore pdf.js: noindex via header (SOP SEO on-page, regola 7). Mai Disallow in robots.txt, se no Google non legge il noindex.
+# .htaccess di cartella senza <If>: Hostinger gira su LiteSpeed, e un <If> non riconosciuto rischierebbe un 500 su tutto il sito.
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
