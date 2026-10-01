@@ -17,8 +17,13 @@ jobs:
         uses: actions/checkout@v4
 
       # Sito HTML statico: nessun build. Si caricano i file del repo cosi' come sono.
+      # v4.4.0 fissata per SHA. Rispetto alla v4.3.5 cambiano solo due cose: runtime node24 e un 550
+      # sulla cancellazione di una cartella che diventa avviso invece di errore.
+      # Limite noto: la action cancella le cartelle con un percorso assoluto ("/<cartella>") che su
+      # questo FTP non e' la radice del sito, quindi NON le cancella davvero (salta con avviso).
+      # Quando si toglie una cartella dal repo, la si cancella a mano dal File Manager Hostinger.
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@110f9186c050f71550953127052e77650219c287 # v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
