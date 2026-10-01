@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Plausible: senza cookie, quindi fuori dal banner di consenso (consent.js). Pageview, download e link in uscita si accendono dal pannello. -->
+<!-- Plausible: senza cookie, nessun banner di consenso sul sito. Pageview, download e link in uscita si accendono dal pannello. -->
 <script async src="https://plausible.io/js/pa-6jPm_MkCgFWurwkAUOCcc.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
@@ -16,7 +16,6 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Cookie Policy — A Desert Story</title>
 <link rel="stylesheet" href="../fonts/fonts.css">
-<link rel="stylesheet" href="/consent/consent.css">
 <style>
   :root{
     --bordeaux-deep:#4A0E0E;
@@ -150,7 +149,7 @@
   <div class="legal-head-inner">
     <p class="legal-kicker">Note legali</p>
     <h1 class="legal-title">Cookie Policy</h1>
-    <p class="legal-updated">Ultimo aggiornamento: <span class="placeholder">30 settembre 2026</span></p>
+    <p class="legal-updated">Ultimo aggiornamento: <span class="placeholder">1 ottobre 2026</span></p>
   </div>
 </header>
 
@@ -167,7 +166,6 @@
   <ul>
     <li><strong>Cookie tecnici di Hostinger</strong> (necessari): servono al corretto funzionamento del sito e non richiedono consenso.</li>
     <li><strong>Statistiche di visita (Plausible)</strong>: uno script di Plausible Insights OÜ (Unione Europea) conta le visite alle pagine, i download del PDF dell'estratto e i clic sui pulsanti verso Amazon. Non imposta cookie e non salva nulla sul tuo dispositivo. A ogni pagina vista, e a ogni download o clic misurato, il browser invia a Plausible l'indirizzo della pagina e la pagina da cui arrivi, insieme all'indirizzo IP e ai dati del browser che accompagnano ogni collegamento. Le Linee guida del Garante del 10 giugno 2021 (par. 7.2) equiparano agli strumenti tecnici quelli di statistica che producono solo dati aggregati per un solo sito e non permettono di individuare il singolo visitatore: per questo lo script funziona senza consenso. I dettagli sono al punto 5 dell'Informativa sulla privacy.</li>
-    <li><strong>Modulo Kit nella pagina dell'estratto</strong>: quando è attivo, carica lo script di Kit, imposta l'identificatore <code>ckid</code> nella memoria locale (localStorage) e invia a ConvertKit un evento di tipo "visit". Queste tecnologie <strong>non sono puramente tecniche</strong>: per questo vengono attivate <strong>solo dopo il consenso</strong> prestato tramite il banner. Finché non acconsenti, il modulo non viene caricato e nessun identificatore viene impostato.</li>
   </ul>
 
   <div class="ck-table-wrap">
@@ -196,19 +194,12 @@
           <td>Statistico, equiparato a tecnico (senza consenso)</td>
           <td>Nessun dato salvato sul dispositivo</td>
         </tr>
-        <tr>
-          <td><code>ckid</code></td>
-          <td>Kit / ConvertKit</td>
-          <td>Identificazione del visitatore del modulo di iscrizione</td>
-          <td>Statistico / marketing</td>
-          <td>localStorage (persistente)</td>
-        </tr>
       </tbody>
     </table>
   </div>
 
-  <h2>Come gestire le tue preferenze</h2>
-  <p>Puoi rivedere la tua scelta in qualsiasi momento tramite il link <button type="button" class="inline-link" data-cc-open>Preferenze cookie</button> presente nel piè di pagina, che riapre il banner. Puoi inoltre gestire e cancellare i cookie dalle impostazioni del tuo browser.</p>
+  <h2>Cosa puoi fare dal browser</h2>
+  <p>Puoi gestire e cancellare i cookie dalle impostazioni del browser. Plausible, che conta le visite, non usa cookie e non salva nulla sul tuo dispositivo. Se non vuoi essere contato, puoi bloccarne lo script dal browser o con un'estensione che blocca gli script.</p>
 
   <h2>Ulteriori informazioni</h2>
   <p>Per il trattamento dei dati personali, comprese le statistiche di visita, consulta l'<a href="../privacy/">Informativa sulla privacy</a>.</p>
@@ -224,7 +215,6 @@
       <a href="../privacy/">Privacy</a>
       <a href="../termini/">Termini e condizioni</a>
       <a href="../cookie/">Cookie</a>
-      <a href="#cc-preferenze" data-cc-open>Preferenze cookie</a>
       <a href="mailto:info@keryxdesign.com">Contatti</a>
     </nav>
     <div class="foot-copy">© 2026 A Desert Story</div>
@@ -234,6 +224,5 @@
   </div>
 </footer>
 
-<script src="/consent/consent.js"></script>
 </body>
 </html>

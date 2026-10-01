@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Plausible: senza cookie, quindi fuori dal banner di consenso (consent.js). Pageview, download e link in uscita si accendono dal pannello. -->
+<!-- Plausible: senza cookie, nessun banner di consenso sul sito. Pageview, download e link in uscita si accendono dal pannello. -->
 <script async src="https://plausible.io/js/pa-6jPm_MkCgFWurwkAUOCcc.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
@@ -29,7 +29,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://adesertstory.com/img/og.jpg?v=2">
 <link rel="stylesheet" href="../fonts/fonts.css">
-<link rel="stylesheet" href="/consent/consent.css">
 <style>
   :root{
     --bordeaux-deep:#4A0E0E;
@@ -193,7 +192,7 @@
         </svg>
         Sfoglia l'estratto
       </a>
-      <a class="btn-outline" href="../download/A-Desert-Story_Estratto.pdf?v=3" download="A Desert Story - Estratto.pdf">
+      <a class="btn-outline" href="../download/A-Desert-Story_Estratto.pdf?v=4" download="A Desert Story - Estratto.pdf">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/>
         </svg>
@@ -202,7 +201,7 @@
     </div>
     <!-- Sotto 768px: nessun lettore in iframe, il PDF si apre nel visualizzatore del telefono. -->
     <div class="ex-actions ex-actions-mob">
-      <a class="btn-gold" href="../download/A-Desert-Story_Estratto.pdf?v=3">
+      <a class="btn-gold" href="../download/A-Desert-Story_Estratto.pdf?v=4">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 7v13"/><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H12v13H5.5A2.5 2.5 0 0 0 3 19.5z"/><path d="M21 6.5A2.5 2.5 0 0 0 18.5 4H12v13h6.5a2.5 2.5 0 0 1 2.5 2.5z"/>
         </svg>
@@ -229,7 +228,6 @@
       <a href="../privacy/">Privacy</a>
       <a href="../termini/">Termini e condizioni</a>
       <a href="../cookie/">Cookie</a>
-      <a href="#cc-preferenze" data-cc-open>Preferenze cookie</a>
       <a href="mailto:info@keryxdesign.com">Contatti</a>
     </nav>
     <div class="foot-copy">© 2026 A Desert Story</div>
@@ -245,6 +243,5 @@
     if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});}
   })();
 </script>
-<script src="/consent/consent.js"></script>
 </body>
 </html>
